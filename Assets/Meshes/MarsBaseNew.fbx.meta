@@ -1,0 +1,505 @@
+fileFormatVersion: 2
+guid: d1904741873a5e64c8b32d2a78660c4c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: airlocksigns_Cube_016
+    100002: airlocksigns_Cube_129
+    100004: Mars_Base_Newer_Cylinder_005
+    100006: Mars_Base_Newer_Cylinder_006
+    100008: Mars_Base_Newer_Cylinder_007
+    100010: Mars_Base_Newer_Cylinder_009
+    100012: Mars_Base_Newer_Cylinder_010
+    100014: Mars_Base_Newer_Cylinder_131
+    100016: Mars_Base_Newer_Cylinder_142
+    100018: Mars_Base_Newer_Cylinder_179
+    100020: Mars_Base_Newer_Icosphere_002
+    100022: Mars_Base_Newest_Cube_001
+    100024: Mars_Base_Newest_Cube_002
+    100026: Mars_Base_Newest_Cube_003
+    100028: Mars_Base_Newest_Cube_004
+    100030: Mars_Base_Newest_Cube_005
+    100032: Mars_Base_Newest_Cube_006
+    100034: Mars_Base_Newest_Cube_024
+    100036: Mars_Base_Newest_Cube_025
+    100038: Mars_Base_Newest_Cube_032
+    100040: Mars_Base_Newest_Cube_034
+    100042: Mars_Base_Newest_Cube_036
+    100044: Mars_Base_Newest_Cube_037
+    100046: Mars_Base_Newest_Cube_038
+    100048: Mars_Base_Newest_Cube_039
+    100050: Mars_Base_Newest_Cube_040
+    100052: Mars_Base_Newest_Cube_041
+    100054: Mars_Base_Newest_Cube_043
+    100056: Mars_Base_Newest_Cube_050
+    100058: Mars_Base_Newest_Cube_173
+    100060: Mars_Base_Newest_Cylinder_000
+    100062: Mars_Base_Newest_Cylinder_002
+    100064: Mars_Base_Newest_Cylinder_003
+    100066: Mars_Base_Newest_Cylinder_004
+    100068: Mars_Base_Newest_Cylinder_008
+    100070: Mars_Base_Newest_Cylinder_011
+    100072: Mars_Base_Newest_Cylinder_019
+    100074: Mars_Base_Newest_Parts_1_Cube_026
+    100076: Mars_Base_Newest_Parts_1_Cube_035
+    100078: Mars_Base_Newest_Parts_1_Cube_056
+    100080: Mars_Base_Newest_Plane_003
+    100082: //RootNode
+    400000: airlocksigns_Cube_016
+    400002: airlocksigns_Cube_129
+    400004: Mars_Base_Newer_Cylinder_005
+    400006: Mars_Base_Newer_Cylinder_006
+    400008: Mars_Base_Newer_Cylinder_007
+    400010: Mars_Base_Newer_Cylinder_009
+    400012: Mars_Base_Newer_Cylinder_010
+    400014: Mars_Base_Newer_Cylinder_131
+    400016: Mars_Base_Newer_Cylinder_142
+    400018: Mars_Base_Newer_Cylinder_179
+    400020: Mars_Base_Newer_Icosphere_002
+    400022: Mars_Base_Newest_Cube_001
+    400024: Mars_Base_Newest_Cube_002
+    400026: Mars_Base_Newest_Cube_003
+    400028: Mars_Base_Newest_Cube_004
+    400030: Mars_Base_Newest_Cube_005
+    400032: Mars_Base_Newest_Cube_006
+    400034: Mars_Base_Newest_Cube_024
+    400036: Mars_Base_Newest_Cube_025
+    400038: Mars_Base_Newest_Cube_032
+    400040: Mars_Base_Newest_Cube_034
+    400042: Mars_Base_Newest_Cube_036
+    400044: Mars_Base_Newest_Cube_037
+    400046: Mars_Base_Newest_Cube_038
+    400048: Mars_Base_Newest_Cube_039
+    400050: Mars_Base_Newest_Cube_040
+    400052: Mars_Base_Newest_Cube_041
+    400054: Mars_Base_Newest_Cube_043
+    400056: Mars_Base_Newest_Cube_050
+    400058: Mars_Base_Newest_Cube_173
+    400060: Mars_Base_Newest_Cylinder_000
+    400062: Mars_Base_Newest_Cylinder_002
+    400064: Mars_Base_Newest_Cylinder_003
+    400066: Mars_Base_Newest_Cylinder_004
+    400068: Mars_Base_Newest_Cylinder_008
+    400070: Mars_Base_Newest_Cylinder_011
+    400072: Mars_Base_Newest_Cylinder_019
+    400074: Mars_Base_Newest_Parts_1_Cube_026
+    400076: Mars_Base_Newest_Parts_1_Cube_035
+    400078: Mars_Base_Newest_Parts_1_Cube_056
+    400080: Mars_Base_Newest_Plane_003
+    400082: //RootNode
+    2100000: Metal_Dark_001
+    2100002: Metal_2_001
+    2100004: Metal_Yellow_001
+    2100006: Rock_001
+    2100008: Metal_1_001
+    2100010: Red_Metal_001
+    2100012: Glass_001
+    2100014: Bed_Cover_001
+    2100016: airlocksign2
+    2100018: frame
+    2100020: airlock_sign
+    2100022: Light_001
+    2100024: Metal_Painted_001
+    2100026: Bed_001
+    2100028: Pillow_001
+    2100030: Metal_3_001
+    2100032: Panel_1_001
+    2100034: Panel_3_001
+    2100036: Panel_2_001
+    2100038: Rubber_001
+    2100040: Screen_001
+    2100042: Metal_Very_Dark_001
+    2100044: Metal_Ramp_001
+    2100046: Plastic_1_001
+    2100048: Vent_001
+    2100050: Mars_001
+    2100052: Floor_001
+    2100054: Radio_Dish_001
+    2100056: Tarp
+    2100058: Plastic_2_001
+    2100060: Plastic_3_001
+    2100062: Storage_Box
+    2100064: Wall_Painting_001
+    2100066: Metal_Box_Rivet
+    2100068: Keyboard
+    2300000: airlocksigns_Cube_016
+    2300002: airlocksigns_Cube_129
+    2300004: Mars_Base_Newer_Cylinder_005
+    2300006: Mars_Base_Newer_Cylinder_006
+    2300008: Mars_Base_Newer_Cylinder_007
+    2300010: Mars_Base_Newer_Cylinder_009
+    2300012: Mars_Base_Newer_Cylinder_010
+    2300014: Mars_Base_Newer_Cylinder_131
+    2300016: Mars_Base_Newer_Cylinder_142
+    2300018: Mars_Base_Newer_Cylinder_179
+    2300020: Mars_Base_Newer_Icosphere_002
+    2300022: Mars_Base_Newest_Cube_001
+    2300024: Mars_Base_Newest_Cube_002
+    2300026: Mars_Base_Newest_Cube_003
+    2300028: Mars_Base_Newest_Cube_004
+    2300030: Mars_Base_Newest_Cube_005
+    2300032: Mars_Base_Newest_Cube_006
+    2300034: Mars_Base_Newest_Cube_024
+    2300036: Mars_Base_Newest_Cube_025
+    2300038: Mars_Base_Newest_Cube_032
+    2300040: Mars_Base_Newest_Cube_034
+    2300042: Mars_Base_Newest_Cube_036
+    2300044: Mars_Base_Newest_Cube_037
+    2300046: Mars_Base_Newest_Cube_038
+    2300048: Mars_Base_Newest_Cube_039
+    2300050: Mars_Base_Newest_Cube_040
+    2300052: Mars_Base_Newest_Cube_041
+    2300054: Mars_Base_Newest_Cube_043
+    2300056: Mars_Base_Newest_Cube_050
+    2300058: Mars_Base_Newest_Cube_173
+    2300060: Mars_Base_Newest_Cylinder_000
+    2300062: Mars_Base_Newest_Cylinder_002
+    2300064: Mars_Base_Newest_Cylinder_003
+    2300066: Mars_Base_Newest_Cylinder_004
+    2300068: Mars_Base_Newest_Cylinder_008
+    2300070: Mars_Base_Newest_Cylinder_011
+    2300072: Mars_Base_Newest_Cylinder_019
+    2300074: Mars_Base_Newest_Parts_1_Cube_026
+    2300076: Mars_Base_Newest_Parts_1_Cube_035
+    2300078: Mars_Base_Newest_Parts_1_Cube_056
+    2300080: Mars_Base_Newest_Plane_003
+    3300000: airlocksigns_Cube_016
+    3300002: airlocksigns_Cube_129
+    3300004: Mars_Base_Newer_Cylinder_005
+    3300006: Mars_Base_Newer_Cylinder_006
+    3300008: Mars_Base_Newer_Cylinder_007
+    3300010: Mars_Base_Newer_Cylinder_009
+    3300012: Mars_Base_Newer_Cylinder_010
+    3300014: Mars_Base_Newer_Cylinder_131
+    3300016: Mars_Base_Newer_Cylinder_142
+    3300018: Mars_Base_Newer_Cylinder_179
+    3300020: Mars_Base_Newer_Icosphere_002
+    3300022: Mars_Base_Newest_Cube_001
+    3300024: Mars_Base_Newest_Cube_002
+    3300026: Mars_Base_Newest_Cube_003
+    3300028: Mars_Base_Newest_Cube_004
+    3300030: Mars_Base_Newest_Cube_005
+    3300032: Mars_Base_Newest_Cube_006
+    3300034: Mars_Base_Newest_Cube_024
+    3300036: Mars_Base_Newest_Cube_025
+    3300038: Mars_Base_Newest_Cube_032
+    3300040: Mars_Base_Newest_Cube_034
+    3300042: Mars_Base_Newest_Cube_036
+    3300044: Mars_Base_Newest_Cube_037
+    3300046: Mars_Base_Newest_Cube_038
+    3300048: Mars_Base_Newest_Cube_039
+    3300050: Mars_Base_Newest_Cube_040
+    3300052: Mars_Base_Newest_Cube_041
+    3300054: Mars_Base_Newest_Cube_043
+    3300056: Mars_Base_Newest_Cube_050
+    3300058: Mars_Base_Newest_Cube_173
+    3300060: Mars_Base_Newest_Cylinder_000
+    3300062: Mars_Base_Newest_Cylinder_002
+    3300064: Mars_Base_Newest_Cylinder_003
+    3300066: Mars_Base_Newest_Cylinder_004
+    3300068: Mars_Base_Newest_Cylinder_008
+    3300070: Mars_Base_Newest_Cylinder_011
+    3300072: Mars_Base_Newest_Cylinder_019
+    3300074: Mars_Base_Newest_Parts_1_Cube_026
+    3300076: Mars_Base_Newest_Parts_1_Cube_035
+    3300078: Mars_Base_Newest_Parts_1_Cube_056
+    3300080: Mars_Base_Newest_Plane_003
+    4300000: Mars_Base_Newer_Cylinder_010
+    4300002: Mars_Base_Newer_Icosphere_002
+    4300004: Mars_Base_Newer_Cylinder_131
+    4300006: Mars_Base_Newer_Cylinder_142
+    4300008: Mars_Base_Newer_Cylinder_179
+    4300010: Mars_Base_Newer_Cylinder_005
+    4300012: Mars_Base_Newer_Cylinder_006
+    4300014: Mars_Base_Newer_Cylinder_007
+    4300016: Mars_Base_Newer_Cylinder_009
+    4300018: Mars_Base_Newest_Cylinder_004
+    4300020: Mars_Base_Newest_Cylinder_008
+    4300022: Mars_Base_Newest_Cylinder_011
+    4300024: Mars_Base_Newest_Cylinder_019
+    4300026: Mars_Base_Newest_Plane_003
+    4300028: airlocksigns_Cube_129
+    4300030: airlocksigns_Cube_016
+    4300032: Mars_Base_Newest_Cube_173
+    4300034: Mars_Base_Newest_Cube_002
+    4300036: Mars_Base_Newest_Cube_003
+    4300038: Mars_Base_Newest_Cube_004
+    4300040: Mars_Base_Newest_Cube_005
+    4300042: Mars_Base_Newest_Cube_006
+    4300044: Mars_Base_Newest_Cube_024
+    4300046: Mars_Base_Newest_Cube_025
+    4300048: Mars_Base_Newest_Cube_032
+    4300050: Mars_Base_Newest_Cube_034
+    4300052: Mars_Base_Newest_Cube_036
+    4300054: Mars_Base_Newest_Cube_037
+    4300056: Mars_Base_Newest_Cube_038
+    4300058: Mars_Base_Newest_Cube_039
+    4300060: Mars_Base_Newest_Cube_040
+    4300062: Mars_Base_Newest_Cube_041
+    4300064: Mars_Base_Newest_Cube_043
+    4300066: Mars_Base_Newest_Cube_050
+    4300068: Mars_Base_Newest_Cylinder_000
+    4300070: Mars_Base_Newest_Cylinder_003
+    4300072: Mars_Base_Newest_Cylinder_002
+    4300074: Mars_Base_Newest_Parts_1_Cube_056
+    4300076: Mars_Base_Newest_Parts_1_Cube_035
+    4300078: Mars_Base_Newest_Parts_1_Cube_026
+    4300080: Mars_Base_Newest_Cube_001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bed_001
+    second: {fileID: 2100000, guid: 4838e4f3b5921bc4da5e4c46a281bfdc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bed_Cover_001
+    second: {fileID: 2100000, guid: a7230d8d8b52c674581ed49571b63559, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor_001
+    second: {fileID: 2100000, guid: 2bb305d7f04893440aca57478a24275d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass_001
+    second: {fileID: 2100000, guid: 3331f9f2d21bc4547aefc02f63ee3cb0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Keyboard
+    second: {fileID: 2100000, guid: 46ce8c783588c9f42b10c28e8f027ca2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light_001
+    second: {fileID: 2100000, guid: 4017377c98135824bb28e6db94d90902, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mars_001
+    second: {fileID: 2100000, guid: 938606de4a8dd6545beb55214d0a462a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_1_001
+    second: {fileID: 2100000, guid: 90d41abc1b8b7064f8254c956e914f72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_2_001
+    second: {fileID: 2100000, guid: 0c0d0cb1b338af24e9b816d264841437, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_3_001
+    second: {fileID: 2100000, guid: a103c139103b0674bbeb932460a1a1f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_Box_Rivet
+    second: {fileID: 2100000, guid: 4cd463a9618725941b20f2741c8d55d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_Dark_001
+    second: {fileID: 2100000, guid: 38a4ad9f2aa84774f824f1c90ff5f07e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_Painted_001
+    second: {fileID: 2100000, guid: ff9b0858a3f25cf45ae80d3eb7e970b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_Ramp_001
+    second: {fileID: 2100000, guid: b5220f80719a1af4697c9dcdc4004089, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_Very_Dark_001
+    second: {fileID: 2100000, guid: 6049aa22815bf6942a86362dcd9c4180, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_Yellow_001
+    second: {fileID: 2100000, guid: aa9014acca13c1c49b0d75899fda22fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Panel_1_001
+    second: {fileID: 2100000, guid: 43fa1f2d179e6e24e8a6cb5da4b3b303, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Panel_2_001
+    second: {fileID: 2100000, guid: f883f1e7595a53240acbc7bf51286abd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Panel_3_001
+    second: {fileID: 2100000, guid: 0fae104187bb04346a37eeb875c1b2da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pillow_001
+    second: {fileID: 2100000, guid: bbc26b6423ff8d840b0afd9820ec7d3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_1_001
+    second: {fileID: 2100000, guid: c75e44e371da14d478bcdb751574c0da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_2_001
+    second: {fileID: 2100000, guid: a325bec2e5856d949b1f16f4edf63688, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_3_001
+    second: {fileID: 2100000, guid: 4e63b0aca5bbd384f95618e6ce795158, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Radio_Dish_001
+    second: {fileID: 2100000, guid: 01d226329e06cfa4594ec003ff1e8907, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Red_Metal_001
+    second: {fileID: 2100000, guid: 03825ae970c521240b55bbb6cd3ea9d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock_001
+    second: {fileID: 2100000, guid: 1bd7afab4af692c4e81b73140c5a7753, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rubber_001
+    second: {fileID: 2100000, guid: 9beae29a77af60648ac5b7507da111fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Screen_001
+    second: {fileID: 2100000, guid: bf89325b30a5d42469acfcbbd8c2ac1e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Storage_Box
+    second: {fileID: 2100000, guid: 83263d19a95f1404f90073cb8b36e4a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tarp
+    second: {fileID: 2100000, guid: ba06480b41cbe1e4ea8efaca143253ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vent_001
+    second: {fileID: 2100000, guid: ca9506f45bef73f4aa90fd9574c6f884, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_Painting_001
+    second: {fileID: 2100000, guid: 430ec54b011402d4da1e658ec5cc42bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: airlock_sign
+    second: {fileID: 2100000, guid: ab47b0311968db348bbc0283c448475d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: airlocksign2
+    second: {fileID: 2100000, guid: 3ca9bb1c27e03b3429a1d2e1ac3291d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frame
+    second: {fileID: 2100000, guid: b556f460fdfd98147835f2a04e8a85d4, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
