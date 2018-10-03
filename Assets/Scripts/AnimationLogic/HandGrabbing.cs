@@ -23,7 +23,8 @@ public class HandGrabbing : MonoBehaviour
     private Vector3 _lastFramePosition;
     private Transform _currentGrabObject;
     private bool _isGrabbing;
-    private bool _isClosed;    
+    private bool _isClosed;
+
 
     // Use this for initialization
     void Start()

@@ -9,19 +9,19 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1763517132109934}
+  m_RootGameObject: {fileID: 1908758442820298}
   m_IsPrefabAsset: 1
---- !u!1 &1590506467396554
+--- !u!1 &1824772887664122
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4737118885932194}
-  - component: {fileID: 33192888497845180}
-  - component: {fileID: 23004842295991776}
-  - component: {fileID: 114586401657192276}
+  - component: {fileID: 4077038980417286}
+  - component: {fileID: 33717129918828916}
+  - component: {fileID: 23510136762952096}
+  - component: {fileID: 114051728271526790}
   m_Layer: 0
   m_Name: SpaceX_Falcon_Heavy
   m_TagString: Untagged
@@ -29,56 +29,57 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1763517132109934
+--- !u!1 &1908758442820298
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4079439690029648}
-  - component: {fileID: 114795323785453372}
-  - component: {fileID: 136530130699330642}
+  - component: {fileID: 4352541617288248}
+  - component: {fileID: 114204291250386838}
+  - component: {fileID: 65303754618227630}
+  - component: {fileID: 8123674488655253204}
   m_Layer: 0
-  m_Name: Falcon_Heavy 1
-  m_TagString: Untagged
+  m_Name: Falcon_Heavy_Grabbable
+  m_TagString: Grab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4079439690029648
+--- !u!4 &4077038980417286
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1763517132109934}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 3.043, y: 0.5, z: 1.9}
-  m_LocalScale: {x: 7, y: 7, z: 7}
-  m_Children:
-  - {fileID: 4737118885932194}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!4 &4737118885932194
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1590506467396554}
+  m_GameObject: {fileID: 1824772887664122}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.276, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4079439690029648}
+  m_Father: {fileID: 4352541617288248}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23004842295991776
+--- !u!4 &4352541617288248
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1908758442820298}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.376, y: 0.5, z: 0.84}
+  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_Children:
+  - {fileID: 4077038980417286}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!23 &23510136762952096
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1590506467396554}
+  m_GameObject: {fileID: 1824772887664122}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -108,19 +109,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33192888497845180
+--- !u!33 &33717129918828916
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1590506467396554}
+  m_GameObject: {fileID: 1824772887664122}
   m_Mesh: {fileID: 4300000, guid: b0a172ed3bacf414b8c9bfead82ae5de, type: 3}
---- !u!114 &114586401657192276
+--- !u!65 &65303754618227630
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1908758442820298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.091, y: 0.55, z: 0.035}
+  m_Center: {x: 0, y: 0.275, z: 0}
+--- !u!114 &114051728271526790
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1590506467396554}
+  m_GameObject: {fileID: 1824772887664122}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 160d8d32094058b4eb49d4ad101d5d77, type: 3}
@@ -129,12 +142,12 @@ MonoBehaviour:
   id: 4
   cost: 100
   buildingName: Heavy
---- !u!114 &114795323785453372
+--- !u!114 &114204291250386838
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1763517132109934}
+  m_GameObject: {fileID: 1908758442820298}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 160d8d32094058b4eb49d4ad101d5d77, type: 3}
@@ -143,16 +156,19 @@ MonoBehaviour:
   id: 4
   cost: 100
   buildingName: Falcon
---- !u!136 &136530130699330642
-CapsuleCollider:
+--- !u!1818360609 &8123674488655253204
+RotationConstraint:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1763517132109934}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 1908758442820298}
   m_Enabled: 1
-  m_Radius: 0.045
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Weight: 1
+  m_RotationAtRest: {x: 0, y: 180, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_IsContraintActive: 1
+  m_IsLocked: 0
+  m_Sources: []
