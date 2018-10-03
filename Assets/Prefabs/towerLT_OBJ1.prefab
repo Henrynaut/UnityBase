@@ -37,9 +37,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4879352628448456}
   - component: {fileID: 114736877194813672}
+  - component: {fileID: 65425588454609006}
   m_Layer: 0
   m_Name: towerLT_OBJ1
-  m_TagString: Untagged
+  m_TagString: Grab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1293390129841584}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.97, y: 0.6, z: 0.982}
+  m_LocalPosition: {x: 0.8415451, y: 0.6026143, z: 0.5565834}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 4193272126375216}
@@ -113,6 +114,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1037454611167854}
   m_Mesh: {fileID: 4300000, guid: 63c95ef0925a9ea4787ec3126dfad686, type: 3}
+--- !u!65 &65425588454609006
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1293390129841584}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 24.095894, z: 7}
+  m_Center: {x: 0, y: 10.032999, z: 0}
 --- !u!114 &114736877194813672
 MonoBehaviour:
   m_ObjectHideFlags: 1

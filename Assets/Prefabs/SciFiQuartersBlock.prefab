@@ -71,9 +71,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4462926927629240}
   - component: {fileID: 114495494731489664}
+  - component: {fileID: 65942253168681058}
   m_Layer: 0
   m_Name: SciFiQuartersBlock
-  m_TagString: Untagged
+  m_TagString: Grab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,7 +146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1570323337222150}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 2.19, y: 0.504, z: 1}
+  m_LocalPosition: {x: 0.9784317, y: 0.5265956, z: 0.9360466}
   m_LocalScale: {x: 0.22, y: 0.22, z: 0.22}
   m_Children:
   - {fileID: 4121747409339232}
@@ -412,6 +413,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1662260182534180}
   m_Mesh: {fileID: 4300002, guid: a35ee8c1f42ade5409323599efe1f4c1, type: 3}
+--- !u!65 &65942253168681058
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1570323337222150}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.3014467, y: 2.1578467, z: 3.1387143}
+  m_Center: {x: -0.50347394, y: 0.5789235, z: -0.035394322}
 --- !u!114 &114495494731489664
 MonoBehaviour:
   m_ObjectHideFlags: 1
