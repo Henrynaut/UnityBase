@@ -11,6 +11,12 @@ public class UIController : MonoBehaviour {
 	[SerializeField]
 	private Text cityText;
 
+	public Text displayText;
+    public InputAction[] inputActions;
+
+    List<string> actionLog = new List<string>();
+
+
 	// Use this for initialization
 	void Start () {
 		city = GetComponent<City>();
@@ -27,6 +33,18 @@ public class UIController : MonoBehaviour {
 
 	public void UpdateDayCount()
 	{
-		dayText.text = string.Format("Day {0}", city.Day);
+		dayText.text = string.Format("config{0}.json", city.Day);
 	}
+
+    public void LogStringWithReturn(string stringToAdd)
+    {
+        actionLog.Add (stringToAdd + "\n");
+    }	
+
+ 	public void DisplayLoggedText()
+    {
+        string logAsText = string.Join ("\n", actionLog.ToArray ());
+
+        displayText.text = logAsText;
+    }	
 }

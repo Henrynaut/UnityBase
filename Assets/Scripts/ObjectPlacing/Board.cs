@@ -7,6 +7,7 @@ public class Board : MonoBehaviour {
 
 	public void AddBuilding(Building building, Vector3 position)
 	{
+		position.y = position.y + 1;
 		buildings[(int)position.x, (int)position.z] = Instantiate(building, position, Quaternion.identity);
 	}
 
