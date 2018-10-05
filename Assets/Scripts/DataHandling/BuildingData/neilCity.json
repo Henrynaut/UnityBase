@@ -1,0 +1,25 @@
+{
+    "entities": [
+        {
+            "Name": "Tower",
+            "Type": "Object",
+            "Loadable_Mesh": false,
+            "Generate_Collider": false,
+            "Mesh_Path": "Assets/Meshes/towerLT_OBJ1.obj",
+            "Material_Path": "Assets/Materials/Tower/towerLT_OBJ1_towerLT_OBJ1_towerLT_OBJ1_towerLT_OBJ1_towerLT_OBJ1_towerLT_OBJ1_pPlane2Mat.mat",
+            "Prefab_Path": "Assets/Prefabs/towerLT_OBJ1.prefab",
+            "Scale": 0.01,
+            "Mass": 40,
+            "Parameters": {
+                "State": "Free",
+                "LocationX": 0.0,
+                "LocationY": 0.0,
+                "LocationZ": 0.0,                                
+                "RotationX": 0.0,
+                "RotationY": 0.0,                
+                "RotationZ": 0.0,                
+                "Frame": "lunarSurface"
+            }
+        }
+    ]
+}
