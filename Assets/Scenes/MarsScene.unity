@@ -750,7 +750,7 @@ Prefab:
     - target: {fileID: 2300000, guid: 3cfe6de37578fcc43b0fe4067a2bbbbf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: de95148389ae26c4193b5ebc885424b8, type: 2}
+      objectReference: {fileID: 2100000, guid: 1fce41b94bdfaa847b639ddc5d8c14a6, type: 2}
     - target: {fileID: 400000, guid: 3cfe6de37578fcc43b0fe4067a2bbbbf, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.16
@@ -1009,7 +1009,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: de95148389ae26c4193b5ebc885424b8, type: 2}
+  - {fileID: 2100000, guid: 1fce41b94bdfaa847b639ddc5d8c14a6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
