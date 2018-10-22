@@ -17,6 +17,7 @@ public class saveJSON : MonoBehaviour {
 		//Save Location, Rotation, & BuildingID of each object
 		//Convert the data into a json format
 		location = new Vector3(1.0f,2.0f,3.0f); 
+		//Need to convert this into an Unreal-type format as well
 	}
 	
 }
