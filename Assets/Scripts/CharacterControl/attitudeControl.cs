@@ -14,9 +14,9 @@ public bool activateRotation = true;
 	// Use this for initialization
 	void Start () {
 		rotationSpeed = 0.1f;
-		roll = 8.8f;
+		roll = 0.0f;
 		pitch = 0.0f;
-		yaw = 8.2f;
+		yaw = 0.0f;
 	}
 	
 	// Update is called once per frame
@@ -25,11 +25,11 @@ public bool activateRotation = true;
 		{
 		// roll
 		transform.Rotate(0f, 0f, roll, Space.Self);
-	
 		// pitch
 		transform.Rotate(pitch, 0f, 0f, Space.Self);
 	
 		// yaw
+		yaw = yaw + rotationSpeed*Input.GetAxis("Yaw")*Time.deltaTime;		
 		transform.Rotate(0f, yaw, 0f, Space.Self);
 		}
 		//Stop Rotation if bool is False
