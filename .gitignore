@@ -1,4 +1,7 @@
 [Ll]ibrary/
+#But not this one
+!*/[Ll]ibrary/LastSceneManagerSetup.txt
+
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
