@@ -1,6 +1,6 @@
-[Ll]ibrary/
-#But not this one
-!*/[Ll]ibrary/LastSceneManagerSetup.txt
+
+[Ll]ibrary/*
+![Ll]ibrary/LastSceneManagerSetup.txt
 
 [Tt]emp/
 [Oo]bj/
