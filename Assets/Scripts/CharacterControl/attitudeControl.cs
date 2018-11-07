@@ -29,10 +29,11 @@ public bool activateRotation = true;
 		transform.Rotate(pitchVelocity, 0f, 0f, Space.Self);
 	
 		// yawVelocity
-		// yawVelocity = yawVelocity + rotationSpeed*Input.GetAxis("yawVelocity")*Time.deltaTime;		
+		//Press 1 or 2 to increment or decrement yaw velocity
+		yawVelocity = yawVelocity + rotationSpeed*Input.GetAxis("yawVelocity")*Time.deltaTime;		
 		transform.Rotate(0f, yawVelocity, 0f, Space.Self);
 		}
-		//Stop Rotation if bool is False
+		//Stop Rotational velocities if bool is False
 		if(activateRotation == false){
 		rollVelocity = 0f;
 		pitchVelocity = 0f;
