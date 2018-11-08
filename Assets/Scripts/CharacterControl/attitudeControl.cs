@@ -20,6 +20,7 @@ public bool activateRotation = true;
 	}
 	
 	// Update is called once per frame
+	// Add in details for changing velocity and acceleration as well
 	protected void Update () {
 		if(activateRotation == true)
 		{
