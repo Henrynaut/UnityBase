@@ -23,6 +23,7 @@ public class saveJSON : MonoBehaviour {
 		//Convert the data into a json format
 		// location = new Vector3(1.0f,2.0f,3.0f);
 		// string json = JsonUtility.ToJson(SceneData); 
+		//Is this the best way?
 		//Need to convert this into an Unreal-type format as well
 	}
 	
