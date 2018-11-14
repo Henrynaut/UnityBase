@@ -38,6 +38,7 @@ public bool activateRotation = true;
 		if(activateRotation == false){
 		rollVelocity = 0f;
 		pitchVelocity = 0f;
+		//Convert this yaw input into logic that controls turning of the wheels
 		yawVelocity = 0f;
 		}  
 	}
