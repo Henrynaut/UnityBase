@@ -1,0 +1,153 @@
+fileFormatVersion: 2
+guid: 44b3a0ffe9b846e4aa183a0598884be2
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: RoverBackWheels.L
+    100002: RoverBackWheels.R
+    100004: RoverDrillHead
+    100006: RoverLowerArm
+    100008: RoverUpperArm
+    100010: RoverWheelsConnector.L
+    100012: RoverWheelsConnector.R
+    100014: RoverWheelsFront.L
+    100016: RoverWheelsFront.R
+    100018: RoverWheelsMiddle.L
+    100020: RoverWheelsMiddle.R
+    100022: //RootNode
+    400000: RoverBackWheels.L
+    400002: RoverBackWheels.R
+    400004: RoverDrillHead
+    400006: RoverLowerArm
+    400008: RoverUpperArm
+    400010: RoverWheelsConnector.L
+    400012: RoverWheelsConnector.R
+    400014: RoverWheelsFront.L
+    400016: RoverWheelsFront.R
+    400018: RoverWheelsMiddle.L
+    400020: RoverWheelsMiddle.R
+    400022: //RootNode
+    2100000: rover_metal
+    2100002: rover_gold_foil
+    2100004: solarpanels
+    2100006: rover_gold_flat
+    2100008: white_plastic
+    2100010: black_plastic
+    2300000: RoverBackWheels.L
+    2300002: RoverBackWheels.R
+    2300004: RoverDrillHead
+    2300006: RoverLowerArm
+    2300008: RoverUpperArm
+    2300010: RoverWheelsConnector.L
+    2300012: RoverWheelsConnector.R
+    2300014: RoverWheelsFront.L
+    2300016: RoverWheelsFront.R
+    2300018: RoverWheelsMiddle.L
+    2300020: RoverWheelsMiddle.R
+    2300022: //RootNode
+    3300000: RoverBackWheels.L
+    3300002: RoverBackWheels.R
+    3300004: RoverDrillHead
+    3300006: RoverLowerArm
+    3300008: RoverUpperArm
+    3300010: RoverWheelsConnector.L
+    3300012: RoverWheelsConnector.R
+    3300014: RoverWheelsFront.L
+    3300016: RoverWheelsFront.R
+    3300018: RoverWheelsMiddle.L
+    3300020: RoverWheelsMiddle.R
+    3300022: //RootNode
+    4300000: SojournerRover
+    4300002: RoverWheelsConnector.R
+    4300004: RoverWheelsMiddle.R
+    4300006: RoverBackWheels.R
+    4300008: RoverWheelsFront.R
+    4300010: RoverUpperArm
+    4300012: RoverLowerArm
+    4300014: RoverDrillHead
+    4300016: RoverWheelsConnector.L
+    4300018: RoverWheelsFront.L
+    4300020: RoverWheelsMiddle.L
+    4300022: RoverBackWheels.L
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

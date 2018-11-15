@@ -23,6 +23,9 @@ public class loadJSON : MonoBehaviour {
 		}
 
 		//Place Entity into Unity Scene
+			//Take Location Scale and Rotation Parameters
+			//Feed them into the Hierarchy
+			//Add components (rigid body, collision ,etc)
 
 		//Output to Console 
 		Debug.Log("Entities Loaded: " + entityCollection.Entities.Length);

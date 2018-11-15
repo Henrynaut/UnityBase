@@ -8,14 +8,23 @@ public class saveJSON : MonoBehaviour {
 	//When Enabled, this script saves all building object data to a JSON
 	//save file that can be loaded into the scene as a sort of city layout
 
-	public Vector3 location;
-	public Vector3 rotation;
-	public int buildingID;
+	// [Serializable]
+	// public class SceneData
+	// {
+	// 	public Vector3 location;
+	// 	public Vector3 rotation;
+	// 	public int buildingID;
+	// }
 
 	void Start () {
+		//Figure out how to store locations based on the unity scene metadata
 		//Find all game objects with "(Clone)" in the Scene
 		//Save Location, Rotation, & BuildingID of each object
-		location = new Vector3(1.0f,2.0f,3.0f); 
+		//Convert the data into a json format
+		// location = new Vector3(1.0f,2.0f,3.0f);
+		// string json = JsonUtility.ToJson(SceneData); 
+		//Is this the best way?
+		//Need to convert this into an Unreal-type format as well
 	}
 	
 }
