@@ -4958,12 +4958,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1671520952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42c44bd51a25c5d47ab0490aaea20506, type: 3}
+  m_Script: {fileID: 11500000, guid: bdbb2268a4484dd4692317a2624b0281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxAngle: 30
   maxTorque: 300
   wheelShape: {fileID: 1884497995380470, guid: 6d0e24eaf5266ab44b40d9a69ae08edc, type: 2}
+  boxCollider: {fileID: 1419306453441498, guid: 4b24a47df144693468f95b0aab90dc6e,
+    type: 2}
 --- !u!114 &1671520954
 MonoBehaviour:
   m_ObjectHideFlags: 0
