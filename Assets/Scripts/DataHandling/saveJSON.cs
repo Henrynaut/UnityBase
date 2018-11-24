@@ -14,6 +14,7 @@ public class saveJSON : MonoBehaviour {
 	// 	public Vector3 location;
 	// 	public Vector3 rotation;
 	// 	public int buildingID;
+	//  How can I store this in unity format?
 	// }
 
 	void Start () {
