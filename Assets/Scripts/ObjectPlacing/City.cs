@@ -12,11 +12,13 @@ public class City : MonoBehaviour {
 	public int JobsCeiling { get; set;}
 	public float Food { get; set;}
 
-	public int[] buildingCounts = new int[4];
-	private UIController uiController;
+    public int[] buildingCounts;
+
+    private UIController uiController;
 
 	// Use this for initialization
 	void Start () {
+        buildingCounts = new int[9];
 		uiController = GetComponent<UIController>();
 		Cash = 7000;
 		Food = 6;

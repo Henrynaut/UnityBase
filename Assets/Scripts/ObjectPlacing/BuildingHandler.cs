@@ -20,6 +20,8 @@ public class BuildingHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+        //city = GetComponent<City>();
+            
 	}
 
 	// Update is called once per frame

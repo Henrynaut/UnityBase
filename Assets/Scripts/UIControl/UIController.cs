@@ -24,6 +24,7 @@ public class UIController : MonoBehaviour {
 
 	public void UpdateCityData()
 	{
+        city = GetComponent<City>();
 		cityText.text = string.Format
 		("Jobs: {0}/{1}\nCash: ${2} (+${6})\nPopulation: {3}/{4}\nFood: {5}",
 		city.JobsCurrent, city.JobsCeiling, 
