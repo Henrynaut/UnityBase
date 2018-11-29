@@ -17,6 +17,8 @@ public class BuildingHandler : MonoBehaviour {
 	private CameraController cameraController;
 	private Vector3 mouseClickPos;
 	private int buildingID;
+    private bool button_clicked = false;
+
 	// Use this for initialization
 	void Start () {
 
@@ -26,12 +28,23 @@ public class BuildingHandler : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        //Should a preview show or not
+        if (button_clicked == true)
+        {
+            InteractWithBoard(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            button_clicked = false;
+        }
+
 		if (Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftShift) && selectedBuilding != null)
 		{
 			InteractWithBoard(0);
 		}
 		else if (Input.GetMouseButtonDown(0) && selectedBuilding != null)
 		{
+            button_clicked = true;
 			InteractWithBoard(0);
 		}
 
@@ -39,7 +52,33 @@ public class BuildingHandler : MonoBehaviour {
 		{
 			InteractWithBoard(1);
 		}
-	}
+        //Used to take input from the scroll wheel and rotate the preview of the item before placing it
+        //if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        //{
+        //    transform.Rotate(Vector3.left * 0.5f, Space.Self);
+        //}
+        //if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        //{
+        //    transform.Rotate(Vector3.right * 0.5f, Space.Self);
+        //}
+    }
+
+    void MakePreview()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        Ray ray = cameraController.cameraRaycast(mousePos);
+        // Debug.Log(ray);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            //Debug.Log("Hit True");
+            Vector3 gridPosition = board.CalculateGridPosition(hit.point);
+            //Debug.Log(gridPosition);
+            mousePos.y = mousePos.y + 1;
+
+        }
+    }
 
 	void InteractWithBoard(int action)
 	{
@@ -79,6 +118,10 @@ public class BuildingHandler : MonoBehaviour {
 					city.buildingCounts[buildingID]--;
 					uiController.UpdateCityData();
 				}
+                else if(action ==2 && board.CheckForBuildingAtPosition(gridPosition) != null)
+                {
+
+                }
 			}
 		}
 	}
