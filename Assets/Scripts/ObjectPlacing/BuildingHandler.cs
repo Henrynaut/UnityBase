@@ -17,7 +17,9 @@ public class BuildingHandler : MonoBehaviour {
 	private CameraController cameraController;
 	private Vector3 mouseClickPos;
 	private int buildingID;
-    private bool button_clicked = false;
+    private bool prev_spawned = false;
+    private GameObject prev_build = null;
+ 
 
 	// Use this for initialization
 	void Start () {
@@ -29,13 +31,9 @@ public class BuildingHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Should a preview show or not
-        if (button_clicked == true)
+        if (selectedBuilding != null)
         {
             InteractWithBoard(2);
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            button_clicked = false;
         }
 
 		if (Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftShift) && selectedBuilding != null)
@@ -43,8 +41,7 @@ public class BuildingHandler : MonoBehaviour {
 			InteractWithBoard(0);
 		}
 		else if (Input.GetMouseButtonDown(0) && selectedBuilding != null)
-		{
-            button_clicked = true;
+        { 
 			InteractWithBoard(0);
 		}
 
@@ -80,12 +77,13 @@ public class BuildingHandler : MonoBehaviour {
         }
     }
 
+
 	void InteractWithBoard(int action)
 	{
 		mouseClickPos = Input.mousePosition;
 		Ray ray = cameraController.cameraRaycast(mouseClickPos);
-		// Debug.Log(ray);
-		RaycastHit hit;
+        // Debug.Log(ray);
+        RaycastHit hit;
 
 		if (Physics.Raycast(ray, out hit))
 		{
@@ -118,9 +116,20 @@ public class BuildingHandler : MonoBehaviour {
 					city.buildingCounts[buildingID]--;
 					uiController.UpdateCityData();
 				}
-                else if(action ==2 && board.CheckForBuildingAtPosition(gridPosition) != null)
+                //spawns a preview of buildings
+                else if(action == 2)
                 {
 
+                    Building b = selectedBuilding;
+                    if (prev_spawned == false)
+                    {
+                        prev_build = (GameObject)Instantiate(selectedBuilding, gridPosition, Quaternion.identity);
+                        prev_spawned = true;
+                    }
+                    else if (prev_spawned == true)
+                    {
+                        prev_build.transform.position = hit.point;
+                    }
                 }
 			}
 		}

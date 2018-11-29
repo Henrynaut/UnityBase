@@ -11,9 +11,18 @@ public class Board : MonoBehaviour {
 		buildings[(int)position.x, (int)position.z] = Instantiate(building, position, Quaternion.identity);
 	}
 
-    public void ShowBuilding(Building building, Vector3 position)
+    public GameObject getBuilding(Vector3 position)
     {
-
+        Building here = buildings[(int)position.x, (int)position.y];
+        if (here != null)
+        {
+            return buildings[(int)position.x, (int)position.y].gameObject;
+        }
+        else
+        {
+            return null;
+        }
+        
     }
 
 	public Building CheckForBuildingAtPosition(Vector3 position)
