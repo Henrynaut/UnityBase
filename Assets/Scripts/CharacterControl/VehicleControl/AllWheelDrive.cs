@@ -55,7 +55,7 @@ public class AllWheelDrive : MonoBehaviour {
 			if (wheel.transform.localPosition.z > 0)
 				wheel.steerAngle = angle;
 
-
+			// Add in functionality for MMSEV 6 wheel control
 
 			// update visual wheels if any
 			if (wheelShape) 
