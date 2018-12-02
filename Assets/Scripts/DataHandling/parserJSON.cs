@@ -9,5 +9,6 @@ public class parserJSON : MonoBehaviour {
 	public unityEntity[] Entities;
 
 	//Add functionality to parse multiple entities
+	//save data stream and export to server
 	
 }
