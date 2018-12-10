@@ -10,6 +10,6 @@ public class parserJSON : MonoBehaviour {
 
 	//Add functionality to parse multiple entities
 	//save data stream and export to server
-	//convert to either c++ or c# format
+	//convert to either c++ or c# format and even python!
 	
 }
