@@ -1749,7 +1749,7 @@ Transform:
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &471265629
 Prefab:
@@ -1822,7 +1822,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 44b3a0ffe9b846e4aa183a0598884be2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.245
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 44b3a0ffe9b846e4aa183a0598884be2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2429,7 +2429,7 @@ Transform:
   - {fileID: 544433205}
   - {fileID: 1076251254}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: -70, z: 0}
 --- !u!4 &634286197 stripped
 Transform:
@@ -6993,6 +6993,7 @@ GameObject:
   - component: {fileID: 1671520955}
   - component: {fileID: 1671520954}
   - component: {fileID: 1671520953}
+  - component: {fileID: 1671520957}
   m_Layer: 0
   m_Name: carRootStilts
   m_TagString: Untagged
@@ -7012,7 +7013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAngle: 30
-  maxTorque: 300
+  maxTorque: 2
   wheelShape: {fileID: 1884497995380470, guid: 6d0e24eaf5266ab44b40d9a69ae08edc, type: 2}
   boxCollider: {fileID: 1419306453441498, guid: 4b24a47df144693468f95b0aab90dc6e,
     type: 2}
@@ -7053,7 +7054,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1671520952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.663, y: 2.247, z: 5.603}
+  m_LocalPosition: {x: 18.663, y: 2.972, z: 5.603}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1397265302}
@@ -7070,6 +7071,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1671520957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1671520952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3874bc9a2d9ed5f4f999574eba0ef090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &1671943695
 GameObject:
   m_ObjectHideFlags: 0
@@ -7333,7 +7347,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4639839975827762, guid: 34dcdf2be14a53941813505f80625f30, type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1831796488091292, guid: 34dcdf2be14a53941813505f80625f30, type: 2}
       propertyPath: m_Name
@@ -8583,7 +8597,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4639839975827762, guid: 34dcdf2be14a53941813505f80625f30, type: 2}
       propertyPath: m_RootOrder
-      value: 31
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1831796488091292, guid: 34dcdf2be14a53941813505f80625f30, type: 2}
       propertyPath: m_Name
