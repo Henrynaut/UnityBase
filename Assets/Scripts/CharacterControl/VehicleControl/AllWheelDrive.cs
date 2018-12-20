@@ -1,7 +1,74 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
+//using System.Collections.Concurrent.ConcurrentQueue<string>;
 using UnityEngine;
+using System.IO;
+using System.Threading;
+using NetMQ;
+using NetMQ.Sockets;
 
+public class NetMqListener
+{
+    private readonly Thread _listenerWorker;
+
+    private bool _listenerCancelled;
+
+    public delegate void MessageDelegate(string message);
+
+    private readonly MessageDelegate _messageDelegate;
+
+    private string incomming_msg = "";
+
+    private void ListenerWork()
+    {
+        AsyncIO.ForceDotNet.Force();
+        using (var subSocket = new SubscriberSocket())
+        {
+            subSocket.Options.ReceiveHighWatermark = 1000;
+            subSocket.Connect("tcp://localhost:12345");
+            subSocket.Subscribe("");
+            while (!_listenerCancelled)
+            {
+                string frameString;
+                if (!subSocket.TryReceiveFrameString(out frameString)) continue;
+                Debug.Log(frameString);
+                incomming_msg = frameString;
+            }
+            subSocket.Close();
+        }
+        NetMQConfig.Cleanup();
+    }
+
+    public void Update()
+    {
+        while (!(incomming_msg.Length==0))
+        {
+            string message = incomming_msg;
+			
+            _messageDelegate(message);
+			incomming_msg = "";
+        }
+    }
+
+    public NetMqListener(MessageDelegate messageDelegate)
+    {
+        _messageDelegate = messageDelegate;
+        _listenerWorker = new Thread(ListenerWork);
+    }
+
+    public void Start()
+    {
+        _listenerCancelled = false;
+        _listenerWorker.Start();
+    }
+
+    public void Stop()
+    {
+        _listenerCancelled = true;
+        _listenerWorker.Join();
+    }
+}
 public class AllWheelDrive : MonoBehaviour {
 
 	private WheelCollider[] wheels;
@@ -10,6 +77,23 @@ public class AllWheelDrive : MonoBehaviour {
 	public float maxTorque = 300;
 	public GameObject wheelShape;
     public GameObject boxCollider;
+	[SerializeField]
+	public string msg = "";
+	
+	
+	private NetMqListener _netMqListener;
+
+    private void HandleMessage(string message)
+    {
+		msg = message;
+		
+       // var splittedStrings = message.Split(' ');
+        //if (splittedStrings.Length != 3) return;
+        //var x = float.Parse(splittedStrings[0]);
+        //var y = float.Parse(splittedStrings[1]);
+        //var z = float.Parse(splittedStrings[2]);
+        //GameObject.Instantiate (wheelShape).transform.position = new Vector3(x, y, z);
+    }
 
 	// here we find all the WheelColliders down in the hierarchy
 	public void Start()
@@ -37,6 +121,8 @@ public class AllWheelDrive : MonoBehaviour {
 			// }
 
 		}
+		_netMqListener = new NetMqListener(HandleMessage);
+		_netMqListener.Start();
 	}
 
 	// this is a really simple approach to updating wheels
@@ -44,6 +130,7 @@ public class AllWheelDrive : MonoBehaviour {
 	// this helps us to figure our which wheels are front ones and which are rear
 	public void Update()
 	{
+		  _netMqListener.Update();
 		float angle = maxAngle * Input.GetAxis("Horizontal");
 		float torque = maxTorque * Input.GetAxis("Vertical");
 
@@ -71,5 +158,10 @@ public class AllWheelDrive : MonoBehaviour {
 			}
 
 		}
+		
 	}
+	private void OnDestroy()
+    {
+        _netMqListener.Stop();
+    }
 }
