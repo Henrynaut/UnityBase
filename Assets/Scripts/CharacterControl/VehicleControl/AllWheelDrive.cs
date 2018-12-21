@@ -86,13 +86,17 @@ public class AllWheelDrive : MonoBehaviour {
     private void HandleMessage(string message)
     {
 		msg = message;
-		
-       // var splittedStrings = message.Split(' ');
+		float[] temp_torques = new float[6];
+        var splittedStrings = message.Split(',');
         //if (splittedStrings.Length != 3) return;
-        //var x = float.Parse(splittedStrings[0]);
-        //var y = float.Parse(splittedStrings[1]);
-        //var z = float.Parse(splittedStrings[2]);
-        //GameObject.Instantiate (wheelShape).transform.position = new Vector3(x, y, z);
+		int ind = 0;
+        foreach(string i in splittedStrings){
+			temp_torques[ind] = float.Parse(i);
+			ind++;
+		}
+		for(int i = 0;i<6;i++){
+			wheels[i].motorTorque = temp_torques[i];
+		}
     }
 
 	// here we find all the WheelColliders down in the hierarchy
@@ -132,13 +136,13 @@ public class AllWheelDrive : MonoBehaviour {
 	{
 		  _netMqListener.Update();
 		float angle = maxAngle * Input.GetAxis("Horizontal");
-		float torque = maxTorque * Input.GetAxis("Vertical");
+		//float torque = maxTorque * Input.GetAxis("Vertical");
 
 		foreach (WheelCollider wheel in wheels)
 		{
 			// a simple car where front wheels steer and all wheels drive
 
-            wheel.motorTorque = torque;
+            
 			if (wheel.transform.localPosition.z > 0)
 				wheel.steerAngle = angle;
 
