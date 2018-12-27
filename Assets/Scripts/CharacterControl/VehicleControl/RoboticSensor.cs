@@ -88,7 +88,7 @@ public Vector3 rotation;
 		position = this.transform.position;
 		rotation = (this.transform.rotation).eulerAngles;
 		 
-        _response = rotation.x + ","+ rotation.y + "," + rotation.z;
+        _response = position.x + ","+ position.y + "," + position.z;
         Connected = _netMqPublisher.Connected;
 	}
 
