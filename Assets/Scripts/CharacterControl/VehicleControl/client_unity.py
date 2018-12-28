@@ -17,7 +17,7 @@ def GetString():
     if evt:
         if evt.get(socket) == zmq.POLLIN:
             response = socket.recv(zmq.NOBLOCK)
-            print(response)
+            #print(response)
             socket.close()
             return response
     time.sleep(1)
