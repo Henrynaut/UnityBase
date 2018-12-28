@@ -73,8 +73,8 @@ public class AllWheelDrive : MonoBehaviour {
 
 	private WheelCollider[] wheels;
 
-	public float maxAngle = 30;
-	public float maxTorque = 300;
+	public float maxAngle = 2;
+	public float maxTorque = 1;
 	public GameObject wheelShape;
     public GameObject boxCollider;
 	[SerializeField]
@@ -85,18 +85,26 @@ public class AllWheelDrive : MonoBehaviour {
 
     private void HandleMessage(string message)
     {
+		  
 		msg = message;
 		float[] temp_torques = new float[6];
         var splittedStrings = message.Split(',');
         //if (splittedStrings.Length != 3) return;
 		if (splittedStrings[0] == "r"){
 			
-			transform.eulerAngles = new Vector3 (0,0,0);
+			transform.eulerAngles = new Vector3 (0,0,0);   
 			transform.position = new Vector3 (41.12f,2.53f,5.603f);
+			
 			for(int i = 0;i<6;i++){
-			wheels[i].motorTorque = 0;
-			wheels[i].transform.eulerAngles = new  Vector3 (0,0,0);
+			for(int j = 0;j<wheels[i].transform.childCount;i++){
+				var wheeler = wheels[i].transform.GetChild (j);
+				wheeler.rotation = Quaternion.Euler(0,0,0);
 			}
+			}
+			transform.eulerAngles = new Vector3 (0,0,0);   
+			transform.position = new Vector3 (41.12f,2.53f,5.603f);
+			
+			
 			//transform.position.y = 2.53;
 			//tranform.position.z = 5.603;
 			//splittedStrings = new Vector5("0","0","0","0","0");
@@ -109,7 +117,7 @@ public class AllWheelDrive : MonoBehaviour {
 		for(int i = 0;i<6;i++){
 			wheels[i].motorTorque = temp_torques[i];
 		}
-    }
+    }    
 
 	// here we find all the WheelColliders down in the hierarchy
 	public void Start()

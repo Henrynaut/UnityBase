@@ -7017,6 +7017,7 @@ MonoBehaviour:
   wheelShape: {fileID: 1884497995380470, guid: 6d0e24eaf5266ab44b40d9a69ae08edc, type: 2}
   boxCollider: {fileID: 1419306453441498, guid: 4b24a47df144693468f95b0aab90dc6e,
     type: 2}
+  msg: 
 --- !u!114 &1671520954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7054,7 +7055,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1671520952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.663, y: 2.972, z: 5.603}
+  m_LocalPosition: {x: 39.98, y: 2.972, z: 5.603}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1397265302}
@@ -7082,6 +7083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3874bc9a2d9ed5f4f999574eba0ef090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Connected: 0
   position: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &1671943695
