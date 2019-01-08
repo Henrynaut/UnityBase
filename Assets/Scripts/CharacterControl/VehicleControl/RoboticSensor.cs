@@ -76,9 +76,10 @@ private string _response;
 public Vector3 position;
 [SerializeField]
 public Vector3 rotation;
-
+private WheelCollider[] wheels;
 	// Use this for initialization
 	void Start () {
+        wheels = GetComponentsInChildren<WheelCollider>();
 		 _netMqPublisher = new NetMqPublisher(HandleMessage);
         _netMqPublisher.Start();
 	}
@@ -88,7 +89,12 @@ public Vector3 rotation;
 		position = this.transform.position;
 		rotation = (this.transform.rotation).eulerAngles;
 		 
-        _response = position.x + ","+ position.y + "," + position.z;
+        _response = position.x + ","+ position.y + "," + position.z + "," + rotation.x + "," + rotation.y + "," + rotation.z;
+        foreach (WheelCollider wheel in wheels)
+		{
+            var wheeler = wheel.transform.GetChild (0);
+            _response += "," + wheeler.eulerAngles.x;
+        }
         Connected = _netMqPublisher.Connected;
 	}
 

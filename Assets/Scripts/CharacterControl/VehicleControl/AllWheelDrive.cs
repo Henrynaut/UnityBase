@@ -99,6 +99,8 @@ public class AllWheelDrive : MonoBehaviour {
 			for(int j = 0;j<wheels[i].transform.childCount;i++){
 				var wheeler = wheels[i].transform.GetChild (j);
 				wheeler.rotation = Quaternion.Euler(0,0,0);
+				//wheeler.dynamicFriction = 1;
+				//wheeler.material.staticFriction = 1;
 			}
 			}
 			transform.eulerAngles = new Vector3 (0,0,0);   
