@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Grab
+  - AirlockButton
   layers:
   - Default
   - TransparentFX

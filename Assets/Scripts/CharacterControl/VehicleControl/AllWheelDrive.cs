@@ -79,7 +79,7 @@ public class AllWheelDrive : MonoBehaviour {
     public GameObject boxCollider;
 	[SerializeField]
 	public string msg = "";
-	
+	int flip = 0;
 	
 	private NetMqListener _netMqListener;
 
@@ -89,28 +89,36 @@ public class AllWheelDrive : MonoBehaviour {
 		msg = message;
 		float[] temp_torques = new float[6];
         var splittedStrings = message.Split(',');
+		char x = 'g';
         //if (splittedStrings.Length != 3) return;
 		if (splittedStrings[0] == "r"){
-			
+			x = 'n';
+			for(int i = 0;i<6;i++){
+			wheels[i].motorTorque =0;
+			}
 			transform.eulerAngles = new Vector3 (0,0,0);   
 			transform.position = new Vector3 (41.12f,2.53f,5.603f);
 			
 			for(int i = 0;i<6;i++){
 			for(int j = 0;j<wheels[i].transform.childCount;i++){
-				var wheeler = wheels[i].transform.GetChild (j);
-				wheeler.rotation = Quaternion.Euler(0,0,0);
+				wheels[i].transform.GetChild(j).transform.localRotation = Quaternion.Euler(0,0,0);
+				wheels[i].transform.GetChild(j).transform.rotation = Quaternion.Euler(0,0,0);
+				//ApplyLocalPositionToVisuals(wheels[i]);
+				//wheeler.rotation = ;
 				//wheeler.dynamicFriction = 1;
 				//wheeler.material.staticFriction = 1;
 			}
+			
 			}
 			transform.eulerAngles = new Vector3 (0,0,0);   
 			transform.position = new Vector3 (41.12f,2.53f,5.603f);
-			
+			x = 'g';
 			
 			//transform.position.y = 2.53;
 			//tranform.position.z = 5.603;
 			//splittedStrings = new Vector5("0","0","0","0","0");
 		}
+		if(x == 'g'){
 		int ind = 0;
         foreach(string i in splittedStrings){
 			temp_torques[ind] = float.Parse(i);
@@ -118,6 +126,7 @@ public class AllWheelDrive : MonoBehaviour {
 		}
 		for(int i = 0;i<6;i++){
 			wheels[i].motorTorque = temp_torques[i];
+		}
 		}
     }    
 
@@ -171,8 +180,9 @@ public class AllWheelDrive : MonoBehaviour {
 			// Add in functionality for MMSEV 6 wheel control
 
 			// update visual wheels if any
-			if (wheelShape) 
+			if (wheelShape ) 
 			{
+				flip += 1;
 				Quaternion q;
 				Vector3 p;
 				wheel.GetWorldPose (out p, out q);

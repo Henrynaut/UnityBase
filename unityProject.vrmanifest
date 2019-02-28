@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.citybuilder_sep8th.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\AstroMONSTER\\Documents\\GitHub\\UnityBase\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "CityBuilder_Sep8th [Testing]"
+        }
+      }
+    }
+  ]
+}
