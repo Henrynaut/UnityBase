@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MarsScene.unity
-    guid: aac167da79b9ae345a0fcb4909a216a4
+    path: Assets/Scenes/teleport.unity
+    guid: 5ce2f6883c8dc69468bf22cd8ff25b44
   m_configObjects: {}
