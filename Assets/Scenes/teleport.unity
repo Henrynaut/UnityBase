@@ -695,8 +695,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 424ccb998e397f84087509fb8bdd5722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayStart: 0
-  maxUsers: 10
+  delayStart: 1
+  maxUsers: 2
   menuScene: 0
   multiUserScene: 1
 --- !u!4 &472696675
