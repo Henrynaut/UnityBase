@@ -25,8 +25,11 @@ public class PhotonLobby : MonoBehaviourPunCallbacks {
 	
 	//Callback function
 	public override void OnConnectedToMaster(){ //I removed override, didn't need it
-		Debug.Log("Player has connected to the Photon master server.");
-		connectButton.SetActive(true); //Player is now connected to servers, enables connectButton for joining a simulation.
+		Debug.Log("User has connected to the Photon master server.");
+		//When the master client loads a scene, all the other users connected
+		//    to the master client will also load that scene.
+		PhotonNetwork.AutomaticallySyncScene = true;
+		connectButton.SetActive(true); //User is now connected to servers, enables connectButton for joining a simulation.
 	}
 
 	public void OnConnectButtonClicked(){
@@ -46,12 +49,8 @@ public class PhotonLobby : MonoBehaviourPunCallbacks {
 	void CreateRoom(){
 		Debug.Log("Trying to create a new room.");
 		int randomRoomName = Random.Range(0, 10000);
-		RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 10 };
+		RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = MultiUserSettings.multiUserSettings.maxUsers };
 		PhotonNetwork.CreateRoom("Room" + randomRoomName, roomOps);
-	}
-
-	public override void OnJoinedRoom(){
-		Debug.Log("You are now in a room.");
 	}
 
 	public override void OnCreateRoomFailed(short returnCode, string message){
