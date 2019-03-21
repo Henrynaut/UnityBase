@@ -13,7 +13,7 @@ public class Teleporter : MonoBehaviour {
 	private SteamVR_Behaviour_Pose m_pose = null;
 	private bool m_HasPosition = false;
 	private bool m_IsTeleporting = false;
-	private float m_FadeTime = 0.5f;
+	private float m_FadeTime = 0.01f;
 
 	private void Awake()
 	{
@@ -60,14 +60,14 @@ public class Teleporter : MonoBehaviour {
 		m_IsTeleporting = true;
 
 		//Fade to black
-		SteamVR_Fade.Start(Color.black, m_FadeTime, true);
+			// SteamVR_Fade.Start(Color.black, m_FadeTime, true);
 
 		//Apply translation
 		yield return new WaitForSeconds(m_FadeTime);
 		cameraRig.position += translation;
 
 		//Fade to clear
-		SteamVR_Fade.Start(Color.clear, m_FadeTime, true);
+			// SteamVR_Fade.Start(Color.clear, m_FadeTime, true);
 
 		//De-flag
 		m_IsTeleporting = false;
