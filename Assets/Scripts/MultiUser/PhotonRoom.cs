@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.SceneManager;
+using UnityEngine.SceneManagement;
 
 public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
 {
@@ -43,7 +43,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
                 PhotonRoom.room = this;
             }
         }
-        DontDestoryOnLoad(this.gameObject);
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public override void OnEnable(){
@@ -126,10 +126,10 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         }
 	}
 
-    public override void OnUserEnteredRoom(Player newUser){
-        base.OnUserEnteredRoom(newUser);
+    public override void OnPlayerEnteredRoom(Player newUser){
+        base.OnPlayerEnteredRoom(newUser);
         Debug.Log("A new user has joined the room");
-        photonUsers = PhotonNetwork.UserList;
+        photonUsers = PhotonNetwork.PlayerList;
         usersInRoom++;
         if(MultiUserSettings.multiUserSettings.delayStart){
             Debug.Log("Displaying users in room out of max users possible (" + usersInRoom + ":" + MultiUserSettings.multiUserSettings.maxUsers + ")");
@@ -160,7 +160,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
             //Closes the room so that no new users can join the room until it is re-opened
             PhotonNetwork.CurrentRoom.IsOpen = false;
         }
-        PhotonNetwork.LoadLevel(MultiUserSettings.multiUserSettings.multiUserScene)
+        PhotonNetwork.LoadLevel(MultiUserSettings.multiUserSettings.multiUserScene);
     }
 
     void RestartTimer(){
@@ -189,13 +189,13 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     [PunRPC]
     private void RPC_LoadedSimScene(){
         usersInSim++;
-        if(usersInSim == PhotonNetwork.UserList.Length){
+        if(usersInSim == PhotonNetwork.PlayerList.Length){
             PV.RPC("RPC_CreateUser", RpcTarget.All);
         }
     }
 
     [PunRPC]
     private void RPC_CreateUser(){
-        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonNetworkPlayer", transform.position, quaternion.identity, 0));
+        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonNetworkUser"), transform.position, Quaternion.identity, 0);
     }
 }

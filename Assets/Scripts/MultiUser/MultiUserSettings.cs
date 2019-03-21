@@ -8,7 +8,7 @@ public class MultiUserSettings : MonoBehaviour
     public static MultiUserSettings multiUserSettings;
 
     public bool delayStart;
-    public int maxUsers;
+    public byte maxUsers;
 
     public int menuScene;
     public int multiUserScene;

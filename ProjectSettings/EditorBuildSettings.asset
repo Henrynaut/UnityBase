@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/teleport.unity
     guid: 5ce2f6883c8dc69468bf22cd8ff25b44
+  - enabled: 1
+    path: Assets/Scenes/MultiUser.unity
+    guid: fc1022f31686e2c4a830ce14b07fff83
   m_configObjects: {}
