@@ -13,7 +13,10 @@ public class PhotonUser : MonoBehaviour
     void Start()
     {
         PV = GetComponent<PhotonView>();
-        int spawnPicker = Random.Range(0, SimSetup.SS.spawnPoints.Length);
+        //Spawn at UserID Defined Spawn Point (from PhotonView View ID)
+            int spawnPicker = PV.ViewID;
+        //Spawn at Random Spawn Point
+            // int spawnPicker = Random.Range(0, SimSetup.SS.spawnPoints.Length);
         if(PV.IsMine){
             myAvatar = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "UserAvatar"),
                  SimSetup.SS.spawnPoints[spawnPicker].position, SimSetup.SS.spawnPoints[spawnPicker].rotation, 0);
