@@ -31,7 +31,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100232, guid: 1026a325e6173924993d957a33b64883, type: 3}
       propertyPath: m_Name
-      value: UserAvatar Variant
+      value: UserAvatar
       objectReference: {fileID: 0}
     - target: {fileID: 400232, guid: 1026a325e6173924993d957a33b64883, type: 3}
       propertyPath: m_LocalPosition.x
