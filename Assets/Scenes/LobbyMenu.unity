@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayStart: 1
-  maxUsers: 2
+  maxUsers: 10
   menuScene: 0
   multiUserScene: 1
 --- !u!4 &472696675
