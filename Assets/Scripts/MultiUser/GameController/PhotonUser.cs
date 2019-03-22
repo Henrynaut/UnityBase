@@ -13,8 +13,8 @@ public class PhotonUser : MonoBehaviour
     void Start()
     {
         PV = GetComponent<PhotonView>();
-        //Spawn at UserID Defined Spawn Point (from PhotonView View ID)
-            int spawnPicker = PV.ViewID - 1;
+        //Spawn at UserID Defined Spawn Point (from PhotonView Owner Actor Number - 1, Pv.OwnerActorNr)
+            int spawnPicker = PV.OwnerActorNr - 1;
         //Spawn at Random Spawn Point
             // int spawnPicker = Random.Range(0, SimSetup.SS.spawnPoints.Length);
         if(PV.IsMine){
