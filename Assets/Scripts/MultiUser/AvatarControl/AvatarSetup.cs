@@ -40,6 +40,8 @@ public class AvatarSetup : MonoBehaviour {
         if(PV.IsMine){
             //Don't need RPC calls for Animation due to Photon Animation View Script
             AddCharacter(UserInfo.UI.mySelectedCharacter);
+            //Set username to desired string from lobby
+            PV.RPC("RPC_AddUsername", RpcTarget.AllBuffered, PhotonLobbyCustomMatch.lobby.usernameString);
         }
         //If another user's character, destroy my camera and audio listener
         else{
@@ -62,9 +64,6 @@ public class AvatarSetup : MonoBehaviour {
         myUsername = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "usernameLabel"), transform.position, transform.rotation);
         myUsername.transform.parent = myCharacter.transform;
 
-        //Set username to desired string from lobby
-        PV.RPC("RPC_AddUsername", RpcTarget.AllBuffered, PhotonLobbyCustomMatch.lobby.usernameString);
-
         //Spawn Parent Avatar and attach child as transform (4th parameter)
         // myCharacter = Instantiate(UserInfo.UI.allCharacters[whichCharacter], transform.position, transform.rotation, transform);
         // myUsername.text = usernameString;
@@ -73,6 +72,7 @@ public class AvatarSetup : MonoBehaviour {
     [PunRPC]
     void RPC_AddUsername(string inputString){
         usernameText = GameObject.Find("usernameText");
+        usernameText.name =  inputString + "usernameText";
         usernameText.GetComponent<TextMeshPro>().text = inputString;
         Debug.Log(inputString);
     }
