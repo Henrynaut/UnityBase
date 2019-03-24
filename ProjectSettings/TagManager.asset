@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Grab
   - AirlockButton
+  - Avatar
   layers:
   - Default
   - TransparentFX

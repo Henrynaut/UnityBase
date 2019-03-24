@@ -10,6 +10,11 @@ public class AvatarSetup : MonoBehaviour {
     public string usernameString;
     public GameObject myCharacter;
     public TextMeshProUGUI myUsername;
+    public int userOxygen;
+    public int userEnergy;
+
+    public Camera myCamera;
+    public AudioListener myAL;
 
     // Start is called before the first frame update
     void Start() {
@@ -18,6 +23,11 @@ public class AvatarSetup : MonoBehaviour {
         //Only send from local player
         if(PV.IsMine){
             PV.RPC("RPC_AddCharacter", RpcTarget.AllBuffered, UserInfo.UI.mySelectedCharacter);
+        }
+        //If another user's character, destroy my camera and audio listener
+        else{
+            Destroy(myCamera);
+            Destroy(myAL);
         }
     }
 

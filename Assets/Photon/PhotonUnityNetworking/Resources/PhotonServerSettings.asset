@@ -35,5 +35,6 @@ MonoBehaviour:
   - RPC_CreateUser
   - RPC_LoadedSimScene
   - RPC_AddCharacter
+  - RPC_Laser
   DisableAutoOpenWizard: 1
   ShowSettings: 1

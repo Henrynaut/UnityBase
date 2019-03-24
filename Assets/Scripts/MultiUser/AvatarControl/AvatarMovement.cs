@@ -18,7 +18,14 @@ public class AvatarMovement : MonoBehaviour
     public bool isRunning = false;
     public float sprintRate = 20;
     public float moveRate;
-    public float jumpPower = 10;
+
+    public float jumpSpeed = 8;
+    //Lunar Gravity
+    public float gravity = 1.62f;
+
+    private Vector3 velocity;
+    private float vSpeed = 0; // current vertical velocity
+
 
     // Start is called before the first frame update
     void Start() {
@@ -32,6 +39,7 @@ public class AvatarMovement : MonoBehaviour
     void Update() {
         if(PV.IsMine){
             BasicMovement();
+            BasicJumping();
             BasicRotation();
         }
     }
@@ -60,17 +68,31 @@ public class AvatarMovement : MonoBehaviour
         if(Input.GetKey(KeyCode.D)){
             myCC.Move(transform.right * Time.deltaTime * movementSpeed);
         }
+    }
 
-        // if (Input.GetKey(KeyCode.Space)){
-        //     anim.SetTrigger("isJumping"); //only in jumping state when
-        //     Jump();
-        // }
-        
+    void BasicJumping(){
+        velocity = transform.forward * Input.GetAxis("Vertical") * movementSpeed;
+        if (myCC.isGrounded) {
+            //If grounded, the vertical speed = 0
+            vSpeed = 0;
+            //If Jump commanded, vertical speed = jumpSpeed
+            if (Input.GetKeyDown("space")) {
+            vSpeed = jumpSpeed;
+            }
+        }
+
+        //Apply force of gravity to the vertical descent speed
+        vSpeed -= gravity * Time.deltaTime;
+        //Include vertical speed in velocity
+        velocity.y = vSpeed;
+        // convert vel to displacement and Move the character accordingly:
+        myCC.Move(velocity * Time.deltaTime);
     }
 
     void BasicRotation(){
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * rotationSpeed;
         transform.Rotate (new Vector3(0, mouseX, 0));
     }
+
 
 }
