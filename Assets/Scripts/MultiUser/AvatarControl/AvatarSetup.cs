@@ -1,28 +1,46 @@
 ﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using TMPro;
 
 public class AvatarSetup : MonoBehaviour {
     private PhotonView PV;
+    private PhotonLobbyCustomMatch lobby;
+
+
     public int characterValue;
     public string usernameString;
     public GameObject myCharacter;
-    public TextMeshProUGUI myUsername;
+    public GameObject myUsername;
+    public GameObject usernameText;
     public int userOxygen;
     public int userEnergy;
 
     public Camera myCamera;
     public AudioListener myAL;
+    public Animator animator;
+
+    string[] labels = {
+    "WhiteAvatar",
+    "GreenAvatar",
+    "RedAvatar",
+    "BlueAvatar",
+    "WhiteAvatar"
+    };
 
     // Start is called before the first frame update
     void Start() {
         PV = GetComponent<PhotonView>();
+        lobby = GetComponent<PhotonLobbyCustomMatch>();
+
 
         //Only send from local player
         if(PV.IsMine){
-            PV.RPC("RPC_AddCharacter", RpcTarget.AllBuffered, UserInfo.UI.mySelectedCharacter);
+            //Don't need RPC calls for Animation due to Photon Animation View Script
+            AddCharacter(UserInfo.UI.mySelectedCharacter);
+            // PV.RPC("RPC_AddCharacter", RpcTarget.AllBuffered, UserInfo.UI.mySelectedCharacter);
         }
         //If another user's character, destroy my camera and audio listener
         else{
@@ -31,15 +49,28 @@ public class AvatarSetup : MonoBehaviour {
         }
     }
 
-    public void OnUsernameChanged(string usernameIn){
-		usernameString = usernameIn;
-	}
-
-    [PunRPC]
-    void RPC_AddCharacter(int whichCharacter){
+    // [PunRPC]
+    // void RPC_AddCharacter(int whichCharacter){
+    void AddCharacter(int whichCharacter){
         //Save the Character Selection ID and instantiate
         characterValue = whichCharacter;
-        myCharacter = Instantiate(UserInfo.UI.allCharacters[whichCharacter], transform.position, transform.rotation, transform);
+
+        //Instantiate with Animations, select Avatar from list of string named labels
+        myCharacter = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", labels[whichCharacter]), transform.position, transform.rotation);
+        myCharacter.transform.parent = transform;
+        animator = myCharacter.GetComponent<Animator>();
+
+        //Instantiate Username Label
+        myUsername = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "usernameLabel"), transform.position, transform.rotation);
+        myUsername.transform.parent = myCharacter.transform;
+
+        //Set username to desired string from lobby
+        usernameText = GameObject.Find("usernameText");
+        usernameText.GetComponent<TextMeshPro>().text = PhotonLobbyCustomMatch.lobby.usernameString;
+        Debug.Log(PhotonLobbyCustomMatch.lobby.usernameString);
+
+        //Spawn Parent Avatar and attach child as transform (4th parameter)
+        // myCharacter = Instantiate(UserInfo.UI.allCharacters[whichCharacter], transform.position, transform.rotation, transform);
         // myUsername.text = usernameString;
     }
 }

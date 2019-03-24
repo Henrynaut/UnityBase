@@ -12,6 +12,7 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
 	public string roomName;
 	public int roomSize;
+	public string usernameString;
 	public GameObject roomListingPrefab;
 	public Transform roomsPanel;
 	public TextMeshProUGUI roomLabel;
@@ -30,7 +31,8 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 		PhotonNetwork.ConnectUsingSettings(); //Connects to Master photon server.
 		Debug.Log("Connecting...");
 		StatusLabel.text = ("Connecting...");
-
+		//Ensures the game object isn't destroyed when opening a new scene
+        DontDestroyOnLoad(this.gameObject);
 	}
 	
 	//Callback function
@@ -91,6 +93,9 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 		roomSize = int.Parse(sizeIn);
 	}
 
+    public void OnUsernameChanged(string usernameIn){
+		usernameString = usernameIn;
+	}
 	public void JoinLobbyonClick(){
 		if(!PhotonNetwork.InLobby){
 			PhotonNetwork.JoinLobby();

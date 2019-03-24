@@ -13,11 +13,11 @@ public class AvatarMovement : MonoBehaviour
     public float rotationSpeed;
 
     //Animation Variables
-    private static Animator anim;
-    public bool isWalking = false;
-    public bool isRunning = false;
-    public float sprintRate = 20;
-    public float moveRate;
+    private AvatarSetup avatarSetup;
+    // public bool isWalking = false;
+    // public bool isRunning = false;
+    // public float sprintRate = 20;
+    // public float moveRate;
 
     public float jumpSpeed = 8;
     //Lunar Gravity
@@ -31,8 +31,7 @@ public class AvatarMovement : MonoBehaviour
     void Start() {
         PV = GetComponent<PhotonView>();
         myCC = GetComponent<CharacterController>(); 
-        anim = GetComponent<Animator>();
-
+        avatarSetup = GetComponent<AvatarSetup>();
     }
 
     // Update is called once per frame
@@ -47,14 +46,13 @@ public class AvatarMovement : MonoBehaviour
     void BasicMovement() {
         //If W is pressed, move character forward and execute walking animation
         if(Input.GetKey(KeyCode.W)){
+            avatarSetup.animator.SetTrigger("isWalking");
             myCC.Move(transform.forward * Time.deltaTime * movementSpeed);
-            isWalking = true;
-            anim.SetTrigger("isWalking");
         }
+
         //If W is not pressed, return to idle animation
         else {
-            isWalking = false;
-            anim.SetTrigger("isNeutral");
+            avatarSetup.animator.SetTrigger("isNeutral");
         }
 
         if(Input.GetKey(KeyCode.A)){
@@ -63,6 +61,8 @@ public class AvatarMovement : MonoBehaviour
 
         if(Input.GetKey(KeyCode.S)){
             myCC.Move(-transform.forward * Time.deltaTime * movementSpeed);
+            //Set Backwards Animation Trigger
+            avatarSetup.animator.SetTrigger("Backwards");
         }
 
         if(Input.GetKey(KeyCode.D)){
@@ -78,6 +78,9 @@ public class AvatarMovement : MonoBehaviour
             //If Jump commanded, vertical speed = jumpSpeed
             if (Input.GetKeyDown("space")) {
             vSpeed = jumpSpeed;
+
+            //Set Jumping Animation Trigger
+            avatarSetup.animator.SetTrigger("isJumping");
             }
         }
 

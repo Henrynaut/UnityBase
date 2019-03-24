@@ -9,7 +9,6 @@ public class UserInfo : MonoBehaviour
     public static UserInfo UI;
 
     public int mySelectedCharacter;
-
     public GameObject[] allCharacters;
 
     private void OnEnable(){
@@ -27,6 +26,7 @@ public class UserInfo : MonoBehaviour
         //Ensures the game object isn't destroyed when opening a new scene
         DontDestroyOnLoad(this.gameObject);
     }
+
     // Start is called before the first frame update
     void Start() {
         //Check to see if a player preference exists, and set character to selection

@@ -363,6 +363,7 @@ MonoBehaviour:
   - {fileID: 1117561741}
   - {fileID: 1504810825}
   - {fileID: 152492798}
+  usernameText: {fileID: 0}
 --- !u!4 &204107890
 Transform:
   m_ObjectHideFlags: 0
