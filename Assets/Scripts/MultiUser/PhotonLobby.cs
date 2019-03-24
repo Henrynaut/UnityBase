@@ -65,7 +65,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks {
 		// int randomRoomName = 12;
 		int randomRoomName = Random.Range(0, 10000);
 		roomLabel.text = ("Room #: " + randomRoomName.ToString());
-		RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = MultiUserSettings.multiUserSettings.maxUsers };
+		RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)MultiUserSettings.multiUserSettings.maxUsers };
 		PhotonNetwork.CreateRoom("Room" + randomRoomName, roomOps);
 	}
 
