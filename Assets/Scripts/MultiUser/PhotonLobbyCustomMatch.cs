@@ -16,6 +16,8 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 	public Transform roomsPanel;
 	public TextMeshProUGUI roomLabel;
 	public TextMeshProUGUI StatusLabel;
+	public TextMeshProUGUI regionLabel;
+
 
 	private void Awake()
 	{
@@ -24,6 +26,7 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
 	// Use this for initialization
 	void Start () {
+		// PhotonNetwork.ConnectToRegionMaster("us"); //Connect to US East Region Master Server.
 		PhotonNetwork.ConnectUsingSettings(); //Connects to Master photon server.
 		Debug.Log("Connecting...");
 		StatusLabel.text = ("Connecting...");
@@ -31,7 +34,7 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 	}
 	
 	//Callback function
-	public override void OnConnectedToMaster(){ //I removed override, didn't need it
+	public override void OnConnectedToMaster(){
 		Debug.Log("User has connected to the Photon master server.");
 		StatusLabel.text = ("This device has connected to the Photon master server.");
 
