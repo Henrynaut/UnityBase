@@ -11,6 +11,8 @@ public class AvatarInteraction : MonoBehaviour
     private PhotonView PV;
     private AvatarSetup avatarSetup;
     public Transform rayOrigin;
+    // public TextMeshProUGUI energyText;
+
     // public TextMeshProUGUI energyDisplay;
 
 
@@ -18,9 +20,6 @@ public class AvatarInteraction : MonoBehaviour
     void Start() {
         PV = GetComponent<PhotonView>();
         avatarSetup = GetComponent<AvatarSetup>();
-        // energyDisplay = GetComponent<TextMeshProUGUI>();
-
-        // energyDisplay = SimSetup.SS.energyDisplay;
     }
 
     // Update is called once per frame
@@ -28,11 +27,10 @@ public class AvatarInteraction : MonoBehaviour
         if(!PV.IsMine){
             return;
         }
-        if(Input.GetMouseButton(0))
-        {
+        if(Input.GetMouseButton(0))        {
             PV.RPC("RPC_Laser", RpcTarget.All);
+            // energyText.text = "25 Wh";
         }
-        // energyDisplay.text = avatarSetup.userOxygen.ToString();
     }
 
     [PunRPC]

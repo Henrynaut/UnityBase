@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayOrigin: {fileID: 686}
+  energyText: {fileID: 0}
 --- !u!1 &226
 GameObject:
   m_ObjectHideFlags: 0

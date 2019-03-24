@@ -72,7 +72,7 @@ public class AvatarSetup : MonoBehaviour {
     [PunRPC]
     void RPC_AddUsername(string inputString){
         usernameText = GameObject.Find("usernameText");
-        usernameText.name =  inputString + "usernameText";
+        usernameText.name = inputString;
         usernameText.GetComponent<TextMeshPro>().text = inputString;
         Debug.Log(inputString);
     }
