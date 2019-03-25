@@ -7,12 +7,14 @@ public class CameraController : MonoBehaviour {
 	public Camera View;
 	private Vector3 mouseOriginPoint;
 	private Vector3 offset;
+	public float offsetAmount;
 	private bool dragging;
 
 
 	// Use this for initialization
 	void Start () {
 		View = this.gameObject.GetComponent<Camera>();
+		offsetAmount = 0.1f;
         // Debug.Log (View);
 	}
 
@@ -30,7 +32,14 @@ public class CameraController : MonoBehaviour {
 		// Clamp values to min and max
 		View.orthographicSize = Mathf.Clamp(
 			View.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") 
-			* .2f * View.orthographicSize, 0.5f, 50f);
+			* .2f * View.orthographicSize, 0.5f, 5000f);
+
+		//Change Panning Offsset based on ouse wheel
+		offsetAmount = Mathf.Clamp(
+			offsetAmount -= Input.GetAxis("Mouse ScrollWheel") 
+			* .2f * offsetAmount, 0.01f, 30f);
+
+		Debug.Log(offsetAmount);
 
 		if (Input.GetMouseButton(2))
 		{
@@ -46,5 +55,33 @@ public class CameraController : MonoBehaviour {
 			dragging = false;
 		}
 		if (dragging) transform.position = mouseOriginPoint - offset;
+
+		//Arrow key Camera Panning controls
+			if (Input.GetKey("up"))
+			{
+				offset.x = offsetAmount;
+				offset.z = offsetAmount;
+				transform.position = transform.position + offset;
+			}
+
+			if (Input.GetKey("down"))
+			{
+				offset.x = offsetAmount;
+				offset.z = offsetAmount;
+				transform.position = transform.position - offset;
+			}
+			if (Input.GetKey("left"))
+			{
+				offset.x = -offsetAmount;
+				offset.z = offsetAmount;
+				transform.position = transform.position + offset;
+			}
+
+			if (Input.GetKey("right"))
+			{
+				offset.x = -offsetAmount;
+				offset.z = offsetAmount;
+				transform.position = transform.position - offset;
+			}
 	}
 }
