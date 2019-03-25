@@ -41,7 +41,7 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 		StatusLabel.text = ("This device has connected to the Photon master server.");
 
         //Set my nickname based on number
-        PhotonNetwork.NickName = "User" + Random.Range(0, 1000);
+        PhotonNetwork.NickName = "User " + Random.Range(0, 1000);
 
 		//When the master client loads a scene, all the other users connected
 		//    to the master client will also load that scene.
@@ -98,6 +98,8 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     public void OnUsernameChanged(string usernameIn){
 		usernameString = usernameIn;
+		//Set user NickName based on usernameString
+        PhotonNetwork.NickName = usernameString;
 	}
 	public void JoinLobbyonClick(){
 		if(!PhotonNetwork.InLobby){
