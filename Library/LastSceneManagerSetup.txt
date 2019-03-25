@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/teleport.unity
+- path: Assets/Scenes/LobbyMenu.unity
   isLoaded: 1
   isActive: 1
