@@ -23,11 +23,10 @@ public class SimSetup : MonoBehaviour
     }
 
     IEnumerator DisconnectAndLoad(){
-        PhotonNetwork.Disconnect();
-        //Wait until user is actually disconnected to load into the menu scene
-        while(PhotonNetwork.IsConnected){
+        PhotonNetwork.LeaveRoom();
+        //Wait until user is actually disconnected from room to load into the menu scene
+        while(PhotonNetwork.IsRoom)
             yield return null;
-        }
         SceneManager.LoadScene(MultiUserSettings.multiUserSettings.menuScene);
     }
 }
