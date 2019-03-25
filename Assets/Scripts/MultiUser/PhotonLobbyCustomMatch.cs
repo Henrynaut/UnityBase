@@ -67,7 +67,7 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 			}
 			//If a match is found, remove
 			if(tempIndex != -1){
-				RemoveRoomListings.RemoveAt(tempIndex);
+				roomListings.RemoveAt(tempIndex);
 				Destroy(roomsPanel.GetChild(tempIndex).gameObject);
 			}
 			//If match is not found, add current room to room listings
@@ -79,10 +79,10 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 	}
 
 	//Predicate function that accesses a more complex class in a simple way
-	static System.Predicate<RoomInfo< ByName(string name){
+	static System.Predicate<RoomInfo> ByName(string name){
 		return delegate(RoomInfo room){
 			return room.Name == name;
-		}
+		};
 	}
 
 	void RemoveRoomListings(){
