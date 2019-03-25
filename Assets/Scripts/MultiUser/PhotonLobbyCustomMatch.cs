@@ -19,6 +19,8 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 	public TextMeshProUGUI StatusLabel;
 	public TextMeshProUGUI regionLabel;
 
+	public List<RoomInfo> roomListings;
+
 
 	private void Awake()
 	{
@@ -33,6 +35,7 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 		StatusLabel.text = ("Connecting...");
 		//Ensures the game object isn't destroyed when opening a new scene
         DontDestroyOnLoad(this.gameObject);
+		roomListings = new List<RoomInfo>();
 	}
 	
 	//Callback function
@@ -50,15 +53,44 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
 	public override void OnRoomListUpdate(List<RoomInfo> roomList){
 		base.OnRoomListUpdate(roomList);
-		RemoveRoomListings();
+		// RemoveRoomListings();
+		int tempIndex;
 		foreach(RoomInfo room in roomList){
-			ListRoom(room);
+			if(roomListings != null){
+			//Check to see if current room already exists within the list
+				//Return index through predicate function
+				tempIndex = roomListings.FindIndex(ByName(room.Name));
+			}
+			//If not found, return -1
+			else{
+				tempIndex = -1;
+			}
+			//If a match is found, remove
+			if(tempIndex != -1){
+				RemoveRoomListings.RemoveAt(tempIndex);
+				Destroy(roomsPanel.GetChild(tempIndex).gameObject);
+			}
+			//If match is not found, add current room to room listings
+			else{
+				roomListings.Add(room);
+				ListRoom(room);
+			}
+		}
+	}
+
+	//Predicate function that accesses a more complex class in a simple way
+	static System.Predicate<RoomInfo< ByName(string name){
+		return delegate(RoomInfo room){
+			return room.Name == name;
 		}
 	}
 
 	void RemoveRoomListings(){
+		int i = 0;
 		while(roomsPanel.childCount !=0){
-			Destroy(roomsPanel.GetChild(0).gameObject);
+			//Iterates through room listings and removes
+			Destroy(roomsPanel.GetChild(i).gameObject);
+			i++;
 		}
 	}
 
