@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PhotonRoomCustomMatch : MonoBehaviourPunCallbacks, IInRoomCallbacks
 {
@@ -30,17 +31,23 @@ public class PhotonRoomCustomMatch : MonoBehaviourPunCallbacks, IInRoomCallbacks
     private float atMaxUsers;
     private float timeToStart;
 
+    public GameObject lobbyGO;
+    public GameObject roomGO;
+    public Transform usersPanel;
+    public GameObject userListingPrefab;
+    public GameObject startButton;
+
     private void Awake(){
-        if(PhotonRoom.room == null)
+        if(PhotonRoomCustomMatch.room == null)
         {
-            PhotonRoom.room = this;
+            PhotonRoomCustomMatch.room = this;
         }
         else
         {
             //Replace with new instance if non-matching
-            if(PhotonRoom.room != this){
-                Destroy(PhotonRoom.room.gameObject);
-                PhotonRoom.room = this;
+            if(PhotonRoomCustomMatch.room != this){
+                Destroy(PhotonRoomCustomMatch.room.gameObject);
+                PhotonRoomCustomMatch.room = this;
             }
         }
         DontDestroyOnLoad(this.gameObject);
@@ -99,12 +106,22 @@ public class PhotonRoomCustomMatch : MonoBehaviourPunCallbacks, IInRoomCallbacks
 	public override void OnJoinedRoom(){
 		base.OnJoinedRoom();
         Debug.Log("You are now in a room.");
+
+        lobbyGO.SetActive(false);
+        roomGO.SetActive(true);
+        if(PhotonNetwork.IsMasterClient){
+            startButton.SetActive(true);
+        }
+
+        ClearUserListings();
+        ListUsers();
+
         //Get list of users in room
         photonUsers = PhotonNetwork.PlayerList;
         usersInRoom = photonUsers.Length;
         myNumberInRoom = usersInRoom;
-        //Set my nickname based on number
-        PhotonNetwork.NickName = myNumberInRoom.ToString();
+
+        //For Delay Start Only
         if(MultiUserSettings.multiUserSettings.delayStart){
             Debug.Log("Displaying users in room out of max users possible (" + usersInRoom + ":" + MultiUserSettings.multiUserSettings.maxUsers + ")");
             if(usersInRoom > 1){
@@ -120,11 +137,28 @@ public class PhotonRoomCustomMatch : MonoBehaviourPunCallbacks, IInRoomCallbacks
                 PhotonNetwork.CurrentRoom.IsOpen = false;
             }
         }
-        else
-        {
-            StartSim();
-        }
+        //for non delay start
+        // else
+        // {
+        //     StartSim();
+        // }
 	}
+
+    void ClearUserListings(){
+        //Remove each user from panel starting from the end
+        for(int i = usersPanel.childCount -1; i>= 0; i--){
+            Destroy(usersPanel.GetChild(i).gameObject);
+        }
+    }
+
+    void ListUsers(){
+        foreach(Player user in PhotonNetwork.PlayerList){
+            GameObject tempListing = Instantiate(userListingPrefab, usersPanel);
+            TextMeshProUGUI tempText = tempListing.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            tempText.text = user.NickName;
+        }
+    }
+
 
     public override void OnPlayerEnteredRoom(Player newUser){
         base.OnPlayerEnteredRoom(newUser);
@@ -133,6 +167,9 @@ public class PhotonRoomCustomMatch : MonoBehaviourPunCallbacks, IInRoomCallbacks
         usersInRoom++;
         if(MultiUserSettings.multiUserSettings.delayStart){
             Debug.Log("Displaying users in room out of max users possible (" + usersInRoom + ":" + MultiUserSettings.multiUserSettings.maxUsers + ")");
+            ClearUserListings();
+            ListUsers();
+
             if(usersInRoom > 1)
             {
                 readyToCount = true;
@@ -150,7 +187,7 @@ public class PhotonRoomCustomMatch : MonoBehaviourPunCallbacks, IInRoomCallbacks
     }
 
     //Start Simulation Function
-    void StartSim()
+    public void StartSim()
     {
         isSimLoaded = true;
         if (!PhotonNetwork.IsMasterClient){
@@ -197,5 +234,13 @@ public class PhotonRoomCustomMatch : MonoBehaviourPunCallbacks, IInRoomCallbacks
     [PunRPC]
     private void RPC_CreateUser(){
         PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonNetworkUser"), transform.position, Quaternion.identity, 0);
+    }
+
+    public override void OnPlayerLeftRoom(Player otherUser){
+        base.OnPlayerLeftRoom(otherUser);
+        Debug.Log(otherUser.NickName + " has left the sim");
+        usersInRoom--;
+        ClearUserListings();
+        ListUsers();
     }
 }

@@ -40,6 +40,9 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 		Debug.Log("User has connected to the Photon master server.");
 		StatusLabel.text = ("This device has connected to the Photon master server.");
 
+        //Set my nickname based on number
+        PhotonNetwork.NickName = "User" + Random.Range(0, 1000);
+
 		//When the master client loads a scene, all the other users connected
 		//    to the master client will also load that scene.
 		PhotonNetwork.AutomaticallySyncScene = true;

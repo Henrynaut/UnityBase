@@ -198,4 +198,11 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     private void RPC_CreateUser(){
         PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonNetworkUser"), transform.position, Quaternion.identity, 0);
     }
+
+    public override void OnPlayerLeftRoom(Player otherUser){
+        base.OnPlayerLeftRoom(otherUser);
+        Debug.Log(otherUser.NickName + " has left the sim");
+        usersInRoom--;
+    }
+
 }
