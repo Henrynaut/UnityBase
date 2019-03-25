@@ -137,11 +137,6 @@ public class PhotonRoomCustomMatch : MonoBehaviourPunCallbacks, IInRoomCallbacks
                 PhotonNetwork.CurrentRoom.IsOpen = false;
             }
         }
-        //for non delay start
-        // else
-        // {
-        //     StartSim();
-        // }
 	}
 
     void ClearUserListings(){
@@ -152,10 +147,12 @@ public class PhotonRoomCustomMatch : MonoBehaviourPunCallbacks, IInRoomCallbacks
     }
 
     void ListUsers(){
-        foreach(Player user in PhotonNetwork.PlayerList){
-            GameObject tempListing = Instantiate(userListingPrefab, usersPanel);
-            TextMeshProUGUI tempText = tempListing.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-            tempText.text = user.NickName;
+        if(PhotonNetwork.InRoom){
+            foreach(Player user in PhotonNetwork.PlayerList){
+                GameObject tempListing = Instantiate(userListingPrefab, usersPanel);
+                TextMeshProUGUI tempText = tempListing.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+                tempText.text = user.NickName;
+            }
         }
     }
 
@@ -163,12 +160,13 @@ public class PhotonRoomCustomMatch : MonoBehaviourPunCallbacks, IInRoomCallbacks
     public override void OnPlayerEnteredRoom(Player newUser){
         base.OnPlayerEnteredRoom(newUser);
         Debug.Log("A new user has joined the room");
+        //Clear old Listings and List New Users
+        ClearUserListings();
+        ListUsers();
         photonUsers = PhotonNetwork.PlayerList;
         usersInRoom++;
         if(MultiUserSettings.multiUserSettings.delayStart){
             Debug.Log("Displaying users in room out of max users possible (" + usersInRoom + ":" + MultiUserSettings.multiUserSettings.maxUsers + ")");
-            ClearUserListings();
-            ListUsers();
 
             if(usersInRoom > 1)
             {
