@@ -140,7 +140,7 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 		usernameString = usernameIn;
 		//Set user NickName based on usernameString
         PhotonNetwork.NickName = usernameString;
-		ChangeTitle(usernameString);
+		// ChangeTitle(usernameString);
 	}
 	public void JoinLobbyonClick(){
 		if(!PhotonNetwork.InLobby){
@@ -148,15 +148,15 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 		}
 	}
 
-	//---Windows only section Start---
+	// //---Windows only section Start---
 
-	public void ChangeTitle(string newTitle)
-	{
-		//Make sure Multiuser Moon Base is the current name
-		var windowPtr = FindWindow(null, "Multiuser Moon Base");
-		//Set the title text using the window handle.
-		SetWindowText(windowPtr, "Moon Base " + newTitle);
-	}
+	// public void ChangeTitle(string newTitle)
+	// {
+	// 	//Make sure Multiuser Moon Base is the current name
+	// 	var windowPtr = FindWindow(null, "Multiuser Moon Base");
+	// 	//Set the title text using the window handle.
+	// 	SetWindowText(windowPtr, "Moon Base " + newTitle);
+	// }
 
-	//---Windows only section end---
+	// //---Windows only section end---
 }

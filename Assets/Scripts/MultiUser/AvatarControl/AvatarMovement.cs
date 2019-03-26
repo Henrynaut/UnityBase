@@ -98,7 +98,7 @@ public class AvatarMovement : MonoBehaviour
     void BasicRotation(){
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * rotationSpeed;
         transform.Rotate (new Vector3(0, mouseX, 0));
-        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * 2 * rotationSpeed;
+        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * 4 * rotationSpeed;
 
         //Rotate Pitch of Avatar Camera
         avatarCamera.transform.Rotate (new Vector3(-mouseY, 0, 0));

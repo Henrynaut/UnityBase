@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using TMPro;
 
 
@@ -39,13 +40,17 @@ public class AvatarInteraction : MonoBehaviour
         if(Physics.Raycast(rayOrigin.position, rayOrigin.TransformDirection(Vector3.forward), out hit, 1000)){
             Debug.DrawRay(rayOrigin.position, rayOrigin.TransformDirection(Vector3.forward) * hit.distance, Color.blue);
             Debug.Log("Did Hit");
-            if(hit.transform.tag == "Avatar"){
-                hit.transform.gameObject.GetComponent<AvatarSetup>().userOxygen -= avatarSetup.userEnergy;
-            }
+            // if(hit.transform.tag == "Avatar"){
+                // hit.transform.gameObject.GetComponent<AvatarSetup>().userOxygen -= avatarSetup.userEnergy;
+            // Spawn Banana at Raycast-Collider Intersection point with random rotation
+            // PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Random.rotation, 0);
+            PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Quaternion.identity, 0);
+            // }
         }
         else{
             Debug.DrawRay(rayOrigin.position, rayOrigin.TransformDirection(Vector3.forward) * 1000, Color.white);
             Debug.Log("Did Not Hit");
         }
     }
+
 }
