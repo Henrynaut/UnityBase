@@ -9,9 +9,10 @@ public float rollVelocity = 0.0f;
 public float pitchVelocity = 0.0f;
 public float yawVelocity = 0.0f;
 public float startingRotation = 0.0f;
-public GameObject AirlockButton;
-public GameObject LeftHand;
-public GameObject RightHand;
+// public GameObject LeftHand;
+// public GameObject RightHand;
+
+public ButtonMovement buttonMovement;
 
 public bool activateRotation = true;
 
@@ -22,22 +23,27 @@ public bool activateRotation = true;
 		pitchVelocity = 0.0f;
 		yawVelocity = 0.0f;
 		startingRotation = this.transform.rotation.eulerAngles.y;
+
+		//buttonMovement = GetComponent<ButtonMovement>();
 		
 	}
 	
 	// Update is called once per frame
 	// Add in details for changing velocity and acceleration as well
-	protected void Update () {
-		if(Input.GetMouseButtonDown(0)){
-			if(AirlockButton){
-			  yawVelocity = 1;
-			  }
-		    }
-	        //Debug.Log(this.transform.rotation.eulerAngles.y);
-			if(this.transform.rotation.eulerAngles.y >= (startingRotation +90)){
-				yawVelocity = 0;
-				Debug.Log("90 degrees");
+	protected void Update () 
+	{
+		Debug.Log(buttonMovement);
+		if(buttonMovement.yawFlag == true)
+		{
+			  yawVelocity = 10;
+				Debug.Log("yaw");
 		}
+	        //Debug.Log(this.transform.rotation.eulerAngles.y);
+		// if(this.transform.rotation.eulerAngles.y >= (startingRotation +90))
+		// {
+		// 		yawVelocity = 0;
+		// 		Debug.Log("90 degrees");
+		// }
 		if(activateRotation == true)
 		{
 		// rollVelocity
@@ -57,12 +63,5 @@ public bool activateRotation = true;
 		//Convert this yaw input into logic that controls turning of the wheels
 		yawVelocity = 0f;
 		} 
-		/* void onCollisionEnter(Collision collider){
-			if(collider.gameObject.name == "AirlockButton){
-				yawVelocity = 1;
-            //put in script on left & right hand objects
-			}
-		} 
-		*/
 	}
 }

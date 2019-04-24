@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Grab
   - AirlockButton
+  - PR_pointer
   layers:
   - Default
   - TransparentFX
