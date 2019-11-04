@@ -962,7 +962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af2272174122e4dab49557c10ea736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  View: {fileID: 0}
+  View: {fileID: 217924164}
   offsetAmount: 0
 --- !u!1 &254213451
 GameObject:
@@ -1562,7 +1562,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &509522284
 MonoBehaviour:
