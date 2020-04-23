@@ -12,6 +12,13 @@ ModelImporter:
     100012: Cube_010
     100014: Cube_016
     100016: //RootNode
+    100018: Circle.006
+    100020: Cube.001
+    100022: Cube.002
+    100024: Cube.003
+    100026: Cube.009
+    100028: Cube.010
+    100030: Cube.016
     400000: Circle_006
     400002: Cube
     400004: Cube_001
@@ -21,11 +28,22 @@ ModelImporter:
     400012: Cube_010
     400014: Cube_016
     400016: //RootNode
+    400018: Circle.006
+    400020: Cube.001
+    400022: Cube.002
+    400024: Cube.003
+    400026: Cube.009
+    400028: Cube.010
+    400030: Cube.016
     2100000: Material_005
     2100002: Material_004
     2100004: Material_003
     2100006: Material
     2100008: Material_001
+    2100010: Material.005
+    2100012: Material.004
+    2100014: Material.003
+    2100016: Material.001
     2300000: Circle_006
     2300002: Cube
     2300004: Cube_001
@@ -34,6 +52,13 @@ ModelImporter:
     2300010: Cube_009
     2300012: Cube_010
     2300014: Cube_016
+    2300016: Circle.006
+    2300018: Cube.001
+    2300020: Cube.002
+    2300022: Cube.003
+    2300024: Cube.009
+    2300026: Cube.010
+    2300028: Cube.016
     3300000: Circle_006
     3300002: Cube
     3300004: Cube_001
@@ -42,6 +67,13 @@ ModelImporter:
     3300010: Cube_009
     3300012: Cube_010
     3300014: Cube_016
+    3300016: Circle.006
+    3300018: Cube.001
+    3300020: Cube.002
+    3300022: Cube.003
+    3300024: Cube.009
+    3300026: Cube.010
+    3300028: Cube.016
     4300000: Circle_006
     4300002: Cube_010
     4300004: Cube_009
@@ -50,6 +82,13 @@ ModelImporter:
     4300010: Cube_002
     4300012: Cube_001
     4300014: Cube
+    4300016: Circle.006
+    4300018: Cube.010
+    4300020: Cube.009
+    4300022: Cube.016
+    4300024: Cube.003
+    4300026: Cube.002
+    4300028: Cube.001
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -111,6 +150,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -135,6 +175,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -149,7 +192,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

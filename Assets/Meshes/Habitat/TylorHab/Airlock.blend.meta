@@ -7,14 +7,25 @@ ModelImporter:
     100002: Armature
     100004: Bone
     100006: Cylinder
+    100008: Bone_end
+    100010: Camera
+    100012: Lamp
     400000: //RootNode
     400002: Armature
     400004: Bone
     400006: Cylinder
+    400008: Bone_end
+    400010: Camera
+    400012: Lamp
+    2000000: Camera
     2100000: unnamed
+    2100002: No Name
+    2300000: Cylinder
+    3300000: Cylinder
     4300000: Cylinder
     7400000: Default Take
     9500000: //RootNode
+    10800000: Lamp
     13700000: Cylinder
   externalObjects: {}
   materials:
@@ -50,6 +61,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -74,6 +86,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

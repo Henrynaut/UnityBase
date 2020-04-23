@@ -30,8 +30,8 @@ public class PhotonLobby : MonoBehaviourPunCallbacks {
 	
 	//Callback function
 	public override void OnConnectedToMaster(){ //I removed override, didn't need it
-		Debug.Log("User has connected to the Photon master server.");
-		StatusLabel.text = ("This device has connected to the Photon master server.");
+		Debug.Log("User has connected to the SUITS master server.");
+		StatusLabel.text = ("This device has connected to the SUITS master server.");
 
 		//When the master client loads a scene, all the other users connected
 		//    to the master client will also load that scene.
