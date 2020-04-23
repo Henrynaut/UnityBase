@@ -40,6 +40,11 @@ public class AvatarInteraction : MonoBehaviour
             PV.RPC("RPC_Laser_Arrow", RpcTarget.All);
             // energyText.text = "25 Wh";
         }
+
+        //Spawn Banana on Middle Click
+        if(Input.GetMouseButton(2))        {
+            PV.RPC("RPC_Laser_Object", RpcTarget.All);
+        }
     }
 
     [PunRPC]
@@ -47,7 +52,7 @@ public class AvatarInteraction : MonoBehaviour
         // Spawn chalk sphere in front of user
         PhotonNetwork.InstantiateSceneObject(
             Path.Combine("PhotonPrefabs", "Tele_Sphere"),
-            (rayOrigin.position + (Vector3.forward*2)),
+            (rayOrigin.position + (rayOrigin.TransformDirection(Vector3.forward)*2)),
             //No rotation
                 // Quaternion.identity, 0);
             //Random Z Rotation
@@ -67,6 +72,26 @@ public class AvatarInteraction : MonoBehaviour
             // PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Random.rotation, 0);
             // PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Quaternion.identity, 0);
             PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Tele_Arrow"), hit.point, Quaternion.identity, 0);
+            // }
+        }
+        else{
+            Debug.DrawRay(rayOrigin.position, rayOrigin.TransformDirection(Vector3.forward) * 1000, Color.white);
+            Debug.Log("Did Not Hit");
+        }
+    }
+
+    [PunRPC]
+    void RPC_Laser_Object() {
+        RaycastHit hit;
+        if(Physics.Raycast(rayOrigin.position, rayOrigin.TransformDirection(Vector3.forward), out hit, 1000)){
+            Debug.DrawRay(rayOrigin.position, rayOrigin.TransformDirection(Vector3.forward) * hit.distance, Color.blue);
+            Debug.Log("Did Hit");
+            // if(hit.transform.tag == "Avatar"){
+                // hit.transform.gameObject.GetComponent<AvatarSetup>().userOxygen -= avatarSetup.userEnergy;
+            // Spawn Banana at Raycast-Collider Intersection point with random rotation
+            // PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Random.rotation, 0);
+            // PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Quaternion.identity, 0);
+            PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Quaternion.identity, 0);
             // }
         }
         else{

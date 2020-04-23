@@ -38,5 +38,6 @@ MonoBehaviour:
   - RPC_LoadedSimScene
   - RPC_Laser_Arrow
   - RPC_Laser_Sphere
+  - RPC_Laser_Object
   DisableAutoOpenWizard: 1
   ShowSettings: 0
