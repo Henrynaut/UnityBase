@@ -28,14 +28,35 @@ public class AvatarInteraction : MonoBehaviour
         if(!PV.IsMine){
             return;
         }
+
+        //Spawn Transparent Sphere on Left Click
         if(Input.GetMouseButton(0))        {
-            PV.RPC("RPC_Laser", RpcTarget.All);
+            PV.RPC("RPC_Laser_Sphere", RpcTarget.All);
+            // energyText.text = "25 Wh";
+        }
+
+        //Spawn Arrow on Right Click
+        if(Input.GetMouseButton(1))        {
+            PV.RPC("RPC_Laser_Arrow", RpcTarget.All);
             // energyText.text = "25 Wh";
         }
     }
 
     [PunRPC]
-    void RPC_Laser() {
+    void RPC_Laser_Sphere() {
+        // Spawn chalk sphere in front of user
+        PhotonNetwork.InstantiateSceneObject(
+            Path.Combine("PhotonPrefabs", "Tele_Sphere"),
+            (rayOrigin.position + (Vector3.forward*2)),
+            //No rotation
+                // Quaternion.identity, 0);
+            //Random Z Rotation
+            Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)), 0);
+        Debug.Log("Drawing with Chalk");
+    }
+
+    [PunRPC]
+    void RPC_Laser_Arrow() {
         RaycastHit hit;
         if(Physics.Raycast(rayOrigin.position, rayOrigin.TransformDirection(Vector3.forward), out hit, 1000)){
             Debug.DrawRay(rayOrigin.position, rayOrigin.TransformDirection(Vector3.forward) * hit.distance, Color.blue);
@@ -44,7 +65,8 @@ public class AvatarInteraction : MonoBehaviour
                 // hit.transform.gameObject.GetComponent<AvatarSetup>().userOxygen -= avatarSetup.userEnergy;
             // Spawn Banana at Raycast-Collider Intersection point with random rotation
             // PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Random.rotation, 0);
-            PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Quaternion.identity, 0);
+            // PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Quaternion.identity, 0);
+            PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Tele_Arrow"), hit.point, Quaternion.identity, 0);
             // }
         }
         else{
