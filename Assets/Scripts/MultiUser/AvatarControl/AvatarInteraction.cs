@@ -12,6 +12,7 @@ public class AvatarInteraction : MonoBehaviour
     private PhotonView PV;
     private AvatarSetup avatarSetup;
     public Transform rayOrigin;
+    public int lastSplineID;
     // public TextMeshProUGUI energyText;
 
     // public TextMeshProUGUI energyDisplay;
@@ -21,6 +22,7 @@ public class AvatarInteraction : MonoBehaviour
     void Start() {
         PV = GetComponent<PhotonView>();
         avatarSetup = GetComponent<AvatarSetup>();
+        lastSplineID = 0;       //Initialize SplineID at 0
     }
 
     // Update is called once per frame
@@ -58,6 +60,31 @@ public class AvatarInteraction : MonoBehaviour
             //Random Z Rotation
             Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)), 0);
         Debug.Log("Drawing with Chalk");
+    }
+
+    void updateSplinePen(){
+        // Instead of having a different PhotonView for each
+        //     sphere, such as in the RPC_Laser_Sphere() function
+        //     I should have all of the spheres be a component
+        //     part of the networked user's PhotonView so
+        //     that I don't run out of PhotonView IDs
+        lastSplineID++;         //Increment lastSplineID by 1
+
+        if( PhotonNetwork.OfflineMode == true)
+        {
+            //SplineDraw() Offline Mode
+        }
+        else
+        {
+            //SplineDraw() RPC Online Mode
+            PhotonView.RPC( "SplineDraw"
+                          , PhotonTargets.all
+                          , new object[] { GetSplineSpawnPosition()
+                                         , Spline.rotation
+                                         , lastSplineID
+                                         }
+                          )
+        }
     }
 
     [PunRPC]
