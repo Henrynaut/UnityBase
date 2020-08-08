@@ -50,7 +50,7 @@ public class AvatarInteraction : MonoBehaviour
     [PunRPC]
     void RPC_Laser_Sphere() {
         // Spawn chalk sphere in front of user
-        PhotonNetwork.InstantiateSceneObject(
+        PhotonNetwork.Instantiate(
             Path.Combine("PhotonPrefabs", "Tele_Sphere"),
             (rayOrigin.position + (rayOrigin.TransformDirection(Vector3.forward)*2)),
             //No rotation
@@ -69,9 +69,9 @@ public class AvatarInteraction : MonoBehaviour
             // if(hit.transform.tag == "Avatar"){
                 // hit.transform.gameObject.GetComponent<AvatarSetup>().userOxygen -= avatarSetup.userEnergy;
             // Spawn Banana at Raycast-Collider Intersection point with random rotation
-            // PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Random.rotation, 0);
-            // PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Quaternion.identity, 0);
-            PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Tele_Arrow"), hit.point, Quaternion.identity, 0);
+            // PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Random.rotation, 0);
+            // PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Quaternion.identity, 0);
+            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Tele_Arrow"), hit.point, Quaternion.identity, 0);
             // }
         }
         else{
@@ -89,9 +89,9 @@ public class AvatarInteraction : MonoBehaviour
             // if(hit.transform.tag == "Avatar"){
                 // hit.transform.gameObject.GetComponent<AvatarSetup>().userOxygen -= avatarSetup.userEnergy;
             // Spawn Banana at Raycast-Collider Intersection point with random rotation
-            // PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Random.rotation, 0);
-            // PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Quaternion.identity, 0);
-            PhotonNetwork.InstantiateSceneObject(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Quaternion.identity, 0);
+            // PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Random.rotation, 0);
+            // PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Quaternion.identity, 0);
+            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Banana"), hit.point, Quaternion.identity, 0);
             // }
         }
         else{
