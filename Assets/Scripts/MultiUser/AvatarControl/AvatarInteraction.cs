@@ -13,6 +13,7 @@ public class AvatarInteraction : MonoBehaviour
     private AvatarSetup avatarSetup;
     public Transform rayOrigin;
     public int lastSplineID;
+    private GameObject Spline;
     // public TextMeshProUGUI energyText;
 
     // public TextMeshProUGUI energyDisplay;
@@ -73,6 +74,10 @@ public class AvatarInteraction : MonoBehaviour
         if( PhotonNetwork.OfflineMode == true)
         {
             //SplineDraw() Offline Mode
+            SplineDraw( GetSplineSpawnPosition()
+                      , Spline.rotation
+                      , lastSplineID
+                      , null  );
         }
         else
         {
@@ -83,8 +88,17 @@ public class AvatarInteraction : MonoBehaviour
                                          , Spline.rotation
                                          , lastSplineID
                                          }
-                          )
+                          );
         }
+    }
+
+    [PunRPC]
+    void SplineDraw(){
+
+    }
+
+    void GetSplineSpawnPosition(){
+
     }
 
     [PunRPC]
