@@ -13,7 +13,7 @@ using UnityEngine.UI;
 
 using Photon.Chat;
 using Photon.Realtime;
-
+using AuthenticationValues = Photon.Chat.AuthenticationValues;
 #if PHOTON_UNITY_NETWORKING
 using Photon.Pun;
 #endif
@@ -53,7 +53,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
     #if !PHOTON_UNITY_NETWORKING
     [SerializeField]
     #endif
-    protected internal AppSettings chatAppSettings;
+    protected internal ChatAppSettings chatAppSettings;
 
 
     public GameObject missingAppIdErrorPanel;
@@ -79,7 +79,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 
 	// private static string WelcomeText = "Welcome to chat. Type \\help to list commands.";
 	private static string HelpText = "\n    -- HELP --\n" +
-		"To subscribe to channel(s):\n" +
+		"To subscribe to channel(s) (channelnames are case sensitive) :  \n" +
 			"\t<color=#E07B00>\\subscribe</color> <color=green><list of channelnames></color>\n" +
 			"\tor\n" +
 			"\t<color=#E07B00>\\s</color> <color=green><list of channelnames></color>\n" +
@@ -94,7 +94,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 			"\tor\n" +
 			"\t<color=#E07B00>\\j</color> <color=green><channelname></color>\n" +
 			"\n" +
-			"To send a private message:\n" +
+			"To send a private message: (username are case sensitive)\n" +
 			"\t\\<color=#E07B00>msg</color> <color=green><username></color> <color=green><message></color>\n" +
 			"\n" +
 			"To change status:\n" +
@@ -115,7 +115,6 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 	{
 		DontDestroyOnLoad(this.gameObject);
 
-
 	    this.UserIdText.text = "";
 	    this.StateText.text  = "";
 	    this.StateText.gameObject.SetActive(true);
@@ -130,10 +129,10 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 		}
 
         #if PHOTON_UNITY_NETWORKING
-        this.chatAppSettings = PhotonNetwork.PhotonServerSettings.AppSettings;
+        this.chatAppSettings = PhotonNetwork.PhotonServerSettings.AppSettings.GetChatSettings();
         #endif
 
-        bool appIdPresent = !string.IsNullOrEmpty(this.chatAppSettings.AppIdChat);
+        bool appIdPresent = !string.IsNullOrEmpty(this.chatAppSettings.AppId);
 
 	    this.missingAppIdErrorPanel.SetActive(!appIdPresent);
 		this.UserIdFormPanel.gameObject.SetActive(appIdPresent);
@@ -152,8 +151,8 @@ public class ChatGui : MonoBehaviour, IChatClientListener
         #if !UNITY_WEBGL
         this.chatClient.UseBackgroundWorkerForSending = true;
         #endif
-
-		this.chatClient.Connect(this.chatAppSettings.AppIdChat, "1.0", new Photon.Chat.AuthenticationValues(this.UserName));
+        this.chatClient.AuthValues = new AuthenticationValues(this.UserName);
+		this.chatClient.ConnectUsingSettings(this.chatAppSettings);
 
 		this.ChannelToggleToInstantiate.gameObject.SetActive(false);
 		Debug.Log("Connecting as: " + this.UserName);
@@ -453,7 +452,13 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 	    this.ShowChannel(channels[0]);
 	}
 
-	private void InstantiateChannelButton(string channelName)
+    /// <inheritdoc />
+    public void OnSubscribed(string channel, string[] users, Dictionary<object, object> properties)
+    {
+        Debug.LogFormat("OnSubscribed: {0}, users.Count: {1} Channel-props: {2}.", channel, users.Length, properties.ToStringFull());
+    }
+
+    private void InstantiateChannelButton(string channelName)
 	{
 		if (this.channelToggles.ContainsKey(channelName))
 		{
@@ -568,6 +573,23 @@ public class ChatGui : MonoBehaviour, IChatClientListener
     public void OnUserUnsubscribed(string channel, string user)
     {
         Debug.LogFormat("OnUserUnsubscribed: channel=\"{0}\" userId=\"{1}\"", channel, user);
+    }
+
+    /// <inheritdoc />
+    public void OnChannelPropertiesChanged(string channel, string userId, Dictionary<object, object> properties)
+    {
+        Debug.LogFormat("OnChannelPropertiesChanged: {0} by {1}. Props: {2}.", channel, userId, Extensions.ToStringFull(properties));
+    }
+
+    public void OnUserPropertiesChanged(string channel, string targetUserId, string senderUserId, Dictionary<object, object> properties)
+    {
+        Debug.LogFormat("OnUserPropertiesChanged: (channel:{0} user:{1}) by {2}. Props: {3}.", channel, targetUserId, senderUserId, Extensions.ToStringFull(properties));
+    }
+
+    /// <inheritdoc />
+    public void OnErrorInfo(string channel, string error, object data)
+    {
+        Debug.LogFormat("OnErrorInfo for channel {0}. Error: {1} Data: {2}", channel, error, data);
     }
 
     public void AddMessageToSelectedChannel(string msg)

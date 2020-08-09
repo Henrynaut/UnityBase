@@ -27,10 +27,10 @@ namespace Photon.Chat
     public class ChatPeer : PhotonPeer
     {
         /// <summary>Name Server Host Name for Photon Cloud. Without port and without any prefix.</summary>
-        public const string NameServerHost = "ns.exitgames.com";
+        public string NameServerHost = "ns.exitgames.com";
 
         /// <summary>Name Server for HTTP connections to the Photon Cloud. Includes prefix and port.</summary>
-        public const string NameServerHttp = "http://ns.exitgamescloud.com:80/photon/n";
+        public string NameServerHttp = "http://ns.exitgamescloud.com:80/photon/n";
 
         /// <summary>Name Server port per protocol (the UDP port is different than TCP, etc).</summary>
         private static readonly Dictionary<ConnectionProtocol, int> ProtocolToNameServerPort = new Dictionary<ConnectionProtocol, int>() { { ConnectionProtocol.Udp, 5058 }, { ConnectionProtocol.Tcp, 4533 }, { ConnectionProtocol.WebSocket, 9093 }, { ConnectionProtocol.WebSocketSecure, 19093 } }; //, { ConnectionProtocol.RHttp, 6063 } };
@@ -56,18 +56,18 @@ namespace Photon.Chat
         {
             Type websocketType = null;
             #if UNITY_XBOXONE && !UNITY_EDITOR
-            websocketType = Type.GetType("ExitGames.Client.Photon.SocketWebTcpNativeDynamic, PhotonWebSocket", false);
+            websocketType = Type.GetType("ExitGames.Client.Photon.SocketNativeSource, PhotonWebSocket", false);
             if (websocketType == null)
             {
-                websocketType = Type.GetType("ExitGames.Client.Photon.SocketWebTcpNativeDynamic, Assembly-CSharp-firstpass", false);
+                websocketType = Type.GetType("ExitGames.Client.Photon.SocketNativeSource, Assembly-CSharp-firstpass", false);
             }
             if (websocketType == null)
             {
-                websocketType = Type.GetType("ExitGames.Client.Photon.SocketWebTcpNativeDynamic, Assembly-CSharp", false);
+                websocketType = Type.GetType("ExitGames.Client.Photon.SocketNativeSource, Assembly-CSharp", false);
             }
             if (websocketType == null)
             {
-                UnityEngine.Debug.LogError("UNITY_XBOXONE is defined but peer could not find SocketWebTcpNativeDynamic. Check your project files to make sure the native WSS implementation is available. Won't connect.");
+                UnityEngine.Debug.LogError("UNITY_XBOXONE is defined but peer could not find SocketNativeSource. Check your project files to make sure the native WSS implementation is available. Won't connect.");
             }
             #else
             // to support WebGL export in Unity, we find and assign the SocketWebTcp class (if it's in the project).
@@ -157,7 +157,7 @@ namespace Photon.Chat
                     opParameters[ParameterCode.UserId] = authValues.UserId;
                 }
 
-                if (authValues != null && authValues.AuthType != CustomAuthenticationType.None)
+                if (authValues.AuthType != CustomAuthenticationType.None)
                 {
                     opParameters[ParameterCode.ClientAuthenticationType] = (byte) authValues.AuthType;
                     if (!string.IsNullOrEmpty(authValues.Token))
@@ -205,7 +205,7 @@ namespace Photon.Chat
         /// <summary>Authenticates users by their Xbox Account and XSTS token.</summary>
         Xbox = 5,
 
-        /// <summary>Authenticates users by their HTC Viveport Account and user token.</summary>
+        /// <summary>Authenticates users by their HTC VIVEPORT Account and user token.</summary>
         Viveport = 10,
 
         /// <summary>Disables custom authentification. Same as not providing any AuthenticationValues for connect (more precisely for: OpAuthenticate).</summary>
@@ -291,7 +291,7 @@ namespace Photon.Chat
         /// <param name="value">Some value relevant for Custom Authentication.</param>
         public virtual void AddAuthParameter(string key, string value)
         {
-            string ampersand = string.IsNullOrEmpty(this.AuthGetParameters) ? "" : "&";
+            string ampersand = string.IsNullOrEmpty(this.AuthGetParameters) ? string.Empty : "&";
             this.AuthGetParameters = string.Format("{0}{1}{2}={3}", this.AuthGetParameters, ampersand, System.Uri.EscapeDataString(key), System.Uri.EscapeDataString(value));
         }
         /// <summary>
@@ -373,13 +373,13 @@ namespace Photon.Chat
         /// <summary>(32761) Not in use currently.</summary>
         public const int UserBlocked = 0x7FFF - 6;
 
-        /// <summary>(32760) Random matchmaking only succeeds if a room exists thats neither closed nor full. Repeat in a few seconds or create a new room.</summary>
+        /// <summary>(32760) Random matchmaking only succeeds if a room exists that is neither closed nor full. Repeat in a few seconds or create a new room.</summary>
         public const int NoRandomMatchFound = 0x7FFF - 7;
 
         /// <summary>(32758) Join can fail if the room (name) is not existing (anymore). This can happen when players leave while you join.</summary>
         public const int GameDoesNotExist = 0x7FFF - 9;
 
-        /// <summary>(32757) Authorization on the Photon Cloud failed becaus the concurrent users (CCU) limit of the app's subscription is reached.</summary>
+        /// <summary>(32757) Authorization on the Photon Cloud failed because the concurrent users (CCU) limit of the app's subscription is reached.</summary>
         /// <remarks>
         /// Unless you have a plan with "CCU Burst", clients might fail the authentication step during connect.
         /// Affected client are unable to call operations. Please note that players who end a game and return
@@ -407,6 +407,9 @@ namespace Photon.Chat
         /// (32755) Custom Authentication of the user failed due to setup reasons (see Cloud Dashboard) or the provided user data (like username or token). Check error message for details.
         /// </summary>
         public const int CustomAuthenticationFailed = 0x7FFF - 12;
+
+        /// <summary>(32753) The Authentication ticket expired. Usually, this is refreshed behind the scenes. Connect (and authorize) again.</summary>
+        public const int AuthenticationTicketExpired = 0x7FF1;
     }
 
 }
