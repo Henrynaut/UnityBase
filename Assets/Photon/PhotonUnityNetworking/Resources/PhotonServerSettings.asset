@@ -39,5 +39,6 @@ MonoBehaviour:
   - RPC_Laser_Arrow
   - RPC_Laser_Sphere
   - RPC_Laser_Object
+  - SplineDraw
   DisableAutoOpenWizard: 1
   ShowSettings: 1

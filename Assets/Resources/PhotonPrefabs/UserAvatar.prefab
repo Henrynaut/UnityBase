@@ -203,8 +203,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23baf138b5100548b079550d136e094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PV: {fileID: 0}
   rayOrigin: {fileID: 803}
+  lastSplineID: 0
+  splinePrefab: {fileID: 8242434187546674006, guid: c89225d47b633134ba3b1bb56514e59b,
+    type: 3}
 --- !u!1 &301
 GameObject:
   m_ObjectHideFlags: 0
