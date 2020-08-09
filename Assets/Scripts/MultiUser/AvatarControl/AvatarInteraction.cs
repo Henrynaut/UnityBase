@@ -15,6 +15,8 @@ public class AvatarInteraction : MonoBehaviour
     public int lastSplineID;
     public GameObject splinePrefab;
     public PhotonMessageInfo Info;
+    private GameObject currentSpline;
+    private objectID objectID;
     // public TextMeshProUGUI energyText;
 
     // public TextMeshProUGUI energyDisplay;
@@ -51,14 +53,18 @@ public class AvatarInteraction : MonoBehaviour
         }
     }
 
+    //RPC call to draw a spline sphere point
     [PunRPC]
     void SplineDraw( Vector3 position, Quaternion rotation, int SplineID, PhotonMessageInfo info )
     {
         double timestamp = PhotonNetwork.Time;
         timestamp = info.SentServerTime;
         //Spawn Spline sphere
-        Instantiate(splinePrefab, position, rotation);
+        currentSpline = Instantiate(splinePrefab, position, rotation);
         Debug.Log(SplineID);
+        //Get objectID component from spline sphere and assign lastSplineID
+        objectID = currentSpline.GetComponent(typeof(objectID)) as objectID;
+        objectID.ID = SplineID;
     }
 
     void updateSplinePen(){
