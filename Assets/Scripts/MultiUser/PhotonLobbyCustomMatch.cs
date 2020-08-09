@@ -119,6 +119,8 @@ public class PhotonLobbyCustomMatch : MonoBehaviourPunCallbacks, ILobbyCallbacks
 		roomLabel.text = ("Room ID: " + roomName);
 		RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)roomSize };
 		PhotonNetwork.CreateRoom(roomName, roomOps);
+		Debug.Log("Room " + roomName + " created.");
+		StatusLabel.text = ("Room " + roomName + " created.");
 	}
 
 	public override void OnCreateRoomFailed(short returnCode, string message){
