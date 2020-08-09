@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 1520}
   - component: {fileID: 1468}
   - component: {fileID: 1522}
-  - component: {fileID: 6398227314618876423}
   m_Layer: 0
   m_Name: UserAvatar
   m_TagString: Avatar
@@ -106,7 +105,6 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  observableSearch: 0
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
@@ -209,25 +207,6 @@ MonoBehaviour:
   lastSplineID: 0
   splinePrefab: {fileID: 8242434187546674006, guid: c89225d47b633134ba3b1bb56514e59b,
     type: 3}
---- !u!114 &6398227314618876423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 126494ae2a10a34499272ed97a6c9f5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  logLevel: 3
-  ignoreGlobalLogLevel: 0
-  recorderInUse: {fileID: 0}
-  speakerInUse: {fileID: 0}
-  AutoCreateRecorderIfNotFound: 0
-  UsePrimaryRecorder: 1
-  SetupDebugSpeaker: 1
 --- !u!1 &301
 GameObject:
   m_ObjectHideFlags: 0
