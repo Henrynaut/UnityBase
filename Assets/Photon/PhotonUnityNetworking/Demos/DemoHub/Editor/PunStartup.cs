@@ -96,11 +96,11 @@ public class PunStartup : MonoBehaviour
 
 		_thisPath = Application.dataPath + _thisPath.Substring (6); // remove "Assets/"
 
-		//_PunPath = PhotonEditorUtils.GetParent(_thisPath,"Photon");
+		_PunPath = PhotonEditorUtils.GetParent(_thisPath,"Photon");
 
-		if (string.IsNullOrEmpty(_PunPath))
+		if (_PunPath == null)
 		{
-			_PunPath = Application.dataPath+"/Photon";
+			_PunPath = Application.dataPath+"Photon";
 		}
 
 		// find path of pun guide

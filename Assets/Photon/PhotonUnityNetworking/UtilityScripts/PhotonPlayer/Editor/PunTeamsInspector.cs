@@ -8,7 +8,6 @@
 // <author>developer@exitgames.com</author>
 // --------------------------------------------------------------------------------------------------------------------
 
-
 using System;
 using UnityEngine;
 using System.Collections;
@@ -20,7 +19,6 @@ using Photon.Realtime;
 
 namespace Photon.Pun.UtilityScripts
 {
-#pragma warning disable 0618
 	[CustomEditor(typeof(PunTeams))]
 	public class PunTeamsInspector : Editor {
 
@@ -38,7 +36,6 @@ namespace Photon.Pun.UtilityScripts
 			{
 				foreach (KeyValuePair<PunTeams.Team,List<Player>> _pair in PunTeams.PlayersPerTeam)
 				{	
-#pragma warning restore 0618
 					if (!_Foldouts.ContainsKey(_pair.Key))
 					{
 						_Foldouts[_pair.Key] = true;
@@ -61,4 +58,3 @@ namespace Photon.Pun.UtilityScripts
 		}
 	}
 }
-

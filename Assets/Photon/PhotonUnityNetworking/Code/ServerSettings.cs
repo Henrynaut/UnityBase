@@ -29,9 +29,8 @@ namespace Photon.Pun
         [Tooltip("Core Photon Server/Cloud settings.")]
         public AppSettings AppSettings;
 
-        /// <summary>Region that will be used by the Editor and Development Builds. This ensures all users will be in the same region for testing.</summary>
-        [Tooltip("Developer build override for Best Region.")]
-        public string DevRegion;
+        [Tooltip("Simulates an online connection.\nPUN can be used as usual.")]
+        public bool StartInOfflineMode;
 
         [Tooltip("Log output by PUN.")]
         public PunLogLevel PunLogging = PunLogLevel.ErrorsOnly;
@@ -42,16 +41,14 @@ namespace Photon.Pun
         [Tooltip("Enables apps to keep the connection without focus.")]
         public bool RunInBackground = true;
 
-        [Tooltip("Simulates an online connection.\nPUN can be used as usual.")]
-        public bool StartInOfflineMode;
-
         [Tooltip("RPC name list.\nUsed as shortcut when sending calls.")]
         public List<string> RpcList = new List<string>();   // set by scripts and or via Inspector
 
         #if UNITY_EDITOR
+        [HideInInspector]
         public bool DisableAutoOpenWizard;
+        [HideInInspector]
         public bool ShowSettings;
-        public bool DevRegionSetOnce;
         #endif
 
         /// <summary>Sets appid and region code in the AppSettings. Used in Editor.</summary>
@@ -60,6 +57,7 @@ namespace Photon.Pun
             this.AppSettings.AppIdRealtime = cloudAppid;
             this.AppSettings.Server = null;
             this.AppSettings.FixedRegion = string.IsNullOrEmpty(code) ? null : code;
+            Debug.Log("this.AppSettings.IsBestRegion: " + this.AppSettings.IsBestRegion);
         }
 
         /// <summary>Checks if a string is a Guid by attempting to create one.</summary>

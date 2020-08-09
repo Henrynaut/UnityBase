@@ -33,7 +33,7 @@ namespace Photon.Chat
         /// <summary>Name of the channel (used to subscribe and unsubscribe).</summary>
         public readonly string Name;
 
-        /// <summary>Senders of messages in chronological order. Senders and Messages refer to each other by index. Senders[x] is the sender of Messages[x].</summary>
+        /// <summary>Senders of messages in chronoligical order. Senders and Messages refer to each other by index. Senders[x] is the sender of Messages[x].</summary>
         public readonly List<string> Senders = new List<string>();
 
         /// <summary>Messages in chronological order. Senders and Messages refer to each other by index. Senders[x] is the sender of Messages[x].</summary>
@@ -42,11 +42,8 @@ namespace Photon.Chat
         /// <summary>If greater than 0, this channel will limit the number of messages, that it caches locally.</summary>
         public int MessageLimit;
 
-        /// <summary>Unique channel ID.</summary>
-        public int ChannelID;
-
         /// <summary>Is this a private 1:1 channel?</summary>
-        public bool IsPrivate { get; protected internal set; }
+        public bool IsPrivate { get; internal protected set; }
 
         /// <summary>Count of messages this client still buffers/knows for this channel.</summary>
         public int MessageCount { get { return this.Messages.Count; } }
@@ -72,7 +69,7 @@ namespace Photon.Chat
         {
             this.Name = name;
         }
-        
+
         /// <summary>Used internally to add messages to this channel.</summary>
         public void Add(string sender, object message, int msgId)
         {
@@ -123,7 +120,7 @@ namespace Photon.Chat
             return txt.ToString();
         }
 
-        internal void ReadChannelProperties(Dictionary<object, object> newProperties)
+        internal void ReadProperties(Dictionary<object, object> newProperties)
         {
             if (newProperties != null && newProperties.Count > 0)
             {
@@ -131,27 +128,44 @@ namespace Photon.Chat
                 {
                     this.properties = new Dictionary<object, object>(newProperties.Count);
                 }
-                foreach (var pair in newProperties)
+                foreach (var k in newProperties.Keys)
                 {
-                    if (pair.Value == null)
+                    if (newProperties[k] == null)
                     {
-                        this.properties.Remove(pair.Key);
+                        if (this.properties.ContainsKey(k))
+                        {
+                            this.properties.Remove(k);
+                        }
                     }
                     else
                     {
-                        this.properties[pair.Key] = pair.Value;
+                        this.properties[k] = newProperties[k];
                     }
                 }
                 object temp;
-                if (this.properties.TryGetValue(ChannelWellKnownProperties.PublishSubscribers, out temp))
+                if (this.properties.ContainsKey(ChannelWellKnownProperties.PublishSubscribers))
                 {
-                    this.PublishSubscribers = (bool)temp;
+                    temp = this.properties[ChannelWellKnownProperties.PublishSubscribers];
+                    this.PublishSubscribers = temp != null && (bool)temp;
                 }
-                if (this.properties.TryGetValue(ChannelWellKnownProperties.MaxSubscribers, out temp))
+                if (this.properties.ContainsKey(ChannelWellKnownProperties.MaxSubscribers))
                 {
-                    this.MaxSubscribers = (int)temp;
+                    temp = this.properties[ChannelWellKnownProperties.MaxSubscribers];
+                    if (temp == null)
+                    {
+                        this.MaxSubscribers = 0;
+                    }
+                    else
+                    {
+                        this.MaxSubscribers = (int)temp;
+                    }
                 }
             }
+        }
+
+        internal bool TryAddSubscriber(string user)
+        {
+            return !string.IsNullOrEmpty(user) && !this.Subscribers.Contains(user) && this.Subscribers.Add(user);
         }
 
         internal void AddSubscribers(string[] users)
@@ -162,32 +176,8 @@ namespace Photon.Chat
             }
             for (int i = 0; i < users.Length; i++)
             {
-                this.Subscribers.Add(users[i]);
+                this.TryAddSubscriber(users[i]);
             }
         }
-
-        #if CHAT_EXTENDED
-        internal void ReadUserProperties(string userId, Dictionary<object, object> changedProperties)
-        {
-            throw new System.NotImplementedException();
-        }
-        
-        internal bool TryGetChannelProperty<T>(object propertyKey, out T propertyValue)
-        {
-            propertyValue = default(T);
-            object temp;
-            if (properties != null && properties.TryGetValue(propertyKey, out temp) && temp is T)
-            {
-                propertyValue = (T)temp;
-                return true;
-            }
-            return false;
-        }
-
-        public bool TryGetCustomChannelProperty<T>(string propertyKey, out T propertyValue)
-        {
-            return this.TryGetChannelProperty(propertyKey, out propertyValue);
-        }
-        #endif
     }
 }

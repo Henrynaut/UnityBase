@@ -8,7 +8,6 @@
 // <author>developer@exitgames.com</author>
 // --------------------------------------------------------------------------------------------------------------------
 
-
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,9 +15,9 @@ using UnityEngine.UI;
 using UnityEditor;
 #endif
 
-
 namespace Photon.Pun.Demo.SlotRacer
 {
+
     /// <summary>
     /// Slot racer splash screen. Inform about the slotRacer demo and the Cockpit control setup
     /// Gets deleted as soon as the scene plays
@@ -26,69 +25,66 @@ namespace Photon.Pun.Demo.SlotRacer
     [ExecuteInEditMode]
     public class SlotRacerSplashScreen : MonoBehaviour
     {
-        private string PunCockpit_scene = "PunCockpit-Scene";
+
+        string PunCockpit_scene = "PunCockpit-Scene";
 
         public Text WarningText;
         public GameObject SplashScreen;
 
-        private void Start()
+        void Start()
         {
+
             if (Application.isPlaying)
             {
-                Destroy(this.SplashScreen);
+                Destroy(SplashScreen);
                 Destroy(this);
             }
         }
 
         public void Update()
         {
-            #if UNITY_EDITOR
-            if (!Application.isPlaying)
-            {
-                if (this.WarningText == null)
-                {
-                    return;
-                }
+#if UNITY_EDITOR
+		if (!Application.isPlaying) {
 
-                bool _found = false;
-                bool _enabled = false;
+			if (WarningText==null)
+			{
+				return;
+			}
 
-                foreach (EditorBuildSettingsScene _scene in EditorBuildSettings.scenes)
-                {
-                    if (_scene.path.EndsWith(this.PunCockpit_scene + ".unity"))
-                    {
-                        _found = true;
-                        _enabled = _scene.enabled;
-                        break;
-                    }
-                }
+			bool _found = false;
+			bool _enabled = false;
 
-                if (_found && _enabled)
-                {
-                    this.WarningText.text = string.Empty;
-                    return;
-                }
+			foreach (EditorBuildSettingsScene _scene in EditorBuildSettings.scenes) {
+				if ( _scene.path.EndsWith(PunCockpit_scene+".unity"))
+					{
+						_found = true;
+						_enabled = _scene.enabled;
+						break;
+					}
+			}
+				
+			if (_found && _enabled) {
+				WarningText.text = string.Empty;
+				return;
+			}
 
-                if (_found && !_enabled)
-                {
-                    this.WarningText.text = "<Color=Green>INFORMATION:</Color>\nThis demo can run with the PunCockpit Scene." +
-                                            "\nFor this, the Scene '" +
-                                            this.PunCockpit_scene +
-                                            "' needs to be enabled to the build settings." +
-                                            "\nElse, you'll get only a minimal Menu to connect";
-                    return;
-                }
+			if (_found && ! _enabled)
+			{
+				WarningText.text = "<Color=Green>INFORMATION:</Color>\nThis demo can run with the PunCockpit Scene." +
+				"\nFor this, the Scene '" + PunCockpit_scene + "' needs to be enabled to the build settings." +
+				"\nElse, you'll get only a minimal Menu to connect";
+				return;					
+			}
 
-                if (!_found)
-                {
-                    this.WarningText.text = "<Color=Green>INFORMATION:</Color>\nThis demo can run with the PunCockpit Scene." +
-                                            "\n For this, the Scene '" +
-                                            this.PunCockpit_scene +
-                                            "' needs to be added to the build settings." +
-                                            "\nElse, you'll get only a minimal Menu to connect";
-                }
-            }
-            #endif
+			if (!_found)
+			{
+				WarningText.text = "<Color=Green>INFORMATION:</Color>\nThis demo can run with the PunCockpit Scene." +
+					"\n For this, the Scene '"+PunCockpit_scene+"' needs to be added to the build settings." +
+					"\nElse, you'll get only a minimal Menu to connect";
+			}
+
+		}
+#endif
         }
     }
 }

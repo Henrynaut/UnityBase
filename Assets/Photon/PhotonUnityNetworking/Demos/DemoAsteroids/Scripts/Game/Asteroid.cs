@@ -23,9 +23,7 @@ namespace Photon.Pun.Demo.Asteroids
 
         private PhotonView photonView;
 
-#pragma warning disable 0109
         private new Rigidbody rigidbody;
-#pragma warning restore 0109
 
         #region UNITY
 
@@ -106,7 +104,7 @@ namespace Photon.Pun.Demo.Asteroids
                     Vector3 torque = Random.insideUnitSphere * Random.Range(500.0f, 1500.0f);
                     object[] instantiationData = {force, torque, false, PhotonNetwork.Time};
 
-                    PhotonNetwork.InstantiateRoomObject("SmallAsteroid", transform.position + force.normalized * 10.0f, Quaternion.Euler(0, Random.value * 180.0f, 0), 0, instantiationData);
+                    PhotonNetwork.InstantiateSceneObject("SmallAsteroid", transform.position + force.normalized * 10.0f, Quaternion.Euler(0, Random.value * 180.0f, 0), 0, instantiationData);
                 }
             }
 

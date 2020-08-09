@@ -1,8 +1,3 @@
-{
-    "name": "PhotonWebSocket",
-    "references": [],
-    "includePlatforms": [],
-    "excludePlatforms": [
-        "WSA"
-    ]
+﻿{
+	"name": "PhotonWebSocket"
 }

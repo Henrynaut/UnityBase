@@ -1,14 +1,14 @@
-using System.Collections.Generic;
-using ExitGames.Client.Photon;
+﻿using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
+using Debug = UnityEngine.Debug;
 
 namespace Photon.Realtime.Demo
 {
     public class ConnectAndJoinRandomLb : MonoBehaviour, IConnectionCallbacks, IMatchmakingCallbacks, ILobbyCallbacks
     {
-        [SerializeField]
-        private AppSettings appSettings = new AppSettings();
+        public string AppId; // set in inspector
         private LoadBalancingClient lbc;
 
         private ConnectionHandler ch;
@@ -17,14 +17,9 @@ namespace Photon.Realtime.Demo
         public void Start()
         {
             this.lbc = new LoadBalancingClient();
+            this.lbc.AppId = this.AppId;
             this.lbc.AddCallbackTarget(this);
-            this.lbc.SerializationProtocol = SerializationProtocol.GpBinaryV16;
-            //this.lbc.LoadBalancingPeer.SocketImplementationConfig[ConnectionProtocol.Udp] = typeof(SocketUdpSrc);
-
-            if (!this.lbc.ConnectUsingSettings(appSettings))
-            {
-                Debug.LogError("Error while connecting");
-            }
+            this.lbc.ConnectToNameServer();
 
             this.ch = this.gameObject.GetComponent<ConnectionHandler>();
             if (this.ch != null)

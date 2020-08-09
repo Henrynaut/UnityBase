@@ -23,21 +23,22 @@ namespace Photon.Pun
     /// Simply add the component to your GameObject and make sure that
     /// the PhotonTransformViewClassic is added to the list of observed components
     /// </summary>
+    [RequireComponent(typeof(PhotonView))]
     [AddComponentMenu("Photon Networking/Photon Transform View Classic")]
-    public class PhotonTransformViewClassic : MonoBehaviourPun, IPunObservable
+    public class PhotonTransformViewClassic : MonoBehaviour, IPunObservable
     {
         //As this component is very complex, we separated it into multiple classes.
         //The PositionModel, RotationModel and ScaleMode store the data you are able to
         //configure in the inspector while the "control" objects below are actually moving
         //the object and calculating all the inter- and extrapolation
 
-        [HideInInspector]
+        [SerializeField]
         public PhotonTransformViewPositionModel m_PositionModel = new PhotonTransformViewPositionModel();
 
-        [HideInInspector]
+        [SerializeField]
         public PhotonTransformViewRotationModel m_RotationModel = new PhotonTransformViewRotationModel();
 
-        [HideInInspector]
+        [SerializeField]
         public PhotonTransformViewScaleModel m_ScaleModel = new PhotonTransformViewScaleModel();
 
         PhotonTransformViewPositionControl m_PositionControl;

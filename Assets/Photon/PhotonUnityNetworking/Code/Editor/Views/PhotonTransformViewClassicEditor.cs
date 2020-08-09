@@ -16,7 +16,7 @@ namespace Photon.Pun
 
 
     [CustomEditor(typeof(PhotonTransformViewClassic))]
-    public class PhotonTransformViewClassicEditor : MonoBehaviourPunEditor
+    public class PhotonTransformViewClassicEditor : Editor
     {
         //private PhotonTransformViewClassic m_Target;
 
@@ -61,8 +61,6 @@ namespace Photon.Pun
         public override void OnInspectorGUI()
         {
             serializedObject.Update();
-
-            base.OnInspectorGUI();
 
             //this.m_Target = (PhotonTransformViewClassic) target;
 

@@ -77,17 +77,10 @@ namespace Photon.Pun.Demo.Cockpit
             //Debug.Log("PlayerListView:OnPlayerEnteredRoom:" + newPlayer);
 
             // we create the cell
-            if (!playerCellList.ContainsKey(newPlayer.ActorNumber))
-            {
-                playerCellList[newPlayer.ActorNumber] = Instantiate(CellPrototype.gameObject).GetComponent<PlayerListCell>();
-                playerCellList[newPlayer.ActorNumber].transform.SetParent(CellPrototype.transform.parent, false);
-                playerCellList[newPlayer.ActorNumber].gameObject.SetActive(true);
-                playerCellList[newPlayer.ActorNumber].AddToList(newPlayer, true);
-            }
-            else // rejoin
-            {
-                playerCellList[newPlayer.ActorNumber].RefreshInfo(null);
-            }
+            playerCellList[newPlayer.ActorNumber] = Instantiate(CellPrototype.gameObject).GetComponent<PlayerListCell>();
+            playerCellList[newPlayer.ActorNumber].transform.SetParent(CellPrototype.transform.parent, false);
+            playerCellList[newPlayer.ActorNumber].gameObject.SetActive(true);
+            playerCellList[newPlayer.ActorNumber].AddToList(newPlayer, true);
 
 
             StartCoroutine("UpdateUIPing");

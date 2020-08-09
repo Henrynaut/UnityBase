@@ -18,7 +18,7 @@ namespace Photon.Pun
 
 
     [CustomEditor(typeof(PhotonAnimatorView))]
-    public class PhotonAnimatorViewEditor : MonoBehaviourPunEditor
+    public class PhotonAnimatorViewEditor : Editor
     {
         private Animator m_Animator;
         private PhotonAnimatorView m_Target;
@@ -26,11 +26,13 @@ namespace Photon.Pun
 
         public override void OnInspectorGUI()
         {
-            base.OnInspectorGUI();
+            //base.OnInspectorGUI();
 
             if (this.m_Animator == null)
             {
-                EditorGUILayout.HelpBox("GameObject doesn't have an Animator component to synchronize", MessageType.Warning);
+                GUILayout.BeginVertical(GUI.skin.box);
+                GUILayout.Label("GameObject doesn't have an Animator component to synchronize");
+                GUILayout.EndVertical();
                 return;
             }
 
@@ -38,14 +40,18 @@ namespace Photon.Pun
 
             if (this.GetLayerCount() == 0)
             {
-                EditorGUILayout.HelpBox("Animator doesn't have any layers setup to synchronize", MessageType.Warning);
+                GUILayout.BeginVertical(GUI.skin.box);
+                GUILayout.Label("Animator doesn't have any layers setup to synchronize");
+                GUILayout.EndVertical();
             }
 
             this.DrawParameterInspector();
 
             if (this.GetParameterCount() == 0)
             {
-                EditorGUILayout.HelpBox("Animator doesn't have any parameters setup to synchronize", MessageType.Warning);
+                GUILayout.BeginVertical(GUI.skin.box);
+                GUILayout.Label("Animator doesn't have any parameters setup to synchronize");
+                GUILayout.EndVertical();
             }
 
             this.serializedObject.ApplyModifiedProperties();
@@ -90,12 +96,9 @@ namespace Photon.Pun
             this.m_Target = (PhotonAnimatorView)this.target;
             this.m_Animator = this.m_Target.GetComponent<Animator>();
 
-            if (m_Animator)
-            {
-                this.m_Controller = this.GetEffectiveController(this.m_Animator) as AnimatorController;
+            this.m_Controller = this.GetEffectiveController(this.m_Animator) as AnimatorController;
 
-                this.CheckIfStoredParametersExist();
-            }
+            this.CheckIfStoredParametersExist();
         }
 
         private void DrawWeightInspector()
@@ -286,9 +289,7 @@ namespace Photon.Pun
             if (isUsingTriggers)
             {
                 GUILayout.BeginHorizontal(GUI.skin.box);
-                GUILayout.Label("When using triggers, make sure this component is last in the stack.\n" +
-                                "If you still experience issues, implement triggers as a regular RPC \n" +
-                                "or in custom IPunObservable component instead");
+                GUILayout.Label("When using triggers, make sure this component is last in the stack");
                 GUILayout.EndHorizontal();
             }
         }

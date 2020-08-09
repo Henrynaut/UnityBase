@@ -8,7 +8,4 @@
   <assembly fullname="System">
     <namespace fullname="System.ComponentModel" preserve="all"/>
   </assembly>
-  <assembly fullname="Photon3Unity3d">
-    <namespace fullname="ExitGames.Client.Photon" preserve="all"/>
-  </assembly>
 </linker>

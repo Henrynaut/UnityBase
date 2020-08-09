@@ -15,23 +15,19 @@ MonoBehaviour:
   AppSettings:
     AppIdRealtime: 53769a85-1226-4ad4-b5af-578d4257c3f0
     AppIdChat: 
-    AppIdVoice: e870bfcb-ce59-4e72-a349-e273326f2994
+    AppIdVoice: 
     AppVersion: 
     UseNameServer: 1
     FixedRegion: us
     Server: 
     Port: 0
-    ProxyServer: 
     Protocol: 0
-    EnableProtocolFallback: 1
-    AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  DevRegion: 
+  StartInOfflineMode: 0
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
-  StartInOfflineMode: 0
   RpcList:
   - DestroySpaceship
   - Fire
@@ -44,9 +40,5 @@ MonoBehaviour:
   - RPC_Laser_Sphere
   - RPC_Laser_Object
   - SplineDraw
-  - ChangeColour
-  - ClickRpc
-  - DestroyRpc
   DisableAutoOpenWizard: 1
   ShowSettings: 1
-  DevRegionSetOnce: 0

@@ -24,18 +24,11 @@ public class ChatAppIdCheckerUI : MonoBehaviour
     {
 		if (string.IsNullOrEmpty(PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat))
         {
-            if (Description != null)
-            {
-                Description.text =
-                    "<Color=Red>WARNING:</Color>\nPlease setup a Chat AppId in the PhotonServerSettings file.";
-            }
+            Description.text = "<Color=Red>WARNING:</Color>\nPlease setup a Chat AppId in the PhotonServerSettings file.";
         }
         else
         {
-            if (Description != null)
-            {
-                Description.text = string.Empty;
-            }
+            Description.text = string.Empty;
         }
     }
 }
