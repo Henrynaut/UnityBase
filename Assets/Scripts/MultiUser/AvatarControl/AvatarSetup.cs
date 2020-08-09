@@ -38,8 +38,8 @@ public class AvatarSetup : MonoBehaviour {
 
         //Only send from local player
         if(PV.IsMine){
-            //Don't need RPC calls for Animation due to Photon Animation View Script
-            AddCharacter(UserInfo.UI.mySelectedCharacter);
+
+            PV.RPC("RPC_AddCharacter", RpcTarget.AllBuffered, UserInfo.UI.mySelectedCharacter);
             //Set username to desired string from lobby
             PV.RPC("RPC_AddUsername", RpcTarget.AllBuffered, PhotonLobbyCustomMatch.lobby.usernameString);
         }
@@ -50,8 +50,8 @@ public class AvatarSetup : MonoBehaviour {
         }
     }
 
-
-    void AddCharacter(int whichCharacter){
+    [PunRPC]
+    void RPC_AddCharacter(int whichCharacter){
         //Save the Character Selection ID and instantiate
         characterValue = whichCharacter;
 
