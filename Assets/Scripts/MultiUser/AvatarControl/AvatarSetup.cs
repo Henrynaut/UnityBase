@@ -43,7 +43,7 @@ public class AvatarSetup : MonoBehaviour {
             //Set username to desired string from lobby
             PV.RPC("RPC_AddUsername", RpcTarget.AllBuffered, PhotonLobbyCustomMatch.lobby.usernameString);
         }
-        //If another user's character, destroy my camera and audio listener
+        //If another user's character, parent username + mesh to UserAvatar, then destroy extra camera and audio listener
         else{
             Destroy(myCamera);
             Destroy(myAL);
