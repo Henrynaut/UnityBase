@@ -17,6 +17,7 @@ public class AvatarSetup : MonoBehaviour {
     public GameObject usernameText;
     public int userOxygen;
     public int userEnergy;
+    public GameObject EMU;
 
     public Camera myCamera;
     public AudioListener myAL;
@@ -38,7 +39,7 @@ public class AvatarSetup : MonoBehaviour {
 
         //Only send from local player
         if(PV.IsMine){
-
+            // AddCharacter(UserInfo.UI.mySelectedCharacter);
             PV.RPC("RPC_AddCharacter", RpcTarget.AllBuffered, UserInfo.UI.mySelectedCharacter);
             //Set username to desired string from lobby
             PV.RPC("RPC_AddUsername", RpcTarget.AllBuffered, PhotonLobbyCustomMatch.lobby.usernameString);
@@ -55,16 +56,31 @@ public class AvatarSetup : MonoBehaviour {
         //Save the Character Selection ID and instantiate
         characterValue = whichCharacter;
 
-        //Instantiate with Animations, select Avatar from list of string named labels
-        //If character already exists, don't instantiate
-        myCharacter = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", labels[whichCharacter]), transform.position, transform.rotation);
+        //Instantiate with Animations, the EMU gameObject
+        myCharacter = Instantiate(EMU, transform.position, transform.rotation);
         myCharacter.transform.parent = transform;
         animator = myCharacter.GetComponent<Animator>();
 
         //Instantiate Username Label
-        myUsername = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "usernameLabel"), transform.position, transform.rotation);
-        myUsername.transform.parent = myCharacter.transform;
+        myUsername = Instantiate(myUsername, transform.position, transform.rotation);
+        myUsername.transform.parent = transform;
     }
+
+    // [PunRPC]
+    // void RPC_AddCharacter(int whichCharacter){
+    //     //Save the Character Selection ID and instantiate
+    //     characterValue = whichCharacter;
+
+    //     //Instantiate with Animations, select Avatar from list of string named labels
+    //     //If character already exists, don't instantiate
+    //     myCharacter = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", labels[whichCharacter]), transform.position, transform.rotation);
+    //     myCharacter.transform.parent = transform;
+    //     animator = myCharacter.GetComponent<Animator>();
+
+    //     //Instantiate Username Label
+    //     myUsername = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "usernameLabel"), transform.position, transform.rotation);
+    //     myUsername.transform.parent = myCharacter.transform;
+    // }
 
     [PunRPC]
     void RPC_AddUsername(string inputString){

@@ -9,10 +9,15 @@ public class PhotonUser : MonoBehaviour
     private PhotonView PV;
     public GameObject myAvatar;
 
+    //Photon User Singleton
+    public static PhotonUser PU;
+
     // Start is called before the first frame update
     void Start()
     {
         PV = GetComponent<PhotonView>();
+        PhotonUser.PU = this;                 //Create singleton reference to this user script
+
         //Spawn at UserID Defined Spawn Point (from PhotonView Owner Actor Number - 1, Pv.OwnerActorNr)
             int spawnPicker = PV.OwnerActorNr - 1;
         //Spawn at Random Spawn Point

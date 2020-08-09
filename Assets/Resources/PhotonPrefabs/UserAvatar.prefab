@@ -177,11 +177,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterValue: 0
   usernameString: 
-  myCharacter: {fileID: 0}
-  myUsername: {fileID: 0}
+  myUsername: {fileID: 311, guid: a1aa1ab47ba21574ab8c331ae288c9dd, type: 3}
   usernameText: {fileID: 0}
   userOxygen: 100
   userEnergy: 30
+  EMU: {fileID: 2943028198969941813, guid: 9d10ffe798248804389275ea31f09fab, type: 3}
   myCamera: {fileID: 1176}
   myAL: {fileID: 1423}
   animator: {fileID: 0}
