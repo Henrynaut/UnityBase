@@ -47,6 +47,9 @@ MonoBehaviour:
   - ChangeColour
   - ClickRpc
   - DestroyRpc
+  - AddCharacter
+  - RPC_AddCharacter
+  - RPC_CharacterParenting
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

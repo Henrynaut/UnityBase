@@ -12,7 +12,7 @@ public class AvatarSetup : MonoBehaviour {
 
     public int characterValue;
     public string usernameString;
-    public GameObject myCharacter;
+    private GameObject myCharacter;
     public GameObject myUsername;
     public GameObject usernameText;
     public int userOxygen;
@@ -43,7 +43,7 @@ public class AvatarSetup : MonoBehaviour {
             //Set username to desired string from lobby
             PV.RPC("RPC_AddUsername", RpcTarget.AllBuffered, PhotonLobbyCustomMatch.lobby.usernameString);
         }
-        //If another user's character, parent username + mesh to UserAvatar, then destroy extra camera and audio listener
+        //If another user's character, then destroy extra camera and audio listener
         else{
             Destroy(myCamera);
             Destroy(myAL);
@@ -56,6 +56,7 @@ public class AvatarSetup : MonoBehaviour {
         characterValue = whichCharacter;
 
         //Instantiate with Animations, select Avatar from list of string named labels
+        //If character already exists, don't instantiate
         myCharacter = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", labels[whichCharacter]), transform.position, transform.rotation);
         myCharacter.transform.parent = transform;
         animator = myCharacter.GetComponent<Animator>();
@@ -63,10 +64,6 @@ public class AvatarSetup : MonoBehaviour {
         //Instantiate Username Label
         myUsername = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "usernameLabel"), transform.position, transform.rotation);
         myUsername.transform.parent = myCharacter.transform;
-
-        //Spawn Parent Avatar and attach child as transform (4th parameter)
-        // myCharacter = Instantiate(UserInfo.UI.allCharacters[whichCharacter], transform.position, transform.rotation, transform);
-        // myUsername.text = usernameString;
     }
 
     [PunRPC]
