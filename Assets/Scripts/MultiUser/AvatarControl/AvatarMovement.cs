@@ -24,8 +24,9 @@ public class AvatarMovement : MonoBehaviour
     public float gravity = 1.62f;
 
     private Vector3 velocity;
-    private float vSpeed = 0; // current vertical velocity
+    private float vSpeed = 0;         // current vertical velocity
     private Camera avatarCamera;
+    private float viewRange = 85.0f;   //Limit to pitching up and down of camera to 85 degrees above or below horizon
 
     // Start is called before the first frame update
     void Start() {
@@ -96,12 +97,67 @@ public class AvatarMovement : MonoBehaviour
     }
 
     void BasicRotation(){
-        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * rotationSpeed;
+        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime* 2 * rotationSpeed;
         transform.Rotate (new Vector3(0, mouseX, 0));
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * 4 * rotationSpeed;
 
         //Rotate Pitch of Avatar Camera
         avatarCamera.transform.Rotate (new Vector3(-mouseY, 0, 0));
+
+        // Create angle Vector to easily read euler Angle values without gimbal lock
+        Vector3 angle = avatarCamera.transform.eulerAngles;
+        float x = angle.x;
+        float y = angle.y;
+        float z = angle.z;
+
+        if (Vector3.Dot(transform.up, Vector3.up) >= 0f)
+        {
+            if (angle.x >= 0f && angle.x <= 90f)
+            {
+                x = angle.x;
+            }
+            if (angle.x >= 270f && angle.x <= 360f)
+            {
+                x = angle.x - 360f;
+            }
+        }
+        if (Vector3.Dot(transform.up, Vector3.up) < 0f)
+        {
+            if (angle.x >= 0f && angle.x <= 90f)
+            {
+                x = 180 - angle.x;
+            }
+            if (angle.x >= 270f && angle.x <= 360f)
+            {
+                x = 180 - angle.x;
+            }
+        }
+
+        if (angle.y > 180)
+        {
+            y = angle.y - 360f;
+        }
+
+        if (angle.z > 180)
+        {
+            z = angle.z - 360f;
+        }
+
+        // //Check if pitch is too high and rotate opposite direction
+        if (Mathf.Round(x) > viewRange)
+        {
+           avatarCamera.transform.Rotate (new Vector3(mouseY, 0, 0));
+           Debug.Log("Min Camera Pitch Reached!");
+           Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y) + " , " + Mathf.Round(z));
+        }
+        // //Check if pitch is too low and rotate opposite direction
+        if (Mathf.Round(x) < -viewRange)
+        {
+           avatarCamera.transform.Rotate (new Vector3(mouseY, 0, 0));
+            Debug.Log("Max Camera Pitch Reached!");
+           Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y) + " , " + Mathf.Round(z));
+        }
+
     }
 
 
