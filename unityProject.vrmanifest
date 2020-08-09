@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.multiusermoonbase.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\AstroMONSTER\\Documents\\GitHub\\UnityBase\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Multiuser Moon Base [Testing]"
+        }
+      }
+    }
+  ]
+}
