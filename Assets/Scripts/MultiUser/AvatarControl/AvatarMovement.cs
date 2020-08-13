@@ -143,19 +143,21 @@ public class AvatarMovement : MonoBehaviour
             z = angle.z - 360f;
         }
 
+           Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y) + " , " + Mathf.Round(z));
+
         // //Check if pitch is too high and rotate opposite direction
         if (Mathf.Round(x) > viewRange)
         {
            avatarCamera.transform.Rotate (new Vector3(mouseY, 0, 0));
            Debug.Log("Min Camera Pitch Reached!");
-           Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y) + " , " + Mathf.Round(z));
+        //    Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y) + " , " + Mathf.Round(z));
         }
         // //Check if pitch is too low and rotate opposite direction
         if (Mathf.Round(x) < -viewRange)
         {
            avatarCamera.transform.Rotate (new Vector3(mouseY, 0, 0));
             Debug.Log("Max Camera Pitch Reached!");
-           Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y) + " , " + Mathf.Round(z));
+        //    Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y) + " , " + Mathf.Round(z));
         }
 
     }
