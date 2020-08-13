@@ -7,10 +7,10 @@ public class AvatarDropDown : MonoBehaviour
 {
     List<string> labels = new List<string>() {
     "Please Select",
-    "Green Suit",
-    "Red Suit",
-    "Blue Suit",
-    "White Suit"
+    "Pre-Questionnaire",
+    "Training Scenario",
+    "Rover Repair",
+    "Post-Questionnaire"
     };
 
     public TMP_Dropdown dropdown;
