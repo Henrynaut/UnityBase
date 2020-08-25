@@ -11,8 +11,6 @@ using UnityEngine.EventSystems;
     public GameObject definedButton;
     public GameObject otherButton;
 
-    public Camera Camera;
-
     public Recorder VoiceRecorder;
     public GraphicRaycaster canvasRaycaster;
     public List<RaycastResult> list;
