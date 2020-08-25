@@ -21,6 +21,13 @@ public class AvatarDropDown : MonoBehaviour
         selectedLabel.text = labels[index] + " selected!";
         //Send selection to the Menu Controller
         MenuController.MC.OnClickCharacterPick(index);
+        Debug.Log(labels[index]);
+
+        // Open Pre-Questionairre
+        if (labels[index] == labels[1])
+        {
+            Application.OpenURL("https://forms.gle/6YMJJJjBC1FkjCtp6");
+        }
     }
     
     void Start(){
