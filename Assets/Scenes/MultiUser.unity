@@ -724,13 +724,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0.6571329, w: 0}
   m_textInfo:
     textComponent: {fileID: 130674896}
-    characterCount: 5
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -902,6 +902,7 @@ GameObject:
   - component: {fileID: 135014502}
   - component: {fileID: 135014504}
   - component: {fileID: 135014503}
+  - component: {fileID: 135014505}
   m_Layer: 5
   m_Name: UnmutedIcon
   m_TagString: Untagged
@@ -963,6 +964,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135014501}
   m_CullTransparentMesh: 0
+--- !u!114 &135014505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135014501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c570c6ce00f84f445915009fac29e7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  definedButton: {fileID: 0}
+  otherButton: {fileID: 1555593403}
+  VoiceRecorder: {fileID: 0}
+  canvasRaycaster: {fileID: 24919771}
+  screenPoint: {x: 0, y: 0}
 --- !u!1 &152492797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,13 +1137,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0.6571329, w: 0}
   m_textInfo:
     textComponent: {fileID: 153011827}
-    characterCount: 5
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -1357,6 +1375,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
+      propertyPath: m_Name
+      value: moonRock (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.19
@@ -1400,10 +1422,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 210.411
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
-      propertyPath: m_Name
-      value: moonRock (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1727,6 +1745,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1664210975}
     m_Modifications:
+    - target: {fileID: 100000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
+      propertyPath: m_Name
+      value: moonRock (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0040180013
@@ -1782,10 +1804,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.0020000003
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
-      propertyPath: m_Name
-      value: moonRock (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3243,13 +3261,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 673451564}
-    characterCount: 15
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 3
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -3522,13 +3540,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0.6571329, w: 0}
   m_textInfo:
     textComponent: {fileID: 713443532}
-    characterCount: 5
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -5173,13 +5191,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1106816872}
-    characterCount: 17
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 4
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -5996,13 +6014,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1400310596}
-    characterCount: 22
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 4
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -6145,6 +6163,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1992404875}
     m_Modifications:
+    - target: {fileID: 100000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
+      propertyPath: m_Name
+      value: moonRock (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0040180013
@@ -6200,10 +6222,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.0020000003
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
-      propertyPath: m_Name
-      value: moonRock (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6540,6 +6558,7 @@ GameObject:
   - component: {fileID: 1555593404}
   - component: {fileID: 1555593406}
   - component: {fileID: 1555593405}
+  - component: {fileID: 1555593407}
   m_Layer: 5
   m_Name: MutedIcon
   m_TagString: Untagged
@@ -6601,6 +6620,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555593403}
   m_CullTransparentMesh: 0
+--- !u!114 &1555593407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555593403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c570c6ce00f84f445915009fac29e7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  definedButton: {fileID: 0}
+  otherButton: {fileID: 135014501}
+  VoiceRecorder: {fileID: 0}
+  canvasRaycaster: {fileID: 24919771}
+  screenPoint: {x: 0, y: 0}
 --- !u!1 &1589416089
 GameObject:
   m_ObjectHideFlags: 0
@@ -7240,13 +7276,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1692769088}
-    characterCount: 15
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 3
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -7913,13 +7949,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1922568619}
-    characterCount: 13
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 3
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -7996,6 +8032,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
+      propertyPath: m_Name
+      value: moonRock
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.5286636
@@ -8039,10 +8079,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 77.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
-      propertyPath: m_Name
-      value: moonRock
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: f79e5a45a508ce64a903ae316c4d9525, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -8398,13 +8434,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0.6571329, w: 0}
   m_textInfo:
     textComponent: {fileID: 2002726041}
-    characterCount: 5
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -8602,13 +8638,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2034308981}
-    characterCount: 25
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 4
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

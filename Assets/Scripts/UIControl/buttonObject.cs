@@ -19,6 +19,12 @@ using UnityEngine.EventSystems;
      // Use this for initialization
      void Start () {    
          definedButton = this.gameObject;
+
+        //If no VoiceRecorder assigned, find it and assign it
+         if (VoiceRecorder == null)
+         {
+            VoiceRecorder = GameObject.Find("Voice").GetComponent(typeof(Recorder)) as Recorder;
+         }
      }
      
      // Update is called once per frame
