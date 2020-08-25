@@ -5144,8 +5144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   definedButton: {fileID: 0}
   otherButton: {fileID: 1976978424}
-  Camera: {fileID: 548831905}
-  VoiceRecorder: {fileID: 509067833}
+  VoiceRecorder: {fileID: 0}
   canvasRaycaster: {fileID: 404219471}
   screenPoint: {x: 0, y: 0}
 --- !u!1 &1297314315
@@ -7169,8 +7168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   definedButton: {fileID: 0}
   otherButton: {fileID: 1273462303}
-  Camera: {fileID: 548831905}
-  VoiceRecorder: {fileID: 509067833}
+  VoiceRecorder: {fileID: 0}
   canvasRaycaster: {fileID: 404219471}
   screenPoint: {x: 0, y: 0}
 --- !u!1 &2055157942
