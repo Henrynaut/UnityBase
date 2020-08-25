@@ -23,10 +23,17 @@ public class AvatarDropDown : MonoBehaviour
         MenuController.MC.OnClickCharacterPick(index);
         Debug.Log(labels[index]);
 
-        // Open Pre-Questionairre
+        // Open Pre-Questionairre if label 1 selected
         if (labels[index] == labels[1])
         {
             Application.OpenURL("https://forms.gle/6YMJJJjBC1FkjCtp6");
+        }
+        // To do: Add a confirm button
+
+        // Open Post-Questionairre if label 4 selected
+        if (labels[index] == labels[4])
+        {
+            Application.OpenURL("https://forms.gle/vicwfKatg1bKDuNk8");
         }
     }
     
