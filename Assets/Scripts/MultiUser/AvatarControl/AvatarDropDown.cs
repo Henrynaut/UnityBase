@@ -30,6 +30,12 @@ public class AvatarDropDown : MonoBehaviour
         }
         // To do: Add a confirm button
 
+        // Open training video if label 2 selected
+        if (labels[index] == labels[2])
+        {
+            Application.OpenURL("https://youtu.be/yEqyRM5Hu2g");
+        }
+
         // Open Post-Questionairre if label 4 selected
         if (labels[index] == labels[4])
         {
