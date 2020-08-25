@@ -17,6 +17,7 @@ public class AvatarInteraction : MonoBehaviour
     public PhotonMessageInfo Info;
     private GameObject currentSpline;
     private objectID objectID;
+    public bool enableDrawing;
     // public TextMeshProUGUI energyText;
 
     // public TextMeshProUGUI energyDisplay;
@@ -27,6 +28,7 @@ public class AvatarInteraction : MonoBehaviour
         PV = GetComponent<PhotonView>();
         avatarSetup = GetComponent<AvatarSetup>();
         lastSplineID = 0;       //Initialize SplineID at 0
+        enableDrawing = false;
     }
 
     // Update is called once per frame
@@ -36,7 +38,7 @@ public class AvatarInteraction : MonoBehaviour
         }
 
         //Spawn Transparent Sphere on Left Click
-        if(Input.GetMouseButton(0))        {
+        if(Input.GetMouseButton(0) && enableDrawing)        {
             updateSplinePen();
             // PV.RPC("RPC_Laser_Sphere", RpcTarget.All);
         }

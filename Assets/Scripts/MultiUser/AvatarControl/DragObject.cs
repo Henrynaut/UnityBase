@@ -12,18 +12,26 @@ public class DragObject : MonoBehaviour
 {
 
     private Vector3 mOffset;
-
+    private AvatarSetup avatarSetup;
     private float mZCoord;
 
-    public Camera AvatarCamera;
+    public Camera avatarCamera;
 
+    void Update() {
+        // avatarSetup = GameObject.Find("UserAvatar(Clone)").GetComponent<AvatarSetup>();
+        //Get Avatar Camera
+        if (avatarCamera == null)
+        {
+        avatarCamera = GameObject.Find("AvatarCamera").GetComponent<Camera>();
+        }
+    }
 
 
     void OnMouseDown()
 
     {
 
-        mZCoord = AvatarCamera.WorldToScreenPoint(
+        mZCoord = avatarCamera.WorldToScreenPoint(
 
             gameObject.transform.position).z;
 
@@ -55,7 +63,7 @@ public class DragObject : MonoBehaviour
 
         // Convert it to world points
 
-        return AvatarCamera.ScreenToWorldPoint(mousePoint);
+        return avatarCamera.ScreenToWorldPoint(mousePoint);
 
     }
 

@@ -210,6 +210,7 @@ MonoBehaviour:
   lastSplineID: 0
   splinePrefab: {fileID: 8242434187546674006, guid: c89225d47b633134ba3b1bb56514e59b,
     type: 3}
+  enableDrawing: 0
 --- !u!114 &6398227314618876423
 MonoBehaviour:
   m_ObjectHideFlags: 0
