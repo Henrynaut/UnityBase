@@ -9,16 +9,30 @@ public class SelectionManager : MonoBehaviour
     [SerializeField] private Material defaultMaterial;
 
     private Transform _selection;
+    private AvatarSetup avatarSetup;
     public Transform rayOrigin;
+    public Camera avatarCamera;
     public string objectName;
     public string buttonName1;
     public string buttonName2;
+    public string buttonName3;
+    public string buttonName4;
+    public string buttonName5;
+    public string buttonName6;
 
 
-    public GameObject instructions_button1;
-    public GameObject instructions_button2;
+    public GameObject instructions_button;
 
+    // Start is called before the first frame update
+    void Start() {
+        avatarSetup = GetComponent<AvatarSetup>();
+        //Get Avatar Camera
+        avatarCamera = avatarSetup.myCamera;
 
+        instructions_button = GameObject.Find("InstructionText");
+        instructions_button.SetActive(false);
+
+    }
 
 
     private void Update()
@@ -30,7 +44,7 @@ public class SelectionManager : MonoBehaviour
             _selection = null;
         }
         
-        rayOrigin = Camera.main.transform;
+        rayOrigin = avatarCamera.transform;
         // var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         // if (Physics.Raycast(ray, out hit, 2))
@@ -43,6 +57,7 @@ public class SelectionManager : MonoBehaviour
             Debug.Log(hit.collider.gameObject.name);
             objectName = hit.collider.gameObject.name;
 
+            //If the tag matches, highlight the button
             if (selection.CompareTag(selectableTag))
             {
                 var selectionRenderer = selection.GetComponent<Renderer>();
@@ -52,28 +67,46 @@ public class SelectionManager : MonoBehaviour
                 }
 
                 _selection = selection;
+
+                // If the raycast points at Button1, toggle on the canvas text instructions
+                if(objectName == buttonName1)
+                {
+                    instructions_button.SetActive(true);
+                    //Turn on light
+                }
+                else if (objectName == buttonName2)
+                {
+                    instructions_button.SetActive(true);
+                    //Raise Jack
+                }
+                else if (objectName == buttonName3)
+                {
+                    instructions_button.SetActive(true);
+                    //Open airlock
+                }
+                else if (objectName == buttonName4)
+                {
+                    instructions_button.SetActive(true);
+                    //Open maintenance panel
+                }
+                else if (objectName == buttonName5)
+                {
+                    instructions_button.SetActive(true);
+                    //Turn off lights
+                }
+                else if (objectName == buttonName6)
+                {
+                    instructions_button.SetActive(true);
+                    //Close Airlock
+                }
+                else
+                {
+                    instructions_button.SetActive(false);
+                }
+
             }
         }
 
-        // If the raycast points at Button1, toggle on the canvas text instructions
-        if(objectName == buttonName1)
-        {
-            instructions_button1.SetActive(true);
-        }
-        else
-        {
-            instructions_button1.SetActive(false);
-        }
-
-        // If the raycast points at Button2, toggle on the canvas text instructions
-        if(objectName == buttonName2)
-        {
-            instructions_button2.SetActive(true);
-        }
-        else
-        {
-            instructions_button2.SetActive(false);
-        }
     }
 
 }

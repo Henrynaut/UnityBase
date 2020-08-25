@@ -143,7 +143,7 @@ public class AvatarMovement : MonoBehaviour
             z = angle.z - 360f;
         }
 
-           Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y) + " , " + Mathf.Round(z));
+        //    Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y) + " , " + Mathf.Round(z));
 
         // //Check if pitch is too high and rotate opposite direction
         if (Mathf.Round(x) > viewRange)
