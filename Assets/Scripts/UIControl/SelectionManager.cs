@@ -7,9 +7,12 @@ public class SelectionManager : MonoBehaviour
     [SerializeField] private string selectableTag = "Selectable";
     [SerializeField] private Material highlightMaterial;
     [SerializeField] private Material defaultMaterial;
+    [SerializeField] private Material pressedMaterial;
+
 
     private Transform _selection;
     private AvatarSetup avatarSetup;
+    private bool hitSelectable;
     public Transform rayOrigin;
     public Camera avatarCamera;
     public string objectName;
@@ -19,6 +22,7 @@ public class SelectionManager : MonoBehaviour
     public string buttonName4;
     public string buttonName5;
     public string buttonName6;
+    public Renderer selectedRenderer;
 
 
     public GameObject instructions_button;
@@ -31,6 +35,8 @@ public class SelectionManager : MonoBehaviour
 
         instructions_button = GameObject.Find("InstructionText");
         instructions_button.SetActive(false);
+        hitSelectable = false;
+        objectName = "null";
 
     }
 
@@ -39,18 +45,15 @@ public class SelectionManager : MonoBehaviour
     {
         if (_selection != null)
         {
-            var selectionRenderer = _selection.GetComponent<Renderer>();
-            selectionRenderer.material = defaultMaterial;
+            selectedRenderer = _selection.GetComponent<Renderer>();
+            selectedRenderer.material = defaultMaterial;
             _selection = null;
         }
-        
+
         rayOrigin = avatarCamera.transform;
-        // var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        // if (Physics.Raycast(ray, out hit, 2))
         if(Physics.Raycast(rayOrigin.position, rayOrigin.TransformDirection(Vector3.forward), out hit, 1000))
         {
-            // Debug.DrawLine(ray.origin, hit.point);
             var selection = hit.transform;
             Debug.Log("Hit");
             Debug.Log(rayOrigin);
@@ -60,53 +63,72 @@ public class SelectionManager : MonoBehaviour
             //If the tag matches, highlight the button
             if (selection.CompareTag(selectableTag))
             {
-                var selectionRenderer = selection.GetComponent<Renderer>();
-                if (selectionRenderer != null)
+                selectedRenderer = selection.GetComponent<Renderer>();
+                if (selectedRenderer != null )
                 {
-                    selectionRenderer.material = highlightMaterial;
+                    selectedRenderer.material = highlightMaterial;
                 }
 
                 _selection = selection;
 
-                // If the raycast points at Button1, toggle on the canvas text instructions
-                if(objectName == buttonName1)
-                {
-                    instructions_button.SetActive(true);
-                    //Turn on light
-                }
-                else if (objectName == buttonName2)
-                {
-                    instructions_button.SetActive(true);
-                    //Raise Jack
-                }
-                else if (objectName == buttonName3)
-                {
-                    instructions_button.SetActive(true);
-                    //Open airlock
-                }
-                else if (objectName == buttonName4)
-                {
-                    instructions_button.SetActive(true);
-                    //Open maintenance panel
-                }
-                else if (objectName == buttonName5)
-                {
-                    instructions_button.SetActive(true);
-                    //Turn off lights
-                }
-                else if (objectName == buttonName6)
-                {
-                    instructions_button.SetActive(true);
-                    //Close Airlock
-                }
-                else
-                {
-                    instructions_button.SetActive(false);
-                }
-
+                instructions_button.SetActive(true);
+                hitSelectable = true;
+            }
+            else
+            {
+                instructions_button.SetActive(false);
+                hitSelectable =false;
             }
         }
 
+         //If the F key is pressed and hit object is selectable, call buttonPressed function
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Debug.Log("Calling buttonPressed function.");
+            buttonPressed(objectName, selectedRenderer);
+        }
     }
 
+    void buttonPressed(string stringName, Renderer selectedRend)
+    {
+        // If the raycast points at Button1, toggle on the canvas text instructions
+        if(stringName == buttonName1)
+        {
+            Debug.Log(stringName + " clicked!");
+            //Turn on light
+            selectedRend.material = pressedMaterial;
+
+        }
+        else if (stringName == buttonName2)
+        {
+            instructions_button.SetActive(false);
+            Debug.Log(stringName + " clicked!");
+            //Raise Jack
+        }
+        else if (stringName == buttonName3)
+        {
+            instructions_button.SetActive(false);
+            Debug.Log(stringName + " clicked!");
+            //Open airlock
+        }
+        else if (stringName == buttonName4)
+        {
+            instructions_button.SetActive(false);
+            Debug.Log(stringName + " clicked!");
+            //Open maintenance panel
+        }
+        else if (stringName == buttonName5)
+        {
+            instructions_button.SetActive(false);
+            Debug.Log(stringName + " clicked!");
+            //Turn off lights
+        }
+        else if (stringName == buttonName6)
+        {
+            instructions_button.SetActive(false);
+            Debug.Log(stringName + " clicked!");
+            //Close Airlock
+        }
+        return;
+    }
 }
