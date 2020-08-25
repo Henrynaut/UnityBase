@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Photon.Voice.Unity;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,6 +13,7 @@ using UnityEngine.EventSystems;
 
     public Camera Camera;
 
+    public Recorder VoiceRecorder;
     public GraphicRaycaster canvasRaycaster;
     public List<RaycastResult> list;
     public Vector2 screenPoint;
@@ -46,6 +48,21 @@ using UnityEngine.EventSystems;
                     definedButton.SetActive(false);
                     otherButton.SetActive(true);
                     Debug.Log("Toggling " + otherButton.name + " on.");
+
+                    //If the otherButton toggled on is the muteButton
+                    //set the voice recorder transmit state to false
+                    if (otherButton.name == "MutedIcon")
+                    {
+                        VoiceRecorder.TransmitEnabled = false;
+                        Debug.Log("Voice Disabled.");
+                    }
+                    //If the otherButton toggled on is the unmuteButton
+                    //set the voice recorder transmit state to false
+                    else if (otherButton.name == "UnmutedIcon")
+                    {
+                        VoiceRecorder.TransmitEnabled = true;
+                        Debug.Log("Voice Enabled.");
+                    }
                 }
             }
             else

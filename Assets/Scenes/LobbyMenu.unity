@@ -5069,7 +5069,6 @@ GameObject:
   - component: {fileID: 1273462306}
   - component: {fileID: 1273462305}
   - component: {fileID: 1273462307}
-  - component: {fileID: 1273462308}
   m_Layer: 5
   m_Name: UnmutedIcon
   m_TagString: Untagged
@@ -5146,24 +5145,9 @@ MonoBehaviour:
   definedButton: {fileID: 0}
   otherButton: {fileID: 1976978424}
   Camera: {fileID: 548831905}
+  VoiceRecorder: {fileID: 509067833}
   canvasRaycaster: {fileID: 404219471}
   screenPoint: {x: 0, y: 0}
---- !u!58 &1273462308
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273462303}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 50
 --- !u!1 &1297314315
 GameObject:
   m_ObjectHideFlags: 0
@@ -7110,7 +7094,6 @@ GameObject:
   - component: {fileID: 1976978427}
   - component: {fileID: 1976978426}
   - component: {fileID: 1976978428}
-  - component: {fileID: 1976978429}
   m_Layer: 5
   m_Name: MutedIcon
   m_TagString: Untagged
@@ -7187,24 +7170,9 @@ MonoBehaviour:
   definedButton: {fileID: 0}
   otherButton: {fileID: 1273462303}
   Camera: {fileID: 548831905}
+  VoiceRecorder: {fileID: 509067833}
   canvasRaycaster: {fileID: 404219471}
   screenPoint: {x: 0, y: 0}
---- !u!58 &1976978429
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976978424}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 50
 --- !u!1 &2055157942
 GameObject:
   m_ObjectHideFlags: 0

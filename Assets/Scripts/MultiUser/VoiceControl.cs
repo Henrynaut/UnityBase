@@ -37,6 +37,7 @@ public class VoiceControl : MonoBehaviour
         Debug.Log("Found UnmutedIcon");
         }
 
+        //If the M key is pressed, toggle between mute and unmute icons, and change transmit state
         if (Input.GetKeyDown(KeyCode.M))
         {
             VoiceRecorder.TransmitEnabled = !VoiceRecorder.TransmitEnabled;
