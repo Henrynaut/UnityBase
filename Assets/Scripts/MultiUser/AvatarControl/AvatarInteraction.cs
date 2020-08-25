@@ -37,6 +37,12 @@ public class AvatarInteraction : MonoBehaviour
             return;
         }
 
+        //If Asterisk pressed, toggle drawing bool
+        if(Input.GetKeyDown(KeyCode.Comma))
+        {
+            enableDrawing = !enableDrawing;
+            Debug.Log("Drawing = " + enableDrawing);
+        }
         //Spawn Transparent Sphere on Left Click
         if(Input.GetMouseButton(0) && enableDrawing)        {
             updateSplinePen();
