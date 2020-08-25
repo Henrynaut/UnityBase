@@ -1,6 +1,6 @@
 ﻿
 using System.Collections;
-
+using Photon.Pun;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -11,11 +11,18 @@ public class DragObject : MonoBehaviour
 
 {
 
+    private PhotonView PV;
     private Vector3 mOffset;
     private AvatarSetup avatarSetup;
     private float mZCoord;
 
     public Camera avatarCamera;
+
+    // Start is called before the first frame update
+    void Start() 
+    {
+        PV = GetComponent<PhotonView>();
+    }
 
     void Update() {
         // avatarSetup = GameObject.Find("UserAvatar(Clone)").GetComponent<AvatarSetup>();
