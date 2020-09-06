@@ -23,6 +23,7 @@ public class logCSV : MonoBehaviour
     private string quatZ;
     private bool logDataBool;
     public float nextLogTime;
+    public string participantID;
 
 
     // Start is called before the first frame update
@@ -43,7 +44,6 @@ public class logCSV : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         currentTime = Time.time.ToString("f6");     //Save game time in seconds as a string
 
         //Save position and rotation of avatrCamera as strings
@@ -56,11 +56,11 @@ public class logCSV : MonoBehaviour
         quatZ = avatarCamera.transform.rotation.z.ToString();
 
         //Only record data every 0.25 seconds if logDataBool is true
-        if(logDataBool)
+        if(logDataBool && participantID.Length == 4)
         {
             intID++;                                    //Increment ID by 1
             ID = intID.ToString();                      //Convert intID to a string
-            addRecord(ID, currentTime, X, Y, Z, quatW, quatX, quatY, quatZ, "avatarData.csv");
+            addRecord(participantID, ID, currentTime, X, Y, Z, quatW, quatX, quatY, quatZ, "avatarData.csv");
             logDataBool = false;
             nextLogTime = Time.time + 0.25f;
         }
@@ -72,7 +72,8 @@ public class logCSV : MonoBehaviour
 
     }
 
-    public static void addRecord(string ID,
+    public static void addRecord(string participantID,
+                                 string ID,
                                  string time,
                                  string X,
                                  string Y,
@@ -90,7 +91,7 @@ public class logCSV : MonoBehaviour
                 //Save data as a new line in CSV file
                 file.WriteLine
                 (
-                    ID + "," + time + "," + X + "," + Y + "," + Z
+                    participantID + "," + ID + "," + time + "," + X + "," + Y + "," + Z
                     + "," + quatW + "," + quatX + "," + quatY + "," + quatZ
                 );
             }
