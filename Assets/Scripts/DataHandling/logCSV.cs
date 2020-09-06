@@ -68,7 +68,7 @@ public class logCSV : MonoBehaviour
         {
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@filepath, true))
             {
-                file.WriteLine(ID + "," + time + "," + age);
+                file.WriteLine(ID + "," + time + "," + X + "," + Y + "," + Z);
             }
             Debug.Log("CSV Information saved.");
         }
