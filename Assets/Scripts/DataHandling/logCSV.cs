@@ -20,6 +20,8 @@ public class logCSV : MonoBehaviour
     private string roll;
     private string pitch;
     private string yaw;
+    private bool logDataBool;
+    public float nextLogTime;
 
 
     // Start is called before the first frame update
@@ -33,14 +35,14 @@ public class logCSV : MonoBehaviour
 
         //Intialize ID to 0
         intID = 0;
+        logDataBool = true;
+        nextLogTime = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        intID++;                                    //Increment ID by 1
-        ID = intID.ToString();                      //Convert intID to a string
         currentTime = Time.time.ToString("f6");     //Save game time in seconds as a string
 
         //Save position and rotation of avatrCamera as strings
@@ -51,7 +53,21 @@ public class logCSV : MonoBehaviour
         // pitch = avatarCamera.transform.position.x.ToString();
         // yaw = avatarCamera.transform.position.x.ToString();
 
-        addRecord(ID, currentTime, X, Y, Z, "avatarData.csv");
+        //Only record data every 0.25 seconds if logDataBool is true
+        if(logDataBool)
+        {
+            intID++;                                    //Increment ID by 1
+            ID = intID.ToString();                      //Convert intID to a string
+            addRecord(ID, currentTime, X, Y, Z, "avatarData.csv");
+            logDataBool = false;
+            nextLogTime = Time.time + 0.25f;
+        }
+        //enable logDataBool if time has reached the nextLogTime
+        else if (Time.time >= nextLogTime)
+        {
+            logDataBool = true;
+        }
+
     }
 
     public static void addRecord(string ID,
@@ -70,7 +86,6 @@ public class logCSV : MonoBehaviour
             {
                 file.WriteLine(ID + "," + time + "," + X + "," + Y + "," + Z);
             }
-            Debug.Log("CSV Information saved.");
         }
         catch(Exception ex)
         {
