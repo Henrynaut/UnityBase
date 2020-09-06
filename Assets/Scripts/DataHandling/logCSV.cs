@@ -33,7 +33,7 @@ public class logCSV : MonoBehaviour
         }
         catch(Exception ex)
         {
-            throw new ApplicationException("This program did an oopsie :" ex);
+            throw new ApplicationException("This program did an oopsie :", ex);
         }
     }
 }
