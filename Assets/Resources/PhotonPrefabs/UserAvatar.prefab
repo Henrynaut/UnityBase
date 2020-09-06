@@ -270,6 +270,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f04fa91b50dee488ddfaefff0eb1a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  avatarCamera: {fileID: 0}
+  nextLogTime: 0
+  participantID: 
 --- !u!1 &301
 GameObject:
   m_ObjectHideFlags: 0
