@@ -17,9 +17,10 @@ public class logCSV : MonoBehaviour
     private string X;
     private string Y;
     private string Z;
-    private string roll;
-    private string pitch;
-    private string yaw;
+    private string quatW;
+    private string quatX;
+    private string quatY;
+    private string quatZ;
     private bool logDataBool;
     public float nextLogTime;
 
@@ -49,16 +50,17 @@ public class logCSV : MonoBehaviour
         X = avatarCamera.transform.position.x.ToString();
         Y = avatarCamera.transform.position.y.ToString();
         Z = avatarCamera.transform.position.z.ToString();
-        // roll = avatarCamera.transform.position.x.ToString();
-        // pitch = avatarCamera.transform.position.x.ToString();
-        // yaw = avatarCamera.transform.position.x.ToString();
+        quatW = avatarCamera.transform.rotation.w.ToString();
+        quatX = avatarCamera.transform.rotation.x.ToString();
+        quatY = avatarCamera.transform.rotation.y.ToString();
+        quatZ = avatarCamera.transform.rotation.z.ToString();
 
         //Only record data every 0.25 seconds if logDataBool is true
         if(logDataBool)
         {
             intID++;                                    //Increment ID by 1
             ID = intID.ToString();                      //Convert intID to a string
-            addRecord(ID, currentTime, X, Y, Z, "avatarData.csv");
+            addRecord(ID, currentTime, X, Y, Z, quatW, quatX, quatY, quatZ, "avatarData.csv");
             logDataBool = false;
             nextLogTime = Time.time + 0.25f;
         }
@@ -75,16 +77,22 @@ public class logCSV : MonoBehaviour
                                  string X,
                                  string Y,
                                  string Z,
-                                //  string roll,
-                                //  string pitch,
-                                //  string yaw,
+                                 string quatW,
+                                 string quatX,
+                                 string quatY,
+                                 string quatZ,
                                  string filepath)
     {
         try
         {
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@filepath, true))
             {
-                file.WriteLine(ID + "," + time + "," + X + "," + Y + "," + Z);
+                //Save data as a new line in CSV file
+                file.WriteLine
+                (
+                    ID + "," + time + "," + X + "," + Y + "," + Z
+                    + "," + quatW + "," + quatX + "," + quatY + "," + quatZ
+                );
             }
         }
         catch(Exception ex)
