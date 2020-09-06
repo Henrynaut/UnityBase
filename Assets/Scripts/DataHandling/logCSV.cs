@@ -29,6 +29,7 @@ public class logCSV : MonoBehaviour
             {
                 file.WriteLine(ID + "," + name + "," + age);
             }
+            Debug.Log("CSV Information saved.");
         }
         catch(Exception ex)
         {
