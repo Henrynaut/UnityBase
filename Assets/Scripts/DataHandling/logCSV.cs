@@ -14,6 +14,12 @@ public class logCSV : MonoBehaviour
     private string currentTime;
     private string ID;
     private int intID;
+    private string X;
+    private string Y;
+    private string Z;
+    private string roll;
+    private string pitch;
+    private string yaw;
 
 
     // Start is called before the first frame update
@@ -37,10 +43,26 @@ public class logCSV : MonoBehaviour
         ID = intID.ToString();                      //Convert intID to a string
         currentTime = Time.time.ToString("f6");     //Save game time in seconds as a string
 
-        addRecord(ID, currentTime, "56", "avatarData.csv");
+        //Save position and rotation of avatrCamera as strings
+        X = avatarCamera.transform.position.x.ToString();
+        Y = avatarCamera.transform.position.y.ToString();
+        Z = avatarCamera.transform.position.z.ToString();
+        // roll = avatarCamera.transform.position.x.ToString();
+        // pitch = avatarCamera.transform.position.x.ToString();
+        // yaw = avatarCamera.transform.position.x.ToString();
+
+        addRecord(ID, currentTime, X, Y, Z, "avatarData.csv");
     }
 
-    public static void addRecord(string ID, string time, string age, string filepath)
+    public static void addRecord(string ID,
+                                 string time,
+                                 string X,
+                                 string Y,
+                                 string Z,
+                                //  string roll,
+                                //  string pitch,
+                                //  string yaw,
+                                 string filepath)
     {
         try
         {
