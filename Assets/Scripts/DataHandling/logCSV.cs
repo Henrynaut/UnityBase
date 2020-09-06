@@ -60,7 +60,7 @@ public class logCSV : MonoBehaviour
         {
             intID++;                                    //Increment ID by 1
             ID = intID.ToString();                      //Convert intID to a string
-            addRecord(participantID, ID, currentTime, X, Y, Z, quatW, quatX, quatY, quatZ, "heatmapData/avatarData.csv");
+            addRecord(participantID, ID, currentTime, X, Y, Z, quatW, quatX, quatY, quatZ, "heatmapData/" + participantID  + "_locationData.csv");
             logDataBool = false;
             nextLogTime = Time.time + 0.25f;
         }
