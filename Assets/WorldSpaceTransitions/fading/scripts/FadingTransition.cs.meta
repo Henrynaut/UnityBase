@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b7968500d0b70344f83852d79e338771
+timeCreated: 1514237763
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - noiseTexture: {fileID: 2800000, guid: 7f344d9f74a913a48add0c0b546a99f8, type: 3}
+  - transitionTexture: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

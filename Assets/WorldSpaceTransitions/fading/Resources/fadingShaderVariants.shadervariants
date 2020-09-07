@@ -1,0 +1,289 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: fadingShaderVariants
+  m_Shaders:
+  - first: {fileID: 66, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH _ALPHABLEND_ON
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH _ALPHABLEND_ON _EMISSION
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTMAP_ON _EMISSION _METALLICGLOSSMAP
+        passType: 4
+      - keywords: DIRECTIONAL DYNAMICLIGHTMAP_ON FOG_EXP2 SHADOWS_SCREEN _EMISSION
+          _METALLICGLOSSMAP
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH SHADOWS_SCREEN _EMISSION _METALLICGLOSSMAP
+        passType: 4
+      - keywords: SHADOWS_DEPTH _ALPHABLEND_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _METALLICGLOSSMAP
+        passType: 8
+      - keywords: _EMISSION _METALLICGLOSSMAP
+        passType: 11
+  - first: {fileID: 64, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: SHADOWS_SPLIT_SPHERES
+        passType: 0
+  - first: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: _SUNDISK_SIMPLE
+        passType: 0
+  - first: {fileID: 9000, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9001, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9002, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9003, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: UNITY_UI_ALPHACLIP
+        passType: 0
+  - first: {fileID: 15104, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 15105, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 15106, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 00ef7f6c8de7a594f97f42e09f918b07, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 95256a6ec1a167a48a8d0e5b0f904011, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: CLIP_SPHERE
+        passType: 0
+      - keywords: CLIP_PLANE
+        passType: 0
+  - first: {fileID: 4800000, guid: 392f51d17d817874bac64beff11c2040, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FADE_SPHERE FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FADE_PLANE LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FADE_PLANE FOG_EXP2
+        passType: 4
+      - keywords: DIRECTIONAL FADE_PLANE FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FADE_PLANE FOG_EXP2 LIGHTPROBE_SH SCREENDISSOLVE
+        passType: 4
+      - keywords: DIRECTIONAL FADE_PLANE
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: SCREENDISSOLVE SHADOWS_DEPTH
+        passType: 8
+      - keywords: FADE_SPHERE SHADOWS_DEPTH
+        passType: 8
+      - keywords: FADE_PLANE SHADOWS_DEPTH
+        passType: 8
+      - keywords: FADE_PLANE SCREENDISSOLVE SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: 429717fff45b9ba4794756088c17a9e4, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL FADE_PLANE FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: 454213bd9075e39408aa5cbaf5b53d13, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL FADE_SPHERE FOG_EXP2 LIGHTPROBE_SH SCREENDISSOLVE_GLOW
+          SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL FADE_PLANE FOG_EXP2 LIGHTPROBE_SH SCREENDISSOLVE_GLOW
+          SHADOWS_SCREEN
+        passType: 4
+      - keywords: SCREENDISSOLVE_GLOW SHADOWS_DEPTH
+        passType: 8
+      - keywords: FADE_SPHERE SCREENDISSOLVE_GLOW SHADOWS_DEPTH
+        passType: 8
+      - keywords: FADE_PLANE SCREENDISSOLVE_GLOW SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: 4e04c0cd39b7a03418b25a8cc04eb7d9, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTMAP_ON
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL DISSOLVE FOG_EXP2 LIGHTPROBE_SH SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL DISSOLVE FADE_SPHERE FOG_EXP2 LIGHTPROBE_SH SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL DISSOLVE FADE_PLANE LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL DISSOLVE FADE_PLANE FOG_EXP2
+        passType: 4
+      - keywords: DIRECTIONAL DISSOLVE FADE_PLANE FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL DISSOLVE FADE_PLANE FOG_EXP2 LIGHTPROBE_SH SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL DISSOLVE FADE_PLANE
+        passType: 5
+      - keywords: DIRECTIONAL DISSOLVE FADE_PLANE FOG_EXP2
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: DISSOLVE SHADOWS_DEPTH
+        passType: 8
+      - keywords: DISSOLVE FADE_SPHERE SHADOWS_DEPTH
+        passType: 8
+      - keywords: DISSOLVE FADE_PLANE SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: 653d4611cb4d76f4fabdff37f811301e, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH SCREENDISSOLVE
+        passType: 4
+      - keywords: DIRECTIONAL FADE_SPHERE FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FADE_SPHERE FOG_EXP2 LIGHTPROBE_SH SCREENDISSOLVE
+        passType: 4
+      - keywords: DIRECTIONAL FADE_PLANE LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FADE_PLANE FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FADE_PLANE FOG_EXP2 LIGHTPROBE_SH SCREENDISSOLVE
+        passType: 4
+      - keywords: DIRECTIONAL FADE_PLANE
+        passType: 5
+      - keywords: DIRECTIONAL FADE_PLANE FOG_EXP2 SCREENDISSOLVE
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: SCREENDISSOLVE SHADOWS_DEPTH
+        passType: 8
+      - keywords: FADE_SPHERE SHADOWS_DEPTH
+        passType: 8
+      - keywords: FADE_SPHERE SCREENDISSOLVE SHADOWS_DEPTH
+        passType: 8
+      - keywords: FADE_PLANE SHADOWS_DEPTH
+        passType: 8
+      - keywords: FADE_PLANE SCREENDISSOLVE SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: 7c0f8e358704a404eacac42e8f8359ad, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL FADE_PLANE FOG_EXP2 LIGHTMAP_ON
+        passType: 4
+      - keywords: DIRECTIONAL FADE_PLANE FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FADE_PLANE FOG_EXP2
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: FADE_PLANE
+        passType: 11
+  - first: {fileID: 4800000, guid: 96963f1f3e9ce28409e2273bbf916eae, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL FADE_SPHERE FOG_EXP2 LIGHTPROBE_SH SCREENDISSOLVE SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL FADE_PLANE FOG_EXP2 LIGHTPROBE_SH SCREENDISSOLVE
+        passType: 4
+      - keywords: DIRECTIONAL FADE_PLANE FOG_EXP2 LIGHTPROBE_SH SCREENDISSOLVE SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL FADE_PLANE FOG_EXP2 SCREENDISSOLVE
+        passType: 5
+      - keywords: SCREENDISSOLVE SHADOWS_DEPTH
+        passType: 8
+      - keywords: FADE_SPHERE SCREENDISSOLVE SHADOWS_DEPTH
+        passType: 8
+      - keywords: FADE_PLANE SCREENDISSOLVE SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: 9a8e616f2f1c47043a3649cabc32d674, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2 LIGHTPROBE_SH SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL DISSOLVE_GLOW FOG_EXP2 LIGHTPROBE_SH SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL DISSOLVE_GLOW FADE_SPHERE FOG_EXP2 LIGHTPROBE_SH SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL DISSOLVE_GLOW FADE_PLANE FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL DISSOLVE_GLOW FADE_PLANE FOG_EXP2 LIGHTPROBE_SH SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL FOG_EXP2
+        passType: 5
+      - keywords: DIRECTIONAL DISSOLVE_GLOW FADE_PLANE FOG_EXP2
+        passType: 5
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: DISSOLVE_GLOW SHADOWS_DEPTH
+        passType: 8
+      - keywords: DISSOLVE_GLOW FADE_SPHERE SHADOWS_DEPTH
+        passType: 8
+      - keywords: DISSOLVE_GLOW FADE_PLANE SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 4800000, guid: c590f3c1049090649b7d60a7620a351b, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL DISSOLVE FADE_SPHERE FOG_EXP2 LIGHTPROBE_SH SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL DISSOLVE FADE_PLANE FOG_EXP2 LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL DISSOLVE FADE_PLANE FOG_EXP2 LIGHTPROBE_SH SHADOWS_SCREEN
+        passType: 4
+      - keywords: DIRECTIONAL DISSOLVE FADE_PLANE FOG_EXP2
+        passType: 5
+      - keywords: DISSOLVE SHADOWS_DEPTH
+        passType: 8
+      - keywords: DISSOLVE FADE_SPHERE SHADOWS_DEPTH
+        passType: 8
+      - keywords: DISSOLVE FADE_PLANE SHADOWS_DEPTH
+        passType: 8
