@@ -72,7 +72,7 @@ public class heatmapSpawner : MonoBehaviour
             GameObject newSphere = (GameObject)Instantiate(heatmapSphere, new Vector3(
                 float.Parse(LocationsX[i]),
                 float.Parse(LocationsY[i]),
-                float.Parse(LocationsZ[i])), Quaternion.Euler(Randon.Range(0.0f, 360.0f), Randon.Range(0.0f, 360.0f), Randon.Range(0.0f, 360.0f)));
+                float.Parse(LocationsZ[i])), Quaternion.Euler(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f)));
             newSphere.transform.parent = whiteboard.transform;
          }
 
@@ -80,7 +80,7 @@ public class heatmapSpawner : MonoBehaviour
             GameObject newSphereb = (GameObject)Instantiate(heatmapSphereb, new Vector3(
                 float.Parse(LocationsXb[i]),
                 float.Parse(LocationsYb[i]),
-                float.Parse(LocationsZb[i])), Quaternion.Euler(Randon.Range(0.0f, 360.0f), Randon.Range(0.0f, 360.0f), Randon.Range(0.0f, 360.0f)));
+                float.Parse(LocationsZb[i])), Quaternion.Euler(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f)));
             newSphereb.transform.parent = nonWhiteboard.transform;
          }
     }
